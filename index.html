@@ -668,14 +668,41 @@ function setTabInlineLoading(route, on, text){
   if(ct) ct.classList.toggle("hidden", on);
 }
 
+async function _refreshIdTokenOnce(){
+  try{
+    const FB = window.__FB;
+    const u = FB && FB.auth && FB.auth.currentUser;
+    if(u && typeof u.getIdToken === "function"){
+      await u.getIdToken(true);
+    }
+  }catch(e){
+    // ignore
+  }
+}
+
 async function fetchText(path){
   // Firebase Storage üzerinden dosyayı oku (path: "logs/....csv")
   const FB = window.__FB;
   if(!FB) throw new Error("Firebase hazır değil.");
-  const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-  UPDATED_AT = nowTR();
-  updateFooterStamp();
-  return new TextDecoder("utf-8").decode(bytes);
+
+  try{
+    const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+    UPDATED_AT = nowTR();
+    updateFooterStamp();
+    return new TextDecoder("utf-8").decode(bytes);
+  }catch(e){
+    // V40 fix: ilk girişte token henüz Storage isteklerine eklenmeden 403 dönebiliyor.
+    // 1 kere token refresh + retry yap.
+    const msg = String((e && (e.code || e.message)) || "");
+    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+      await _refreshIdTokenOnce();
+      const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+      UPDATED_AT = nowTR();
+      updateFooterStamp();
+      return new TextDecoder("utf-8").decode(bytes);
+    }
+    throw e;
+  }
 }
 
 async function objectExists(path){
@@ -686,6 +713,16 @@ async function objectExists(path){
     await FB.getMetadata(FB.ref(FB.storage, path));
     return true;
   }catch(e){
+    const msg = String((e && (e.code || e.message)) || "");
+    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+      await _refreshIdTokenOnce();
+      try{
+        await FB.getMetadata(FB.ref(FB.storage, path));
+        return true;
+      }catch(_e2){
+        return false;
+      }
+    }
     return false;
   }
 }
