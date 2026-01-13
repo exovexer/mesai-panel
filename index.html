@@ -339,24 +339,7 @@ a[x-apple-data-detectors-type]{
            <div id="errorSection" class="hidden">
              <h3 style="margin:14px 0 10px;font-size:15px;text-align:center;font-weight:900">Hatalı Kayıtlar</h3>
 
-             <div class="mobile-cards">
-               <div id="errorCardList" class="cardlist"></div>
-             </div>
-
-             <div class="table-wrap">
-               <table id="errorTable">
-                 <thead>
-                   <tr>
-                     <th>Ad Soyad</th>
-                     <th>Gün</th>
-                     <th>Giriş</th>
-                     <th>Çıkış</th>
-                     <th>Mesai</th>
-                   </tr>
-                 </thead>
-                 <tbody id="errorBody"></tbody>
-               </table>
-             </div>
+             <div id="errorList" class="cardlist"></div>
            </div>
          </div>
        </div>
@@ -2031,45 +2014,31 @@ function renderMonthly(){
  const errorSection = document.getElementById("errorSection");
  if(errorSection) errorSection.classList.toggle("hidden", errorRows.length === 0);
 
- const errorBody = document.getElementById("errorBody");
- if(errorBody){
-   const efrag = document.createDocumentFragment();
-   errorRows.forEach(r=>{
-     const tr = document.createElement("tr");
-     tr.innerHTML = `
-       <td>${r.name}</td>
-       <td>${r.date}</td>
-       <td>${r.entry}</td>
-       <td>${r.exit}</td>
-       <td>${r.work}</td>
-     `;
-     efrag.appendChild(tr);
-   });
-   errorBody.replaceChildren(efrag);
- }
-
- const errorCardList = document.getElementById("errorCardList");
- if(errorCardList){
+ const errorList = document.getElementById("errorList");
+ if(errorList){
    const cfrag = document.createDocumentFragment();
    errorRows.forEach(r=>{
-     const div = document.createElement("div");
-     div.className = "itemcard";
-     div.innerHTML = `
-       <div class="top">
+     const box = document.createElement("div");
+     box.className = "daybox";
+     const times = [r.entry].filter(Boolean);
+     const timesHtml = times.map((t, idx)=>{
+       if(idx === 0) return `<span class="pill time-green">${t}</span>`;
+       if(idx === times.length-1) return `<span class="pill time-red">${t}</span>`;
+       return `<span class="pill">${t}</span>`;
+     }).join("");
+     box.innerHTML = `
+       <div class="hdr">
          <div>
-           <div class="title">${r.name}</div>
-           <div class="sub">${r.date}</div>
+           <div class="d">${r.date}</div>
+           <div class="m">${r.name}</div>
+           <div class="m mesai-line">Mesai: <b>${r.work}</b></div>
          </div>
        </div>
-       <div class="meta">
-         <div><span>Giriş</span><b>${r.entry}</b></div>
-         <div><span>Çıkış</span><b>${r.exit}</b></div>
-         <div><span>Mesai</span><b>${r.work}</b></div>
-       </div>
+       <div class="times">${timesHtml}</div>
      `;
-     cfrag.appendChild(div);
+     cfrag.appendChild(box);
    });
-   errorCardList.replaceChildren(cfrag);
+   errorList.replaceChildren(cfrag);
  }
 
  const pp = document.getElementById("personPanel");
