@@ -1551,6 +1551,8 @@ let _monthlyPromise = null;
 async function ensureMonthlyReady(){
  if(LOAD.monthly && LOAD.months) return;
  if(_monthlyPromise) return _monthlyPromise;
+ const monthlyBtn = document.getElementById("monthlyReportBtn");
+ if(monthlyBtn) monthlyBtn.disabled = true;
  _monthlyPromise = (async ()=>{
  if(!LOAD.months){
   // Build month dropdown options from Storage (only existing files)
@@ -1604,7 +1606,10 @@ async function ensureMonthlyReady(){
    }
 
    if(routeFromHash()==="monthly") renderMonthly();
- })().finally(()=>{ _monthlyPromise=null; });
+ })().finally(()=>{ 
+   if(monthlyBtn) monthlyBtn.disabled = !state.month;
+   _monthlyPromise=null; 
+ });
 
  return _monthlyPromise;
 }
@@ -1894,6 +1899,8 @@ function renderToday(){
 /* AYLIK */
 function renderMonthly(){
  const m = state.month;
+ const monthlyBtn = document.getElementById("monthlyReportBtn");
+ if(monthlyBtn) monthlyBtn.disabled = !m;
 
  let srows = (DATA.monthlySummary && DATA.monthlySummary[m]) ? DATA.monthlySummary[m] : [];
  const smult = state.sort.summary.dir==="asc" ? 1 : -1;
