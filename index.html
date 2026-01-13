@@ -499,9 +499,9 @@ function waitForFB(timeoutMs = 8000){
  });
 }
 
-/* V38.1: PWA Manifest (LOGO.jpeg) */
-function ensurePwa(iconOverride){
- const ICON_URL = iconOverride || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='512' height='512' rx='96' fill='%232563eb'/><text x='50%' y='56%' text-anchor='middle' font-family='Arial' font-size='220' fill='white' font-weight='700'>M</text></svg>";
+/* V38.1: PWA Manifest + icon setup */
+function ensurePwa(){
+ const ICON_URL = "https://firebasestorage.googleapis.com/v0/b/mesaitakip-4d2d8.firebasestorage.app/o/logo.PNG?alt=media&token=5bbe3bbf-c8b1-406b-9184-42596dc402c9";
  let link = document.querySelector('link[rel="manifest"]');
  if(!link){
    link = document.createElement("link");
@@ -518,8 +518,7 @@ function ensurePwa(iconOverride){
    background_color: "#f6f7fb",
    theme_color: "#2563eb",
    icons: [
-     { src: ICON_URL, sizes: "192x192", type: "image/jpeg" },
-     { src: ICON_URL, sizes: "512x512", type: "image/jpeg" }
+     { src: ICON_URL, sizes: "512x512", type: "image/png" }
    ]
  };
  const blob = new Blob([JSON.stringify(manifest)], {type:"application/json"});
@@ -534,6 +533,17 @@ function ensurePwa(iconOverride){
    document.head.appendChild(apple);
  }
  apple.href = ICON_URL;
+
+ // Favicon
+ let favicon = document.querySelector('link[rel="icon"]');
+ if(!favicon){
+   favicon = document.createElement("link");
+   favicon.rel = "icon";
+   document.head.appendChild(favicon);
+ }
+ favicon.type = "image/png";
+ favicon.sizes = "512x512";
+ favicon.href = ICON_URL;
  // Theme color (arka plan mavi olmasın)
  let metaTheme = document.querySelector('meta[name="theme-color"]');
  if(!metaTheme){
@@ -557,27 +567,6 @@ try{
  if(mq && mq.addEventListener) mq.addEventListener("change", updatePwaModeClass);
 }catch(e){}
 window.addEventListener("visibilitychange", updatePwaModeClass);
-
-// PWA logo: giriş sonrası yetkili erişimle LOGO.jpeg'i manifest icon olarak bas
-let __pwaIconUpdated = false;
-async function tryUpdatePwaIconWithAuth(){
- if(__pwaIconUpdated) return;
- try{
-   const FB = window.__FB;
-   if(!FB) return;
-   const u8 = await FB.getBytes(FB.ref(FB.storage, "LOGO.jpeg"));
-   let bin = "";
-   const chunk = 0x8000;
-   for(let i=0;i<u8.length;i+=chunk){
-     bin += String.fromCharCode.apply(null, u8.subarray(i, i+chunk));
-   }
-   const b64 = btoa(bin);
-   const dataUrl = "data:image/jpeg;base64," + b64;
-   ensurePwa(dataUrl);
-   __pwaIconUpdated = true;
- }catch(e){}
-}
-
 
 
 /**
@@ -2368,8 +2357,6 @@ async function install(){
    mountApp();
    startSessionWatch();
    touchSession();
-
-   tryUpdatePwaIconWithAuth();
 
    location.hash = "#today";
 
