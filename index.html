@@ -14,9 +14,9 @@
 
 <style>
 :root {
-  --bg:#f6f7fb; --card:#ffffff; --text:#111827; --muted:#6b7280; --line:#e5e7eb;
-  --primary:#2563eb; --primarySoft:rgba(37,99,235,.12);
-  --shadow:0 6px 18px rgba(0,0,0,.06); --radius:14px;
+ --bg:#f6f7fb; --card:#ffffff; --text:#111827; --muted:#6b7280; --line:#e5e7eb;
+ --primary:#2563eb; --primarySoft:rgba(37,99,235,.12);
+ --shadow:0 6px 18px rgba(0,0,0,.06); --radius:14px;
 }
 
 *{box-sizing:border-box}
@@ -86,23 +86,23 @@ th .hint{margin-left:6px;font-size:10px;color:#9ca3af}
 @media(min-width:900px){ .grid2{grid-template-columns:1fr 1.2fr} }
 
 @media(min-width:768px){
-  .app{flex-direction:column}
-  nav.tabs{position:sticky;top:0;bottom:auto;flex-direction:row;width:100%;min-height:auto;border-top:none;border-right:none;border-bottom:1px solid var(--line);padding:10px}
-  nav.tabs a{text-align:center;padding:10px 0}
-  header.topbar{position:static}
-  .section{padding:18px}
-  table{min-width:0}
+ .app{flex-direction:column}
+ nav.tabs{position:sticky;top:0;bottom:auto;flex-direction:row;width:100%;min-height:auto;border-top:none;border-right:none;border-bottom:1px solid var(--line);padding:10px}
+ nav.tabs a{text-align:center;padding:10px 0}
+ header.topbar{position:static}
+ .section{padding:18px}
+ table{min-width:0}
 }
 @media(max-width:767px){
-  .table-wrap{display:none}
+ .table-wrap{display:none}
 
 /* PWA: mobile standalone mode => tab bar fixed at bottom */
 @media(max-width:767px){
-  .pwa nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30}
-  .pwa main{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
-  .pwa footer{margin-bottom:calc(72px + env(safe-area-inset-bottom))}
+ .pwa nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30}
+ .pwa main{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+ .pwa footer{margin-bottom:calc(72px + env(safe-area-inset-bottom))}
 }
-  .mobile-cards{display:block}
+ .mobile-cards{display:block}
 }
 
 /* V3: Monthly summary clickable + person daily list */
@@ -125,10 +125,10 @@ th .hint{margin-left:6px;font-size:10px;color:#9ca3af}
 
 /* V6 detail title */
 .detail-title {
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 900;
+ width: 100%;
+ text-align: center;
+ font-size: 20px;
+ font-weight: 900;
 }
 
 /* V8: Monthly summary centered name */
@@ -137,17 +137,17 @@ th .hint{margin-left:6px;font-size:10px;color:#9ca3af}
 
 /* V8 phone call button */
 .phone-btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:30px; height:30px; border-radius:10px;
-  border:1px solid var(--line); background:#fff; cursor:pointer;
-  margin-left:8px;
+ display:inline-flex; align-items:center; justify-content:center;
+ width:30px; height:30px; border-radius:10px;
+ border:1px solid var(--line); background:#fff; cursor:pointer;
+ margin-left:8px;
 }
 .phone-btn:active{ transform: scale(.98); }
 
 /* V9: emergency call button red-ish */
 .phone-btn.red{
-  background: rgba(239,68,68,.10);
-  border-color: rgba(239,68,68,.30);
+ background: rgba(239,68,68,.10);
+ border-color: rgba(239,68,68,.30);
 }
 
 /* V9: align phone + button nicely */
@@ -157,49 +157,50 @@ th .hint{margin-left:6px;font-size:10px;color:#9ca3af}
 /* Disable iOS Safari automatic data detector links in personnel details */
 a[x-apple-data-detectors],
 a[x-apple-data-detectors-type]{
-  color: inherit !important;
-  text-decoration: none !important;
-  pointer-events: none !important;
-  cursor: default !important;
+ color: inherit !important;
+ text-decoration: none !important;
+ pointer-events: none !important;
+ cursor: default !important;
 }
 
 /* V32: Loading overlay */
 .loading-overlay{
-  position:fixed; inset:0;
-  display:grid; place-items:center;
-  background: rgba(246,247,251,.88);
-  z-index:9999;
+ position:fixed; inset:0;
+ display:grid; place-items:center;
+ background: rgba(246,247,251,.88);
+ z-index:9999;
 }
 .loading-overlay .box{
-  width:min(420px,100%);
-  padding:18px;
-  text-align:center;
+ width:min(420px,100%);
+ padding:18px;
+ text-align:center;
 }
 .spinner{
-  width:34px;height:34px;border-radius:50%;
-  border:4px solid var(--line);
-  border-top-color: var(--primary);
-  margin:0 auto 12px;
-  animation:spin 1s linear infinite;
+ width:34px;height:34px;border-radius:50%;
+ border:4px solid var(--line);
+ border-top-color: var(--primary);
+ margin:0 auto 12px;
+ animation:spin 1s linear infinite;
 }
 @keyframes spin{ to{ transform:rotate(360deg);} }
 
-/* V38.1: tab iÃ§i loader */
+/* V38.1: tab içi loader */
 .tab-inline-loader{
-  margin-top:10px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  padding:18px;
-  text-align:center;
+ margin-top:10px;
+ border:1px solid var(--line);
+ border-radius:14px;
+ background:#fff;
+ padding:18px;
+ text-align:center;
+ pointer-events:none;
 }
 .tab-inline-loader .muted{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.45;
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.45;
 }
 
-/* V38.1: BugÃ¼n desktop = mobil (kolonlar/tablo yok) */
+/* V38.1: Bugün desktop = mobil (kolonlar/tablo yok) */
 #page-today .table-wrap{ display:none !important; }
 #page-today .mobile-cards{ display:block !important; }
 
@@ -209,2125 +210,2140 @@ a[x-apple-data-detectors-type]{
 <body>
 
 <section id="landing" class="landing">
-  <div class="box card">
-    <h1>Panel</h1>
-    <p>LÃ¼tfen e-posta ve Åifrenizle giriÅ yapÄ±n.</p>
+ <div class="box card">
+   <h1>Panel</h1>
+   <p>Lütfen e-posta ve şifrenizle giriş yapın.</p>
 
-    <input id="email" type="email" placeholder="E-posta"
-           autocomplete="username"
-           style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
+   <input id="email" type="email" placeholder="E-posta"
+          autocomplete="username"
+          style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
 
-    <input id="password" type="password" placeholder="Åifre"
-           autocomplete="current-password"
-           style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
+   <input id="password" type="password" placeholder="Şifre"
+          autocomplete="current-password"
+          style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
 
-    <button id="loginBtn" class="btn primary" type="button" style="width:100%;margin-top:10px">GiriÅ Yap</button>
-    <div id="loginError" style="color:#b91c1c;font-size:13px;margin-top:8px"></div>
+   <button id="loginBtn" class="btn primary" type="button" style="width:100%;margin-top:10px">Giriş Yap</button>
+   <div id="loginError" style="color:#b91c1c;font-size:13px;margin-top:8px"></div>
 </div>
 </section>
 
 <section id="app" class="app hidden">
-  <!-- (Eski) global overlay: artÄ±k CSV beklemesi iÃ§in kullanÄ±lmÄ±yor, sadece yerinde duruyor -->
-  <div id="loadingOverlay" class="loading-overlay hidden" aria-live="polite" aria-busy="true">
-    <div class="box card">
-      <div class="spinner" aria-hidden="true"></div>
-      <div id="loadingText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
-      <div style="color:var(--muted);font-size:13px;line-height:1.45">LÃ¼tfen bekleyin.</div>
-    </div>
-  </div>
+ <!-- (Eski) global overlay: artık CSV beklemesi için kullanılmıyor, sadece yerinde duruyor -->
+ <div id="loadingOverlay" class="loading-overlay hidden" aria-live="polite" aria-busy="true">
+   <div class="box card">
+     <div class="spinner" aria-hidden="true"></div>
+     <div id="loadingText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
+     <div style="color:var(--muted);font-size:13px;line-height:1.45">Lütfen bekleyin.</div>
+   </div>
+ </div>
 
-  <nav class="tabs" aria-label="MenÃ¼">
-    <a href="#today" data-route="today" class="active">BugÃ¼n</a>
-    <a href="#monthly" data-route="monthly">AylÄ±k KayÄ±tlar</a>
-    <a href="#people" data-route="people">Personel</a>
-  </nav>
+ <nav class="tabs" aria-label="Menü">
+   <a href="#today" data-route="today" class="active">Bugün</a>
+   <a href="#monthly" data-route="monthly">Aylık Kayıtlar</a>
+   <a href="#people" data-route="people">Personel</a>
+ </nav>
 
-  <div style="flex:1;display:flex;flex-direction:column">
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-title">
-        </div>
-      </div>
-    </header>
+ <div style="flex:1;display:flex;flex-direction:column">
+   <header class="topbar">
+     <div class="topbar-inner">
+       <div class="topbar-title">
+       </div>
+     </div>
+   </header>
 
-    <main>
-      <!-- BUGÃN -->
-      <section id="page-today" class="section">
-        <div class="card pad">
-          <h3 id="todayHeading" style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900"></h3>
+   <main>
+     <!-- BUGÜN -->
+     <section id="page-today" class="section">
+       <div class="card pad">
+         <h3 id="todayHeading" style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900"></h3>
 
-          <!-- V38.1: BugÃ¼n tab iÃ§i loader -->
-          <div id="todayInlineLoader" class="tab-inline-loader hidden">
-            <div class="spinner" aria-hidden="true"></div>
-            <div id="todayInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
-            <div class="muted">LÃ¼tfen bekleyin.</div>
-          </div>
+         <!-- V38.1: Bugün tab içi loader -->
+         <div id="todayInlineLoader" class="tab-inline-loader hidden">
+           <div class="spinner" aria-hidden="true"></div>
+           <div id="todayInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
+           <div class="muted">Lütfen bekleyin.</div>
+         </div>
 
-          <div id="todayContent">
-            <div class="mobile-cards">
-              <div id="todayCardList" class="cardlist"></div>
-            </div>
+         <div id="todayContent">
+           <div class="mobile-cards">
+             <div id="todayCardList" class="cardlist"></div>
+           </div>
 
-            <div class="table-wrap">
-              <table id="todayTable">
-                <thead>
-                  <tr>
-                    <th data-col="time">Saat<span class="hint">â</span></th>
-                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
-                    <th data-col="source">Kaynak<span class="hint">â</span></th>
-                    <th data-col="sync">Senkron<span class="hint">â</span></th>
-                  </tr>
-                </thead>
-                <tbody id="todayBody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+           <div class="table-wrap">
+             <table id="todayTable">
+               <thead>
+                 <tr>
+                   <th data-col="time">Saat<span class="hint">↕</span></th>
+                   <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
+                   <th data-col="source">Kaynak<span class="hint">↕</span></th>
+                   <th data-col="sync">Senkron<span class="hint">↕</span></th>
+                 </tr>
+               </thead>
+               <tbody id="todayBody"></tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </section>
 
-      <!-- AYLIK KAYITLAR -->
-      <section id="page-monthly" class="section hidden">
-        <div class="card pad">
-          <div class="rowtools">
-            <div class="lefttools">
-              <select id="monthSelect" class="select" disabled></select>
-            </div>
-            <div class="righttools">
-              <button id="monthlyReportBtn" class="btn" type="button" disabled>Rapor Ä°ndir</button>
-            </div>
-          </div>
+     <!-- AYLIK KAYITLAR -->
+     <section id="page-monthly" class="section hidden">
+       <div class="card pad">
+         <div class="rowtools">
+           <div class="lefttools">
+             <select id="monthSelect" class="select"></select>
+           </div>
+           <div class="righttools">
+             <button id="monthlyReportBtn" class="btn" type="button" disabled>Rapor İndir</button>
+           </div>
+         </div>
 
-          <h3 style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900">Toplam Mesai Ãzeti</h3>
+         <h3 style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900">Toplam Mesai Özeti</h3>
 
-          <!-- V38.1: AylÄ±k tab iÃ§i loader -->
-          <div id="monthlyInlineLoader" class="tab-inline-loader hidden">
-            <div class="spinner" aria-hidden="true"></div>
-            <div id="monthlyInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
-            <div class="muted">LÃ¼tfen bekleyin.</div>
-          </div>
+         <!-- V38.1: Aylık tab içi loader -->
+         <div id="monthlyInlineLoader" class="tab-inline-loader hidden">
+           <div class="spinner" aria-hidden="true"></div>
+           <div id="monthlyInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
+           <div class="muted">Lütfen bekleyin.</div>
+         </div>
 
-          <div id="monthlyContent">
-            <div class="mobile-cards">
-              <div id="sumCardList" class="cardlist"></div>
-            </div>
+         <div id="monthlyContent">
+           <div class="mobile-cards">
+             <div id="sumCardList" class="cardlist"></div>
+           </div>
 
-            <div class="table-wrap">
-              <table id="sumTable">
-                <thead>
-                  <tr>
-                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
-                    <th data-col="hours">Toplam Saat<span class="hint">â</span></th>
-                  </tr>
-                </thead>
-                <tbody id="sumBody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+           <div class="table-wrap">
+             <table id="sumTable">
+               <thead>
+                 <tr>
+                   <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
+                   <th data-col="hours">Toplam Saat<span class="hint">↕</span></th>
+                 </tr>
+               </thead>
+               <tbody id="sumBody"></tbody>
+             </table>
+           </div>
+         </div>
+       </div>
 
-        <div class="card pad" style="margin-top:14px" id="personPanel" style="margin-top:14px" class="card pad hidden">
-          <div class="rowtools" style="margin-bottom:6px">
-            <div class="lefttools" style="flex:1">
-              <div id="personTitle" class="detail-title">KiÅi SeÃ§</div>
-              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="personSub">Ãzet listesinden bir kiÅiye tÄ±kla</div>
-            </div>
-          </div>
+       <div class="card pad" style="margin-top:14px" id="personPanel" style="margin-top:14px" class="card pad hidden">
+         <div class="rowtools" style="margin-bottom:6px">
+           <div class="lefttools" style="flex:1">
+             <div id="personTitle" class="detail-title">Kişi Seç</div>
+             <div style="color:var(--muted);font-size:12px;margin-top:2px" id="personSub">Özet listesinden bir kişiye tıkla</div>
+           </div>
+         </div>
 
-          <div id="calendarList" class="cardlist"></div>
-        </div>
-      </section>
+         <div id="calendarList" class="cardlist"></div>
+       </div>
+     </section>
 
-      <!-- PERSONEL -->
-      <section id="page-people" class="section hidden">
-        <div class="card pad">
-          <div class="rowtools">
-            <div class="lefttools" style="flex:1">
-              <input id="peopleSearch" class="search" placeholder="Ara: ad, telefon, kartâ¦" disabled/>
-            </div>
-            <div class="righttools">
-              <button id="btnActive" class="btn toggle-active" type="button" disabled>Aktif Personel</button>
-              <button id="btnPassive" class="btn" type="button" disabled>Pasif Personel</button>
-              <button id="peopleReportBtn" class="btn" type="button" disabled>Rapor Ä°ndir</button>
-            </div>
-          </div>
+     <!-- PERSONEL -->
+     <section id="page-people" class="section hidden">
+       <div class="card pad">
+         <div class="rowtools">
+           <div class="lefttools" style="flex:1">
+             <input id="peopleSearch" class="search" placeholder="Ara: ad, telefon, kart…" disabled/>
+           </div>
+           <div class="righttools">
+             <button id="btnActive" class="btn toggle-active" type="button" disabled>Aktif Personel</button>
+             <button id="btnPassive" class="btn" type="button" disabled>Pasif Personel</button>
+             <button id="peopleReportBtn" class="btn" type="button" disabled>Rapor İndir</button>
+           </div>
+         </div>
 
-          <!-- V38.1: Personel tab iÃ§i loader -->
-          <div id="peopleInlineLoader" class="tab-inline-loader hidden">
-            <div class="spinner" aria-hidden="true"></div>
-            <div id="peopleInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
-            <div class="muted">LÃ¼tfen bekleyin.</div>
-          </div>
+         <!-- V38.1: Personel tab içi loader -->
+         <div id="peopleInlineLoader" class="tab-inline-loader hidden">
+           <div class="spinner" aria-hidden="true"></div>
+           <div id="peopleInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
+           <div class="muted">Lütfen bekleyin.</div>
+         </div>
 
-          <div id="peopleContent">
-            <div class="mobile-cards">
-              <div id="peopleCardList" class="cardlist"></div>
-            </div>
+         <div id="peopleContent">
+           <div class="mobile-cards">
+             <div id="peopleCardList" class="cardlist"></div>
+           </div>
 
-            <div class="table-wrap">
-              <table id="peopleTable">
-                <thead>
-                  <tr>
-                    <th data-col="tc">TC<span class="hint">â</span></th>
-                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
-                  <th data-col="role">GÃ¶rev / Pozisyon<span class="hint">â</span></th>
-                    <th data-col="phone">Cep Telefonu<span class="hint">â</span></th>
-                    <th data-col="card">Kart NumarasÄ±<span class="hint">â</span></th>
-                    <th data-col="status">Durum<span class="hint">â</span></th>
-                  </tr>
-                </thead>
-                <tbody id="peopleBody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+           <div class="table-wrap">
+             <table id="peopleTable">
+               <thead>
+                 <tr>
+                   <th data-col="tc">TC<span class="hint">↕</span></th>
+                   <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
+                 <th data-col="role">Görev / Pozisyon<span class="hint">↕</span></th>
+                   <th data-col="phone">Cep Telefonu<span class="hint">↕</span></th>
+                   <th data-col="card">Kart Numarası<span class="hint">↕</span></th>
+                   <th data-col="status">Durum<span class="hint">↕</span></th>
+                 </tr>
+               </thead>
+               <tbody id="peopleBody"></tbody>
+             </table>
+           </div>
+         </div>
+       </div>
 
-        <div id="peopleDetailPanel" class="card pad hidden" style="margin-top:14px">
-          <div class="rowtools" style="margin-bottom:6px">
-            <div class="lefttools" style="flex:1">
-              <div id="peopleDetailTitle" class="detail-title">Personel</div>
-              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="peopleDetailSub">Bir personel seÃ§</div>
-            </div>
-          </div>
+       <div id="peopleDetailPanel" class="card pad hidden" style="margin-top:14px">
+         <div class="rowtools" style="margin-bottom:6px">
+           <div class="lefttools" style="flex:1">
+             <div id="peopleDetailTitle" class="detail-title">Personel</div>
+             <div style="color:var(--muted);font-size:12px;margin-top:2px" id="peopleDetailSub">Bir personel seç</div>
+           </div>
+         </div>
 
-          <div id="peopleDetailList" style="display:grid;gap:10px"></div>
-        </div>
+         <div id="peopleDetailList" style="display:grid;gap:10px"></div>
+       </div>
 
-      </section>
+     </section>
 
-    </main>
+   </main>
 
-    <footer style="padding:14px 16px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line);background:var(--card)">
-      <span id="updatedAt">Veri gÃ¼ncelleme: </span>
-    </footer>
-  </div>
+   <footer style="padding:14px 16px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line);background:var(--card)">
+     <span id="updatedAt">Veri güncelleme: </span>
+   </footer>
+ </div>
 </section>
 
 
 <!-- ================= FIREBASE (AUTH + STORAGE) ================= -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getStorage, ref, listAll, getBytes, getMetadata } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ import { getStorage, ref, listAll, getBytes, getMetadata } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-  // Firebase config (AYNEN)
-  const firebaseConfig = {
-    apiKey: "AIzaSyDBxfIpSQbZ93tIvrnf6xB2b4OQMtzrWVI",
-    authDomain: "mesaitakip-4d2d8.firebaseapp.com",
-    projectId: "mesaitakip-4d2d8",
-    storageBucket: "mesaitakip-4d2d8.firebasestorage.app",
-    messagingSenderId: "211976278612",
-    appId: "1:211976278612:web:6b26fa976c525923d7d3c1"
-  };
+ // Firebase config (AYNEN)
+ const firebaseConfig = {
+   apiKey: "AIzaSyDBxfIpSQbZ93tIvrnf6xB2b4OQMtzrWVI",
+   authDomain: "mesaitakip-4d2d8.firebaseapp.com",
+   projectId: "mesaitakip-4d2d8",
+   storageBucket: "mesaitakip-4d2d8.firebasestorage.app",
+   messagingSenderId: "211976278612",
+   appId: "1:211976278612:web:6b26fa976c525923d7d3c1"
+ };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+ const app = initializeApp(firebaseConfig);
+ const auth = getAuth(app);
 
-  // KRÄ°TÄ°K: doÄru bucket'Ä± aÃ§Ä±kÃ§a seÃ§iyoruz
-  const storage = getStorage(app, "gs://mesaitakip-4d2d8.firebasestorage.app");
+ // KRİTİK: doğru bucket'ı açıkça seçiyoruz
+ const storage = getStorage(app, "gs://mesaitakip-4d2d8.firebasestorage.app");
 
-  // Classic script'in kullanabilmesi iÃ§in global kÃ¶prÃ¼
-  window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, ref, listAll, getBytes, getMetadata };
+ // Classic script'in kullanabilmesi için global köprü
+ window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, ref, listAll, getBytes, getMetadata };
 </script>
 
 <script>
 /* V18 - LIVE CSV (NO DUMMY) */
 const BASE_URL = "logs/";
 
-// Firebase modÃ¼l script'i (type="module") classic script'ten sonra Ã§alÄ±Åabilir.
-// Bu yÃ¼zden __FB hazÄ±r olana kadar bekleyip devam ediyoruz (race condition Ã§Ã¶zÃ¼mÃ¼).
+// Firebase modül script'i (type="module") classic script'ten sonra çalışabilir.
+// Bu yüzden __FB hazır olana kadar bekleyip devam ediyoruz (race condition çözümü).
 function waitForFB(timeoutMs = 8000){
-  return new Promise((resolve, reject)=>{
-    const t0 = Date.now();
-    (function check(){
-      if(window.__FB) return resolve(window.__FB);
-      if(Date.now() - t0 > timeoutMs) return reject(new Error("Firebase hazÄ±r deÄil."));
-      setTimeout(check, 50);
-    })();
-  });
+ return new Promise((resolve, reject)=>{
+   const t0 = Date.now();
+   (function check(){
+     if(window.__FB) return resolve(window.__FB);
+     if(Date.now() - t0 > timeoutMs) return reject(new Error("Firebase hazır değil."));
+     setTimeout(check, 50);
+   })();
+ });
 }
 
 /* V38.1: PWA Manifest (LOGO.jpeg) */
 function ensurePwa(iconOverride){
-  const ICON_URL = iconOverride || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='512' height='512' rx='96' fill='%232563eb'/><text x='50%' y='56%' text-anchor='middle' font-family='Arial' font-size='220' fill='white' font-weight='700'>M</text></svg>";
-  let link = document.querySelector('link[rel="manifest"]');
-  if(!link){
-    link = document.createElement("link");
-    link.rel = "manifest";
-    document.head.appendChild(link);
-  }
-  const manifest = {
-    name: "Mesai Takip",
-    short_name: "Mesai Takip",
-    start_url: ".",
-    scope: ".",
-    display: "standalone",
-    display_override: ["fullscreen","standalone"],
-    background_color: "#f6f7fb",
-    theme_color: "#2563eb",
-    icons: [
-      { src: ICON_URL, sizes: "192x192", type: "image/jpeg" },
-      { src: ICON_URL, sizes: "512x512", type: "image/jpeg" }
-    ]
-  };
-  const blob = new Blob([JSON.stringify(manifest)], {type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  link.href = url;
+ const ICON_URL = iconOverride || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='512' height='512' rx='96' fill='%232563eb'/><text x='50%' y='56%' text-anchor='middle' font-family='Arial' font-size='220' fill='white' font-weight='700'>M</text></svg>";
+ let link = document.querySelector('link[rel="manifest"]');
+ if(!link){
+   link = document.createElement("link");
+   link.rel = "manifest";
+   document.head.appendChild(link);
+ }
+ const manifest = {
+   name: "Mesai Takip",
+   short_name: "Mesai Takip",
+   start_url: ".",
+   scope: ".",
+   display: "standalone",
+   display_override: ["fullscreen","standalone"],
+   background_color: "#f6f7fb",
+   theme_color: "#2563eb",
+   icons: [
+     { src: ICON_URL, sizes: "192x192", type: "image/jpeg" },
+     { src: ICON_URL, sizes: "512x512", type: "image/jpeg" }
+   ]
+ };
+ const blob = new Blob([JSON.stringify(manifest)], {type:"application/json"});
+ const url = URL.createObjectURL(blob);
+ link.href = url;
 
-  // Apple touch icon
-  let apple = document.querySelector('link[rel="apple-touch-icon"]');
-  if(!apple){
-    apple = document.createElement("link");
-    apple.rel = "apple-touch-icon";
-    document.head.appendChild(apple);
-  }
-  apple.href = ICON_URL;
-  // Theme color (arka plan mavi olmasÄ±n)
-  let metaTheme = document.querySelector('meta[name="theme-color"]');
-  if(!metaTheme){
-    metaTheme = document.createElement("meta");
-    metaTheme.name = "theme-color";
-    document.head.appendChild(metaTheme);
-  }
-  metaTheme.content = "#ffffff";
+ // Apple touch icon
+ let apple = document.querySelector('link[rel="apple-touch-icon"]');
+ if(!apple){
+   apple = document.createElement("link");
+   apple.rel = "apple-touch-icon";
+   document.head.appendChild(apple);
+ }
+ apple.href = ICON_URL;
+ // Theme color (arka plan mavi olmasın)
+ let metaTheme = document.querySelector('meta[name="theme-color"]');
+ if(!metaTheme){
+   metaTheme = document.createElement("meta");
+   metaTheme.name = "theme-color";
+   document.head.appendChild(metaTheme);
+ }
+ metaTheme.content = "#ffffff";
 
 }
 ensurePwa();
 
 
 function updatePwaModeClass(){
-  const isStandalone = (window.matchMedia && (window.matchMedia("(display-mode: standalone)").matches || window.matchMedia("(display-mode: fullscreen)").matches)) || window.navigator.standalone;
-  document.documentElement.classList.toggle("pwa", !!isStandalone);
+ const isStandalone = (window.matchMedia && (window.matchMedia("(display-mode: standalone)").matches || window.matchMedia("(display-mode: fullscreen)").matches)) || window.navigator.standalone;
+ document.documentElement.classList.toggle("pwa", !!isStandalone);
 }
 updatePwaModeClass();
 try{
-  const mq = window.matchMedia("(display-mode: standalone)");
-  if(mq && mq.addEventListener) mq.addEventListener("change", updatePwaModeClass);
+ const mq = window.matchMedia("(display-mode: standalone)");
+ if(mq && mq.addEventListener) mq.addEventListener("change", updatePwaModeClass);
 }catch(e){}
 window.addEventListener("visibilitychange", updatePwaModeClass);
 
-// PWA logo: giriÅ sonrasÄ± yetkili eriÅimle LOGO.jpeg'i manifest icon olarak bas
+// PWA logo: giriş sonrası yetkili erişimle LOGO.jpeg'i manifest icon olarak bas
 let __pwaIconUpdated = false;
 async function tryUpdatePwaIconWithAuth(){
-  if(__pwaIconUpdated) return;
-  try{
-    const FB = window.__FB;
-    if(!FB) return;
-    const u8 = await FB.getBytes(FB.ref(FB.storage, "LOGO.jpeg"));
-    let bin = "";
-    const chunk = 0x8000;
-    for(let i=0;i<u8.length;i+=chunk){
-      bin += String.fromCharCode.apply(null, u8.subarray(i, i+chunk));
-    }
-    const b64 = btoa(bin);
-    const dataUrl = "data:image/jpeg;base64," + b64;
-    ensurePwa(dataUrl);
-    __pwaIconUpdated = true;
-  }catch(e){}
+ if(__pwaIconUpdated) return;
+ try{
+   const FB = window.__FB;
+   if(!FB) return;
+   const u8 = await FB.getBytes(FB.ref(FB.storage, "LOGO.jpeg"));
+   let bin = "";
+   const chunk = 0x8000;
+   for(let i=0;i<u8.length;i+=chunk){
+     bin += String.fromCharCode.apply(null, u8.subarray(i, i+chunk));
+   }
+   const b64 = btoa(bin);
+   const dataUrl = "data:image/jpeg;base64," + b64;
+   ensurePwa(dataUrl);
+   __pwaIconUpdated = true;
+ }catch(e){}
 }
 
 
 
 /**
- * Internal data model expected by existing render functions:
- * DATA.today: [{date:"dd.mm.yyyy", time:"HH:MM", card:"", name:"", source:"", sync:"Evet/HayÄ±r"}]
- * DATA.people: [{card,name,tc,phone,workno,role,notes,created,sync,status}]
- * DATA.months: ["YYYY-MM", ...]  // options shown in dropdown
- * DATA.monthly[monthKey]: raw rows like today (date,time,card,name,source,sync)
- * DATA.monthlySummary[monthKey]: [{name,hours}]
- */
+* Internal data model expected by existing render functions:
+* DATA.today: [{date:"dd.mm.yyyy", time:"HH:MM", card:"", name:"", source:"", sync:"Evet/Hayır"}]
+* DATA.people: [{card,name,tc,phone,workno,role,notes,created,sync,status}]
+* DATA.months: ["YYYY-MM", ...]  // options shown in dropdown
+* DATA.monthly[monthKey]: raw rows like today (date,time,card,name,source,sync)
+* DATA.monthlySummary[monthKey]: [{name,hours}]
+*/
 let UPDATED_AT = "";
 const DATA = { today: [], people: [], months: [], monthly: {}, monthlySummary: {}, _cache: {} };
 
-// V38.1: tab bazlÄ± yÃ¼kleme bayraklarÄ±
+// V38.1: tab bazlı yükleme bayrakları
 const LOAD = {
-  today: false,
-  months: false,
-  monthly: false,
-  people: false
+ today: false,
+ months: false,
+ monthly: false,
+ people: false
 };
 
 // --- CSV INDEX MAP (tek kaynak) ---
 const CSV_INDEX = Object.freeze({
-  MONTH: Object.freeze({
-    // yyyy-mm.csv headers
-    HEADERS: ["Tarih","Saat","Kart NumarasÄ±","Ad Soyad","Kaynak","Senkron"],
-    DATE: 0,
-    TIME: 1,
-    CARD: 2,
-    NAME: 3,
-    SOURCE: 4,
-    SYNC: 5
-  }),
-  PEOPLE: Object.freeze({
-    // Kisiler.csv headers
-    HEADERS: [
-      "Kart NumarasÄ±",
-      "Ad Soyad",
-      "TC NumarasÄ±",
-      "Cep Telefonu NumarasÄ±",
-      "Ä°Åe BaÅlama Tarihi",
-      "Durum",
-      "Adres",
-      "Kan Grubu",
-      "Acil Durum KiÅi AdÄ±",
-      "Acil Durum NumarasÄ±",
-      "GÃ¶rev / Pozisyon",
-      "Notlar",
-      "KayÄ±t Tarihi",
-      "Senkronize"
-    ],
-    CARD: 0,
-    NAME: 1,
-    TC: 2,
-    PHONE: 3,
-    START_DATE: 4,
-    STATUS: 5,
-    ADDRESS: 6,
-    BLOOD: 7,
-    EMERGENCY_NAME: 8,
-    EMERGENCY_PHONE: 9,
-    ROLE: 10,
-    NOTES: 11,
-    RECORD_DATE: 12,
-    SYNC: 13
-  })
+ MONTH: Object.freeze({
+   // yyyy-mm.csv headers
+   HEADERS: ["Tarih","Saat","Kart Numarası","Ad Soyad","Kaynak","Senkron"],
+   DATE: 0,
+   TIME: 1,
+   CARD: 2,
+   NAME: 3,
+   SOURCE: 4,
+   SYNC: 5
+ }),
+ PEOPLE: Object.freeze({
+   // Kisiler.csv headers
+   HEADERS: [
+     "Kart Numarası",
+     "Ad Soyad",
+     "TC Numarası",
+     "Cep Telefonu Numarası",
+     "İşe Başlama Tarihi",
+     "Durum",
+     "Adres",
+     "Kan Grubu",
+     "Acil Durum Kişi Adı",
+     "Acil Durum Numarası",
+     "Görev / Pozisyon",
+     "Notlar",
+     "Kayıt Tarihi",
+     "Senkronize"
+   ],
+   CARD: 0,
+   NAME: 1,
+   TC: 2,
+   PHONE: 3,
+   START_DATE: 4,
+   STATUS: 5,
+   ADDRESS: 6,
+   BLOOD: 7,
+   EMERGENCY_NAME: 8,
+   EMERGENCY_PHONE: 9,
+   ROLE: 10,
+   NOTES: 11,
+   RECORD_DATE: 12,
+   SYNC: 13
+ })
 });
 
 function _hNorm(h){
-  return String(h||"").trim().toLowerCase().replace(/\s+/g," ");
+ return String(h||"").trim().toLowerCase().replace(/\s+/g," ");
 }
 function warnHeaderMismatch(actualHeaders, expectedHeaders, fileName){
-  const a = (actualHeaders||[]).map(_hNorm);
-  const e = (expectedHeaders||[]).map(_hNorm);
-  if(!a.length || !e.length) return;
-  if(a.length !== e.length) {
-    console.warn(`[CSV HEADER] ${fileName}: BaÅlÄ±k sayÄ±sÄ± farklÄ±. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
-    return;
-  }
-  for(let i=0;i<e.length;i++){
-    if(a[i] !== e[i]){
-      console.warn(`[CSV HEADER] ${fileName}: BaÅlÄ±klar beklenen sÄ±rada deÄil. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
-      return;
-    }
-  }
+ const a = (actualHeaders||[]).map(_hNorm);
+ const e = (expectedHeaders||[]).map(_hNorm);
+ if(!a.length || !e.length) return;
+ if(a.length !== e.length) {
+   console.warn(`[CSV HEADER] ${fileName}: Başlık sayısı farklı. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
+   return;
+ }
+ for(let i=0;i<e.length;i++){
+   if(a[i] !== e[i]){
+     console.warn(`[CSV HEADER] ${fileName}: Başlıklar beklenen sırada değil. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
+     return;
+   }
+ }
 }
 function colAt(cols, idx){
-  return (cols && cols[idx] != null) ? String(cols[idx]).trim() : "";
+ return (cols && cols[idx] != null) ? String(cols[idx]).trim() : "";
 }
 
 function nowTR(){
-  try{ return new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }); }
-  catch(e){ return new Date().toLocaleString("tr-TR"); }
+ try{ return new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }); }
+ catch(e){ return new Date().toLocaleString("tr-TR"); }
 }
 
 function pad2(n){ return String(n).padStart(2,"0"); }
 
 function ymKeyFromDate(d){
-  // "YYYY-MM"
-  const y = d.getFullYear();
-  const m = pad2(d.getMonth()+1);
-  return `${y}-${m}`;
+ // "YYYY-MM"
+ const y = d.getFullYear();
+ const m = pad2(d.getMonth()+1);
+ return `${y}-${m}`;
 }
 
 function ymFilenameCandidates(ymKey){
-  // Support both "YYYY-MM.csv" and "YYYY-M.csv" (legacy)
-  const [y, mm] = ymKey.split("-");
-  const mNoPad = String(parseInt(mm,10));
-  return [`${y}-${mm}.csv`, `${y}-${mNoPad}.csv`];
+ // Support both "YYYY-MM.csv" and "YYYY-M.csv" (legacy)
+ const [y, mm] = ymKey.split("-");
+ const mNoPad = String(parseInt(mm,10));
+ return [`${y}-${mm}.csv`, `${y}-${mNoPad}.csv`];
 }
 
 function updateFooterStamp(){
-  const stamp = document.getElementById("updatedAt");
-  if(!stamp) return;
-  const u = state.userEmail ? ` (${state.userEmail})` : "";
-  stamp.textContent = "Veri gÃ¼ncelleme: " + (UPDATED_AT || "") + u;
+ const stamp = document.getElementById("updatedAt");
+ if(!stamp) return;
+ const u = state.userEmail ? ` (${state.userEmail})` : "";
+ stamp.textContent = "Veri güncelleme: " + (UPDATED_AT || "") + u;
 }
 
-// (Eski) global overlay fonksiyonu yerinde duruyor; artÄ±k tab bazlÄ± loader kullanÄ±yoruz.
+// (Eski) global overlay fonksiyonu yerinde duruyor; artık tab bazlı loader kullanıyoruz.
 function setLoading(on, text){
-  const ov = document.getElementById("loadingOverlay");
-  const tx = document.getElementById("loadingText");
-  if(tx) tx.textContent = text || "YÃ¼kleniyor...";
-  if(ov) ov.classList.toggle("hidden", !on);
+ const ov = document.getElementById("loadingOverlay");
+ const tx = document.getElementById("loadingText");
+ if(tx) tx.textContent = text || "Yükleniyor...";
+ if(ov) ov.classList.toggle("hidden", !on);
 }
 
-// V38.1: tab iÃ§i loader toggle
+// V38.1: tab içi loader toggle
 function setTabInlineLoading(route, on, text){
-  const map = {
-    today:  { loader:"todayInlineLoader",  text:"todayInlineText",  content:"todayContent" },
-    monthly:{ loader:"monthlyInlineLoader",text:"monthlyInlineText",content:"monthlyContent" },
-    people: { loader:"peopleInlineLoader", text:"peopleInlineText", content:"peopleContent" }
-  };
-  const cfg = map[route];
-  if(!cfg) return;
-  const ld = document.getElementById(cfg.loader);
-  const tx = document.getElementById(cfg.text);
-  const ct = document.getElementById(cfg.content);
-  if(tx && text) tx.textContent = text;
-  if(ld) ld.classList.toggle("hidden", !on);
-  if(ct) ct.classList.toggle("hidden", on);
+ const map = {
+   today:  { loader:"todayInlineLoader",  text:"todayInlineText",  content:"todayContent" },
+   monthly:{ loader:"monthlyInlineLoader",text:"monthlyInlineText",content:"monthlyContent" },
+   people: { loader:"peopleInlineLoader", text:"peopleInlineText", content:"peopleContent" }
+ };
+ const cfg = map[route];
+ if(!cfg) return;
+ const ld = document.getElementById(cfg.loader);
+ const tx = document.getElementById(cfg.text);
+ const ct = document.getElementById(cfg.content);
+ if(tx && text) tx.textContent = text;
+ if(ld) ld.classList.toggle("hidden", !on);
+ if(ct) ct.classList.toggle("hidden", on);
 }
 
 async function _refreshIdTokenOnce(){
-  try{
-    const FB = window.__FB;
-    const u = FB && FB.auth && FB.auth.currentUser;
-    if(u && typeof u.getIdToken === "function"){
-      await u.getIdToken(true);
-    }
-  }catch(e){
-    // ignore
-  }
+ try{
+   const FB = window.__FB;
+   const u = FB && FB.auth && FB.auth.currentUser;
+   if(u && typeof u.getIdToken === "function"){
+     await u.getIdToken(true);
+   }
+ }catch(e){
+   // ignore
+ }
 }
 
 async function fetchText(path){
-  // Firebase Storage Ã¼zerinden dosyayÄ± oku (path: "logs/....csv")
-  const FB = window.__FB;
-  if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
+ // Firebase Storage üzerinden dosyayı oku (path: "logs/....csv")
+ const FB = window.__FB;
+ if(!FB) throw new Error("Firebase hazır değil.");
 
-  try{
-    const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-    UPDATED_AT = nowTR();
-    updateFooterStamp();
-    return new TextDecoder("utf-8").decode(bytes);
-  }catch(e){
-    // V40 fix: ilk giriÅte token henÃ¼z Storage isteklerine eklenmeden 403 dÃ¶nebiliyor.
-    // 1 kere token refresh + retry yap.
-    const msg = String((e && (e.code || e.message)) || "");
-    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
-      await _refreshIdTokenOnce();
-      const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-      UPDATED_AT = nowTR();
-      updateFooterStamp();
-      return new TextDecoder("utf-8").decode(bytes);
-    }
-    throw e;
-  }
+ try{
+   const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+   UPDATED_AT = nowTR();
+   updateFooterStamp();
+   return new TextDecoder("utf-8").decode(bytes);
+ }catch(e){
+   // V40 fix: ilk girişte token henüz Storage isteklerine eklenmeden 403 dönebiliyor.
+   // 1 kere token refresh + retry yap.
+   const msg = String((e && (e.code || e.message)) || "");
+   if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+     await _refreshIdTokenOnce();
+     const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+     UPDATED_AT = nowTR();
+     updateFooterStamp();
+     return new TextDecoder("utf-8").decode(bytes);
+   }
+   throw e;
+ }
 }
 
 async function objectExists(path){
-  // Firebase Storage Ã¼zerinde dosya var mÄ±? (path: "logs/....csv")
-  const FB = window.__FB;
-  if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
-  try{
-    await FB.getMetadata(FB.ref(FB.storage, path));
-    return true;
-  }catch(e){
-    const msg = String((e && (e.code || e.message)) || "");
-    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
-      await _refreshIdTokenOnce();
-      try{
-        await FB.getMetadata(FB.ref(FB.storage, path));
-        return true;
-      }catch(_e2){
-        return false;
-      }
-    }
-    return false;
-  }
+ // Firebase Storage üzerinde dosya var mı? (path: "logs/....csv")
+ const FB = window.__FB;
+ if(!FB) throw new Error("Firebase hazır değil.");
+ try{
+   await FB.getMetadata(FB.ref(FB.storage, path));
+   return true;
+ }catch(e){
+   const msg = String((e && (e.code || e.message)) || "");
+   if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+     await _refreshIdTokenOnce();
+     try{
+       await FB.getMetadata(FB.ref(FB.storage, path));
+       return true;
+     }catch(_e2){
+       return false;
+     }
+   }
+   return false;
+ }
 }
 
 function stripBOM(s){
-  return s && s.charCodeAt(0) === 0xFEFF ? s.slice(1) : (s||"");
+ return s && s.charCodeAt(0) === 0xFEFF ? s.slice(1) : (s||"");
 }
 
 function parseCsvLine(line){
-  // Minimal RFC4180-ish parser for commas + quotes
-  const out = [];
-  let cur = "";
-  let inQ = false;
-  for(let i=0;i<line.length;i++){
-    const ch = line[i];
-    if(inQ){
-      if(ch === '"'){
-        if(line[i+1] === '"'){ cur += '"'; i++; }
-        else inQ = false;
-      } else cur += ch;
-    } else {
-      if(ch === '"') inQ = true;
-      else if(ch === ','){ out.push(cur); cur=""; }
-      else cur += ch;
-    }
-  }
-  out.push(cur);
-  return out.map(x => x.trim());
+ // Minimal RFC4180-ish parser for commas + quotes
+ const out = [];
+ let cur = "";
+ let inQ = false;
+ for(let i=0;i<line.length;i++){
+   const ch = line[i];
+   if(inQ){
+     if(ch === '"'){
+       if(line[i+1] === '"'){ cur += '"'; i++; }
+       else inQ = false;
+     } else cur += ch;
+   } else {
+     if(ch === '"') inQ = true;
+     else if(ch === ','){ out.push(cur); cur=""; }
+     else cur += ch;
+   }
+ }
+ out.push(cur);
+ return out.map(x => x.trim());
 }
 
 function parseCsv(text){
-  // Index-based CSV parser (no header word matching)
-  const lines = stripBOM(text).split(/\r?\n/).filter(x=>x.trim().length);
-  if(!lines.length) return { headers: [], rows: [] };
-  const headers = parseCsvLine(lines[0]).map(x => (x ?? "").toString().trim());
-  const rows = [];
-  for(let i=1;i<lines.length;i++){
-    const cols = parseCsvLine(lines[i]).map(x => (x ?? "").toString().trim());
-    rows.push(cols);
-  }
-  return { headers, rows };
+ // Index-based CSV parser (no header word matching)
+ const lines = stripBOM(text).split(/\r?\n/).filter(x=>x.trim().length);
+ if(!lines.length) return { headers: [], rows: [] };
+ const headers = parseCsvLine(lines[0]).map(x => (x ?? "").toString().trim());
+ const rows = [];
+ for(let i=1;i<lines.length;i++){
+   const cols = parseCsvLine(lines[i]).map(x => (x ?? "").toString().trim());
+   rows.push(cols);
+ }
+ return { headers, rows };
 }
 
 function isoToTR(iso){
-  // "YYYY-MM-DD" -> "dd.mm.yyyy"
-  const m = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec((iso||"").trim());
-  if(!m) return (iso||"").trim();
-  return `${m[3]}.${m[2]}.${m[1]}`;
+ // "YYYY-MM-DD" -> "dd.mm.yyyy"
+ const m = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec((iso||"").trim());
+ if(!m) return (iso||"").trim();
+ return `${m[3]}.${m[2]}.${m[1]}`;
 }
 
 function syncNorm(v){
-  const s = (v||"").toString().trim().toLowerCase();
-  if(s==="1" || s==="true" || s==="evet") return "Evet";
-  if(s==="0" || s==="false" || s==="hayir" || s==="hayÄ±r") return "HayÄ±r";
-  return (v||"").toString().trim();
+ const s = (v||"").toString().trim().toLowerCase();
+ if(s==="1" || s==="true" || s==="evet") return "Evet";
+ if(s==="0" || s==="false" || s==="hayir" || s==="hayır") return "Hayır";
+ return (v||"").toString().trim();
 }
 
 function formatHours(v){
-  const n = Number(String(v||"").replace(",", "."));
-  if(!isFinite(n)) return "";
-  return n.toFixed(2).replace(".", ",");
+ const n = Number(String(v||"").replace(",", "."));
+ if(!isFinite(n)) return "";
+ return n.toFixed(2).replace(".", ",");
 }
 
-/* V23 - AYLIK RAPOR Ä°NDÄ°R (EXCEL) */
+/* V23 - AYLIK RAPOR İNDİR (EXCEL) */
 function _two(n){ return String(n).padStart(2,"0"); }
 function _nowTR(){
-  const d = new Date();
-  const dd=_two(d.getDate()), mm=_two(d.getMonth()+1), yy=d.getFullYear();
-  const hh=_two(d.getHours()), mi=_two(d.getMinutes());
-  return `${dd}.${mm}.${yy} ${hh}:${mi}`;
+ const d = new Date();
+ const dd=_two(d.getDate()), mm=_two(d.getMonth()+1), yy=d.getFullYear();
+ const hh=_two(d.getHours()), mi=_two(d.getMinutes());
+ return `${dd}.${mm}.${yy} ${hh}:${mi}`;
 }
 
 /* PDF UTILITIES (shared) */
 let PDF_FOOTER_TEXT = "";
 
 function makeCanvas(){
-  const c = document.createElement("canvas");
-  c.width = 595;   // A4 @ 72dpi
-  c.height = 842;
-  const ctx = c.getContext("2d");
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0,0,c.width,c.height);
-  ctx.fillStyle = "#000000";
-  return { c, ctx };
+ const c = document.createElement("canvas");
+ c.width = 595;   // A4 @ 72dpi
+ c.height = 842;
+ const ctx = c.getContext("2d");
+ ctx.fillStyle = "#ffffff";
+ ctx.fillRect(0,0,c.width,c.height);
+ ctx.fillStyle = "#000000";
+ return { c, ctx };
 }
 // Alias (Personel raporu eski ad)
 function createPageCanvas(){ return makeCanvas(); }
 
 function fitText(ctx, text, maxW){
-  const s = String(text ?? "");
-  if(ctx.measureText(s).width <= maxW) return s;
-  let t = s;
-  while(t.length > 0 && ctx.measureText(t + "â¦").width > maxW){
-    t = t.slice(0, -1);
-  }
-  return (t ? (t + "â¦") : "â¦");
+ const s = String(text ?? "");
+ if(ctx.measureText(s).width <= maxW) return s;
+ let t = s;
+ while(t.length > 0 && ctx.measureText(t + "…").width > maxW){
+   t = t.slice(0, -1);
+ }
+ return (t ? (t + "…") : "…");
 }
 
 function drawFooter(ctx, w, h){
-  ctx.save();
-  ctx.font = "8px Arial";
-  const tw = ctx.measureText(PDF_FOOTER_TEXT).width;
-  ctx.fillText(PDF_FOOTER_TEXT, Math.max(0, w - 30 - tw), h - 20);
-  ctx.restore();
+ ctx.save();
+ ctx.font = "8px Arial";
+ const tw = ctx.measureText(PDF_FOOTER_TEXT).width;
+ ctx.fillText(PDF_FOOTER_TEXT, Math.max(0, w - 30 - tw), h - 20);
+ ctx.restore();
 }
 
 function canvasToJpegBytes(canvas){
-  const url = canvas.toDataURL("image/jpeg", 0.92);
-  const b64 = url.split(",")[1] || "";
-  const bin = atob(b64);
-  const out = new Uint8Array(bin.length);
-  for(let i=0;i<bin.length;i++) out[i] = bin.charCodeAt(i);
-  return out;
+ const url = canvas.toDataURL("image/jpeg", 0.92);
+ const b64 = url.split(",")[1] || "";
+ const bin = atob(b64);
+ const out = new Uint8Array(bin.length);
+ for(let i=0;i<bin.length;i++) out[i] = bin.charCodeAt(i);
+ return out;
 }
 
 function buildPdfFromJpegs(jpegPages){
-  const enc = new TextEncoder();
-  const chunks = [];
-  const offsets = [0];
-  let pos = 0;
+ const enc = new TextEncoder();
+ const chunks = [];
+ const offsets = [0];
+ let pos = 0;
 
-  const pushStr = (s)=>{
-    const b = enc.encode(s);
-    chunks.push(b);
-    pos += b.length;
-  };
-  const pushBytes = (u8)=>{
-    chunks.push(u8);
-    pos += u8.length;
-  };
+ const pushStr = (s)=>{
+   const b = enc.encode(s);
+   chunks.push(b);
+   pos += b.length;
+ };
+ const pushBytes = (u8)=>{
+   chunks.push(u8);
+   pos += u8.length;
+ };
 
-  // PDF header with binary comment
-  pushBytes(new Uint8Array([0x25,0x50,0x44,0x46,0x2d,0x31,0x2e,0x33,0x0a,0x25,0xe2,0xe3,0xcf,0xd3,0x0a]));
+ // PDF header with binary comment
+ pushBytes(new Uint8Array([0x25,0x50,0x44,0x46,0x2d,0x31,0x2e,0x33,0x0a,0x25,0xe2,0xe3,0xcf,0xd3,0x0a]));
 
-  const n = jpegPages.length;
-  const catalogId = 1;
-  const pagesId = 2;
+ const n = jpegPages.length;
+ const catalogId = 1;
+ const pagesId = 2;
 
-  let nextId = 3;
-  const pageIds = [];
-  const imgIds = [];
-  const contentIds = [];
-  for(let i=0;i<n;i++){
-    imgIds.push(nextId++);
-    contentIds.push(nextId++);
-    pageIds.push(nextId++);
-  }
-  const objCount = nextId - 1;
+ let nextId = 3;
+ const pageIds = [];
+ const imgIds = [];
+ const contentIds = [];
+ for(let i=0;i<n;i++){
+   imgIds.push(nextId++);
+   contentIds.push(nextId++);
+   pageIds.push(nextId++);
+ }
+ const objCount = nextId - 1;
 
-  function beginObj(id){
-    offsets[id] = pos;
-    pushStr(`${id} 0 obj\n`);
-  }
-  function endObj(){
-    pushStr(`endobj\n`);
-  }
+ function beginObj(id){
+   offsets[id] = pos;
+   pushStr(`${id} 0 obj\n`);
+ }
+ function endObj(){
+   pushStr(`endobj\n`);
+ }
 
-  // 1) Catalog
-  beginObj(catalogId);
-  pushStr(`<< /Type /Catalog /Pages ${pagesId} 0 R >>\n`);
-  endObj();
+ // 1) Catalog
+ beginObj(catalogId);
+ pushStr(`<< /Type /Catalog /Pages ${pagesId} 0 R >>\n`);
+ endObj();
 
-  // 2) Pages root
-  beginObj(pagesId);
-  pushStr(`<< /Type /Pages /Kids [${pageIds.map(id=>`${id} 0 R`).join(" ")}] /Count ${n} >>\n`);
-  endObj();
+ // 2) Pages root
+ beginObj(pagesId);
+ pushStr(`<< /Type /Pages /Kids [${pageIds.map(id=>`${id} 0 R`).join(" ")}] /Count ${n} >>\n`);
+ endObj();
 
-  // 3) Page objects
-  for(let i=0;i<n;i++){
-    const pageW = 595, pageH = 842;
-    const imgName = `/Im${i+1}`;
-    const jpg = jpegPages[i];
+ // 3) Page objects
+ for(let i=0;i<n;i++){
+   const pageW = 595, pageH = 842;
+   const imgName = `/Im${i+1}`;
+   const jpg = jpegPages[i];
 
-    // Image XObject
-    beginObj(imgIds[i]);
-    pushStr(`<< /Type /XObject /Subtype /Image /Width ${pageW} /Height ${pageH} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`);
-    pushBytes(jpg);
-    pushStr(`\nendstream\n`);
-    endObj();
+   // Image XObject
+   beginObj(imgIds[i]);
+   pushStr(`<< /Type /XObject /Subtype /Image /Width ${pageW} /Height ${pageH} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`);
+   pushBytes(jpg);
+   pushStr(`\nendstream\n`);
+   endObj();
 
-    // Content stream: draw image full page
-    const content = `q\n${pageW} 0 0 ${pageH} 0 0 cm\n${imgName} Do\nQ\n`;
-    const contentBytes = enc.encode(content);
-    beginObj(contentIds[i]);
-    pushStr(`<< /Length ${contentBytes.length} >>\nstream\n`);
-    pushBytes(contentBytes);
-    pushStr(`endstream\n`);
-    endObj();
+   // Content stream: draw image full page
+   const content = `q\n${pageW} 0 0 ${pageH} 0 0 cm\n${imgName} Do\nQ\n`;
+   const contentBytes = enc.encode(content);
+   beginObj(contentIds[i]);
+   pushStr(`<< /Length ${contentBytes.length} >>\nstream\n`);
+   pushBytes(contentBytes);
+   pushStr(`endstream\n`);
+   endObj();
 
-    // Page
-    beginObj(pageIds[i]);
-    pushStr(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${pageW} ${pageH}] /Resources << /XObject << ${imgName} ${imgIds[i]} 0 R >> /ProcSet [/PDF /ImageC] >> /Contents ${contentIds[i]} 0 R >>\n`);
-    endObj();
-  }
+   // Page
+   beginObj(pageIds[i]);
+   pushStr(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${pageW} ${pageH}] /Resources << /XObject << ${imgName} ${imgIds[i]} 0 R >> /ProcSet [/PDF /ImageC] >> /Contents ${contentIds[i]} 0 R >>\n`);
+   endObj();
+ }
 
-  // XRef
-  const startXref = pos;
-  pushStr(`xref\n0 ${objCount+1}\n`);
-  pushStr(`0000000000 65535 f \n`);
-  for(let i=1;i<=objCount;i++){
-    const off = offsets[i] || 0;
-    pushStr(`${String(off).padStart(10,"0")} 00000 n \n`);
-  }
-  pushStr(`trailer\n<< /Size ${objCount+1} /Root ${catalogId} 0 R >>\nstartxref\n${startXref}\n%%EOF`);
+ // XRef
+ const startXref = pos;
+ pushStr(`xref\n0 ${objCount+1}\n`);
+ pushStr(`0000000000 65535 f \n`);
+ for(let i=1;i<=objCount;i++){
+   const off = offsets[i] || 0;
+   pushStr(`${String(off).padStart(10,"0")} 00000 n \n`);
+ }
+ pushStr(`trailer\n<< /Size ${objCount+1} /Root ${catalogId} 0 R >>\nstartxref\n${startXref}\n%%EOF`);
 
-  return new Blob(chunks, {type:"application/pdf"});
+ return new Blob(chunks, {type:"application/pdf"});
 }
 
 function triggerDownload(blob, filename){
-  const nav = window.navigator;
-  if(nav && typeof nav.msSaveOrOpenBlob === "function"){
-    nav.msSaveOrOpenBlob(blob, filename);
-    return;
-  }
+ const nav = window.navigator;
+ if(nav && typeof nav.msSaveOrOpenBlob === "function"){
+   nav.msSaveOrOpenBlob(blob, filename);
+   return;
+ }
 
-  // downloadâu zorlamak iÃ§in octet-stream wrapper
-  const dlBlob = new Blob([blob], { type: "application/octet-stream" });
+ // download’u zorlamak için octet-stream wrapper
+ const dlBlob = new Blob([blob], { type: "application/octet-stream" });
 
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(dlBlob);
-  a.download = filename;
-  a.style.display = "none";
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1200);
+ const a = document.createElement("a");
+ a.href = URL.createObjectURL(dlBlob);
+ a.download = filename;
+ a.style.display = "none";
+ document.body.appendChild(a);
+ a.click();
+ setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1200);
 }
 
 async function downloadMonthlyReport(){
-  const ymKey = state.month;
-  if(!ymKey) return;
-  await loadMonth(ymKey);
+ const ymKey = state.month;
+ if(!ymKey) return;
+ await loadMonth(ymKey);
 
-  const footer = `Rapor alÄ±nma tarihi: ${_nowTR()}`;
-  PDF_FOOTER_TEXT = footer;
+ const footer = `Rapor alınma tarihi: ${_nowTR()}`;
+ PDF_FOOTER_TEXT = footer;
 
-  // Summary rows as currently displayed (same sorting)
-  let srows = (DATA.monthlySummary && DATA.monthlySummary[ymKey]) ? DATA.monthlySummary[ymKey] : [];
-  const smult = state.sort.summary.dir==="asc" ? 1 : -1;
-  const scol = state.sort.summary.col;
-  srows = srows.slice().sort((a,b)=>{
-    if(scol==="hours") return smult*((a.hours||0)-(b.hours||0));
-    return smult*(a[scol]||"").localeCompare((b[scol]||""), "tr", {sensitivity:"base"});
-  });
+ // Summary rows as currently displayed (same sorting)
+ let srows = (DATA.monthlySummary && DATA.monthlySummary[ymKey]) ? DATA.monthlySummary[ymKey] : [];
+ const smult = state.sort.summary.dir==="asc" ? 1 : -1;
+ const scol = state.sort.summary.col;
+ srows = srows.slice().sort((a,b)=>{
+   if(scol==="hours") return smult*((a.hours||0)-(b.hours||0));
+   return smult*(a[scol]||"").localeCompare((b[scol]||""), "tr", {sensitivity:"base"});
+ });
 
-  const data = (DATA.monthly && DATA.monthly[ymKey]) ? DATA.monthly[ymKey] : [];
-  const [Y,M] = ymKey.split("-").map(x=>parseInt(x,10));
-  const daysInMonth = new Date(Y, M, 0).getDate();
+ const data = (DATA.monthly && DATA.monthly[ymKey]) ? DATA.monthly[ymKey] : [];
+ const [Y,M] = ymKey.split("-").map(x=>parseInt(x,10));
+ const daysInMonth = new Date(Y, M, 0).getDate();
 
-  // --- Page 1: Summary ---
-  const sumPage = makeCanvas();
-  {
-    const { c, ctx } = sumPage;
-    const margin = 30;
+ // --- Page 1: Summary ---
+ const sumPage = makeCanvas();
+ {
+   const { c, ctx } = sumPage;
+   const margin = 30;
 
-    ctx.font = "bold 17px Arial";
-    const title = "Toplam Mesai Ãzeti (" + ymKey + ")";
-    const tw = ctx.measureText(title).width;
-    ctx.fillText(title, (c.width - tw)/2, 45);
+   ctx.font = "bold 17px Arial";
+   const title = "Toplam Mesai Özeti (" + ymKey + ")";
+   const tw = ctx.measureText(title).width;
+   ctx.fillText(title, (c.width - tw)/2, 45);
 
-    const tableTop = 80;
-    const colNameW = 380;
-    const colHoursW = 595 - margin*2 - colNameW;
+   const tableTop = 80;
+   const colNameW = 380;
+   const colHoursW = 595 - margin*2 - colNameW;
 
-    // auto-fit rows to one page
-    let fz = 13;
-    const headerH = 18;
-    const availH = c.height - 30 - 20 - tableTop - headerH; // bottom margin + footer
-    while(fz > 7){
-      const rowH = fz + 8;
-      const need = (srows.length * rowH);
-      if(need <= availH) break;
-      fz--;
-    }
-    const rowH = fz + 8;
+   // auto-fit rows to one page
+   let fz = 13;
+   const headerH = 18;
+   const availH = c.height - 30 - 20 - tableTop - headerH; // bottom margin + footer
+   while(fz > 7){
+     const rowH = fz + 8;
+     const need = (srows.length * rowH);
+     if(need <= availH) break;
+     fz--;
+   }
+   const rowH = fz + 8;
 
-    // header
-    ctx.font = "bold 12px Arial";
-    ctx.fillText("Ad Soyad", margin, tableTop);
-    ctx.fillText("Toplam Mesai", margin + colNameW + 10, tableTop);
+   // header
+   ctx.font = "bold 12px Arial";
+   ctx.fillText("Ad Soyad", margin, tableTop);
+   ctx.fillText("Toplam Mesai", margin + colNameW + 10, tableTop);
 
-    // lines
-    ctx.beginPath();
-    ctx.moveTo(margin, tableTop + 6);
-    ctx.lineTo(c.width - margin, tableTop + 6);
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 1;
-    ctx.stroke();
+   // lines
+   ctx.beginPath();
+   ctx.moveTo(margin, tableTop + 6);
+   ctx.lineTo(c.width - margin, tableTop + 6);
+   ctx.strokeStyle = "#000000";
+   ctx.lineWidth = 1;
+   ctx.stroke();
 
-    // rows
-    ctx.font = `${fz}px Arial`;
-    let y = tableTop + headerH;
-    for(const r of srows){
-      const name = fitText(ctx, r.name, colNameW - 10);
-      const hours = `${formatHours(r.hours)} saat`;
-      ctx.fillText(name, margin, y);
-      ctx.fillText(fitText(ctx, hours, colHoursW - 10), margin + colNameW + 10, y);
+   // rows
+   ctx.font = `${fz}px Arial`;
+   let y = tableTop + headerH;
+   for(const r of srows){
+     const name = fitText(ctx, r.name, colNameW - 10);
+     const hours = `${formatHours(r.hours)} saat`;
+     ctx.fillText(name, margin, y);
+     ctx.fillText(fitText(ctx, hours, colHoursW - 10), margin + colNameW + 10, y);
 
-      // row line
-      ctx.beginPath();
-      ctx.moveTo(margin, y + 6);
-      ctx.lineTo(c.width - margin, y + 6);
-      ctx.strokeStyle = "#000000";
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
+     // row line
+     ctx.beginPath();
+     ctx.moveTo(margin, y + 6);
+     ctx.lineTo(c.width - margin, y + 6);
+     ctx.strokeStyle = "#000000";
+     ctx.lineWidth = 0.5;
+     ctx.stroke();
 
-      y += rowH;
-    }
+     y += rowH;
+   }
 
-    drawFooter(ctx, c.width, c.height);
-  }
+   drawFooter(ctx, c.width, c.height);
+ }
 
-  // --- Person pages ---
-  const personPages = [];
-  for(const sr of srows){
-    const person = sr.name;
+ // --- Person pages ---
+ const personPages = [];
+ for(const sr of srows){
+   const person = sr.name;
 
-    // Build date map for whole month
-    const map = new Map();
-    for(let day=1; day<=daysInMonth; day++){
-      const dd=_two(day), mm=_two(M), yy=Y;
-      map.set(`${dd}.${mm}.${yy}`, []);
-    }
-    data.forEach(r=>{
-      if(r.name !== person) return;
-      if(!map.has(r.date)) map.set(r.date, []);
-      map.get(r.date).push(r.time);
-    });
+   // Build date map for whole month
+   const map = new Map();
+   for(let day=1; day<=daysInMonth; day++){
+     const dd=_two(day), mm=_two(M), yy=Y;
+     map.set(`${dd}.${mm}.${yy}`, []);
+   }
+   data.forEach(r=>{
+     if(r.name !== person) return;
+     if(!map.has(r.date)) map.set(r.date, []);
+     map.get(r.date).push(r.time);
+   });
 
-    const pg = makeCanvas();
-    const { c, ctx } = pg;
-    const margin = 25;
+   const pg = makeCanvas();
+   const { c, ctx } = pg;
+   const margin = 25;
 
-    ctx.font = "bold 17px Arial";
-    const t = person;
-    const tw = ctx.measureText(t).width;
-    ctx.fillText(t, (c.width - tw)/2, 45);
+   ctx.font = "bold 17px Arial";
+   const t = person;
+   const tw = ctx.measureText(t).width;
+   ctx.fillText(t, (c.width - tw)/2, 45);
 
-    const tableTop = 75;
-    const colDayW = 85;
-    const colMesaiW = 80;
-    const _remainW = c.width - margin*2 - (colDayW + colMesaiW);
-    const colInW = Math.floor(_remainW / 2);
-    const colOutW = _remainW - colInW;
+   const tableTop = 75;
+   const colDayW = 85;
+   const colMesaiW = 80;
+   const _remainW = c.width - margin*2 - (colDayW + colMesaiW);
+   const colInW = Math.floor(_remainW / 2);
+   const colOutW = _remainW - colInW;
 
-    // header
-    ctx.font = "bold 11px Arial";
-    ctx.fillText("GÃ¼n", margin, tableTop);
-    ctx.fillText("GiriÅ", margin + colDayW, tableTop);
-    ctx.fillText("ÃÄ±kÄ±Å", margin + colDayW + colInW, tableTop);
-    ctx.fillText("Mesai", margin + colDayW + colInW + colOutW, tableTop);
+   // header
+   ctx.font = "bold 11px Arial";
+   ctx.fillText("Gün", margin, tableTop);
+   ctx.fillText("Giriş", margin + colDayW, tableTop);
+   ctx.fillText("Çıkış", margin + colDayW + colInW, tableTop);
+   ctx.fillText("Mesai", margin + colDayW + colInW + colOutW, tableTop);
 
-    ctx.beginPath();
-    ctx.moveTo(margin, tableTop + 6);
-    ctx.lineTo(c.width - margin, tableTop + 6);
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 1;
-    ctx.stroke();
+   ctx.beginPath();
+   ctx.moveTo(margin, tableTop + 6);
+   ctx.lineTo(c.width - margin, tableTop + 6);
+   ctx.strokeStyle = "#000000";
+   ctx.lineWidth = 1;
+   ctx.stroke();
 
-    ctx.font = "10px Arial";
-    let y = tableTop + 18;
-    const rowH = 16;
+   ctx.font = "10px Arial";
+   let y = tableTop + 18;
+   const rowH = 16;
 
-    Array.from(map.keys()).sort((a,b)=> a.localeCompare(b,"tr")).forEach(d=>{
-      const times = map.get(d).slice().sort((a,b)=> timeToMin(a)-timeToMin(b));
-      const entry = times[0];
-      const exit = times[times.length-1];
-      const hasExit = times.length >= 2 && exit !== entry;
-      const workMin = hasExit ? Math.max(0, timeToMin(exit) - timeToMin(entry)) : 0;
-      const workText = hasExit ? `${formatHours(workMin/60)} saat` : "-";
+   Array.from(map.keys()).sort((a,b)=> a.localeCompare(b,"tr")).forEach(d=>{
+     const times = map.get(d).slice().sort((a,b)=> timeToMin(a)-timeToMin(b));
+     const entry = times[0];
+     const exit = times[times.length-1];
+     const hasExit = times.length >= 2 && exit !== entry;
+     const workMin = hasExit ? Math.max(0, timeToMin(exit) - timeToMin(entry)) : 0;
+     const workText = hasExit ? `${formatHours(workMin/60)} saat` : "-";
 
-      ctx.fillText(d, margin, y);
-      const entryText = entry ? entry : "-";
-      const exitText = hasExit ? exit : "-";
-      ctx.fillText(fitText(ctx, entryText, colInW - 6), margin + colDayW, y);
-      ctx.fillText(fitText(ctx, exitText, colOutW - 6), margin + colDayW + colInW, y);
-      ctx.fillText(fitText(ctx, workText, colMesaiW - 6), margin + colDayW + colInW + colOutW, y);
+     ctx.fillText(d, margin, y);
+     const entryText = entry ? entry : "-";
+     const exitText = hasExit ? exit : "-";
+     ctx.fillText(fitText(ctx, entryText, colInW - 6), margin + colDayW, y);
+     ctx.fillText(fitText(ctx, exitText, colOutW - 6), margin + colDayW + colInW, y);
+     ctx.fillText(fitText(ctx, workText, colMesaiW - 6), margin + colDayW + colInW + colOutW, y);
 
-      // row line
-      ctx.beginPath();
-      ctx.moveTo(margin, y + 6);
-      ctx.lineTo(c.width - margin, y + 6);
-      ctx.strokeStyle = "#000000";
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
+     // row line
+     ctx.beginPath();
+     ctx.moveTo(margin, y + 6);
+     ctx.lineTo(c.width - margin, y + 6);
+     ctx.strokeStyle = "#000000";
+     ctx.lineWidth = 0.5;
+     ctx.stroke();
 
-      y += rowH;
-    });
+     y += rowH;
+   });
 
-    // Total monthly hours (from summary)
-    const totalText = `Toplam AylÄ±k Mesai: ${formatHours(sr.hours)} Saat`;
-    ctx.save();
-    ctx.font = "bold 13px Arial";
-    const ttw2 = ctx.measureText(totalText).width;
-    const ty2 = Math.min(c.height - 35, y + 24);
-    ctx.fillText(totalText, (c.width - ttw2)/2, ty2);
-    ctx.restore();
+   // Total monthly hours (from summary)
+   const totalText = `Toplam Aylık Mesai: ${formatHours(sr.hours)} Saat`;
+   ctx.save();
+   ctx.font = "bold 13px Arial";
+   const ttw2 = ctx.measureText(totalText).width;
+   const ty2 = Math.min(c.height - 35, y + 24);
+   ctx.fillText(totalText, (c.width - ttw2)/2, ty2);
+   ctx.restore();
 
-    drawFooter(ctx, c.width, c.height);
-    personPages.push(pg);
-  }
+   drawFooter(ctx, c.width, c.height);
+   personPages.push(pg);
+ }
 
-  const jpegPages = [canvasToJpegBytes(sumPage.c)].concat(personPages.map(p=>canvasToJpegBytes(p.c)));
-  const pdfBlob = buildPdfFromJpegs(jpegPages);
+ const jpegPages = [canvasToJpegBytes(sumPage.c)].concat(personPages.map(p=>canvasToJpegBytes(p.c)));
+ const pdfBlob = buildPdfFromJpegs(jpegPages);
 
-  triggerDownload(pdfBlob, `${ymKey} Raporu.pdf`);
+ triggerDownload(pdfBlob, `${ymKey} Raporu.pdf`);
 }
 
 async function downloadPeopleReport(){
-  // Ensure latest people data
-  await loadPeople();
+ // Ensure latest people data
+ await loadPeople();
 
-  const footer = `Rapor alÄ±nma tarihi: ${_nowTR()}`;
-  PDF_FOOTER_TEXT = footer;
+ const footer = `Rapor alınma tarihi: ${_nowTR()}`;
+ PDF_FOOTER_TEXT = footer;
 
-  const reportTitle = (state.peopleView==="active") ? "Aktif Personel Listesi" : "Pasif Personel Listesi";
+ const reportTitle = (state.peopleView==="active") ? "Aktif Personel Listesi" : "Pasif Personel Listesi";
 
-  // Rows as currently displayed (same filtering + sorting)
-  const q = textNorm(state.filter.people);
-  let rows = (DATA.people || []);
-  rows = rows.filter(p => state.peopleView==="active" ? !isPassive(p) : isPassive(p));
-  if(q) rows = rows.filter(r => textNorm(r.tc+" "+r.name+" "+r.phone+" "+r.card+" "+r.status).includes(q));
+ // Rows as currently displayed (same filtering + sorting)
+ const q = textNorm(state.filter.people);
+ let rows = (DATA.people || []);
+ rows = rows.filter(p => state.peopleView==="active" ? !isPassive(p) : isPassive(p));
+ if(q) rows = rows.filter(r => textNorm(r.tc+" "+r.name+" "+r.phone+" "+r.card+" "+r.status).includes(q));
 
-  const {col,dir} = state.sort.people;
-  const mult = dir==="asc" ? 1 : -1;
-  rows = rows.slice().sort((a,b)=>{
-    if(col==="tc") return mult*(parseInt(a.tc,10)-parseInt(b.tc,10));
-    return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
-  });
+ const {col,dir} = state.sort.people;
+ const mult = dir==="asc" ? 1 : -1;
+ rows = rows.slice().sort((a,b)=>{
+   if(col==="tc") return mult*(parseInt(a.tc,10)-parseInt(b.tc,10));
+   return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
+ });
 
-  // 1) Summary page
-  const sumPage = createPageCanvas();
-  {
-    const { c, ctx } = sumPage;
-    const margin = 30;
+ // 1) Summary page
+ const sumPage = createPageCanvas();
+ {
+   const { c, ctx } = sumPage;
+   const margin = 30;
 
-    ctx.font = "bold 17px Arial";
-    const title = reportTitle;
-    const tw = ctx.measureText(title).width;
-    ctx.fillText(title, (c.width - tw)/2, 45);
+   ctx.font = "bold 17px Arial";
+   const title = reportTitle;
+   const tw = ctx.measureText(title).width;
+   ctx.fillText(title, (c.width - tw)/2, 45);
 
-    const tableTop = 80;
-    const colNameW = 280;
-    const colPhoneW = 150;
-    const colDeptW = 595 - margin*2 - colNameW - colPhoneW;
+   const tableTop = 80;
+   const colNameW = 280;
+   const colPhoneW = 150;
+   const colDeptW = 595 - margin*2 - colNameW - colPhoneW;
 
-    // auto-fit rows to one page
-    let fz = 13;
-    const maxH = 842 - tableTop - 40 - 30; // footer + bottom padding
-    const maxRows = Math.max(1, rows.length + 1);
-    let rowH = fz + 10;
-    if(maxRows * rowH > maxH){
-      rowH = Math.floor(maxH / maxRows);
-      fz = Math.max(10, rowH - 10);
-      rowH = fz + 10;
-    }
+   // auto-fit rows to one page
+   let fz = 13;
+   const maxH = 842 - tableTop - 40 - 30; // footer + bottom padding
+   const maxRows = Math.max(1, rows.length + 1);
+   let rowH = fz + 10;
+   if(maxRows * rowH > maxH){
+     rowH = Math.floor(maxH / maxRows);
+     fz = Math.max(10, rowH - 10);
+     rowH = fz + 10;
+   }
 
-    // Header
-    ctx.font = `bold ${fz}px Arial`;
-    let y = tableTop;
-    ctx.fillText("Ad Soyad", margin, y);
-    ctx.fillText("Cep Telefonu", margin + colNameW, y);
-    ctx.fillText("GÃ¶rev / Pozisyon", margin + colNameW + colPhoneW, y);
+   // Header
+   ctx.font = `bold ${fz}px Arial`;
+   let y = tableTop;
+   ctx.fillText("Ad Soyad", margin, y);
+   ctx.fillText("Cep Telefonu", margin + colNameW, y);
+   ctx.fillText("Görev / Pozisyon", margin + colNameW + colPhoneW, y);
 
-    // Line under header
-    ctx.beginPath();
-    ctx.moveTo(margin, y + 6);
-    ctx.lineTo(c.width - margin, y + 6);
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 1;
-    ctx.stroke();
+   // Line under header
+   ctx.beginPath();
+   ctx.moveTo(margin, y + 6);
+   ctx.lineTo(c.width - margin, y + 6);
+   ctx.strokeStyle = "#000000";
+   ctx.lineWidth = 1;
+   ctx.stroke();
 
-    // Rows
-    ctx.font = `${fz}px Arial`;
-    y += rowH;
+   // Rows
+   ctx.font = `${fz}px Arial`;
+   y += rowH;
 
-    rows.forEach(r=>{
-      const name = fitText(ctx, r.name || "", colNameW - 6);
-      const phone = fitText(ctx, r.phone || "", colPhoneW - 6);
-      const dept = fitText(ctx, r.role || "", colDeptW - 6);
+   rows.forEach(r=>{
+     const name = fitText(ctx, r.name || "", colNameW - 6);
+     const phone = fitText(ctx, r.phone || "", colPhoneW - 6);
+     const dept = fitText(ctx, r.role || "", colDeptW - 6);
 
-      ctx.fillText(name, margin, y);
-      ctx.fillText(phone, margin + colNameW, y);
-      ctx.fillText(dept, margin + colNameW + colPhoneW, y);
+     ctx.fillText(name, margin, y);
+     ctx.fillText(phone, margin + colNameW, y);
+     ctx.fillText(dept, margin + colNameW + colPhoneW, y);
 
-      // row line
-      ctx.beginPath();
-      ctx.moveTo(margin, y + 6);
-      ctx.lineTo(c.width - margin, y + 6);
-      ctx.strokeStyle = "#000000";
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
+     // row line
+     ctx.beginPath();
+     ctx.moveTo(margin, y + 6);
+     ctx.lineTo(c.width - margin, y + 6);
+     ctx.strokeStyle = "#000000";
+     ctx.lineWidth = 0.5;
+     ctx.stroke();
 
-      y += rowH;
-    });
+     y += rowH;
+   });
 
-    drawFooter(ctx, c.width, c.height);
-  }
+   drawFooter(ctx, c.width, c.height);
+ }
 
-  // 2) Detail pages
-  const personPages = [];
-  rows.forEach(p=>{
-    const pg = createPageCanvas();
-    const { c, ctx } = pg;
-    const margin = 30;
+ // 2) Detail pages
+ const personPages = [];
+ rows.forEach(p=>{
+   const pg = createPageCanvas();
+   const { c, ctx } = pg;
+   const margin = 30;
 
-    ctx.font = "bold 17px Arial";
-    const title = (p.name || "").toString();
-    const tw = ctx.measureText(title).width;
-    ctx.fillText(title, (c.width - tw)/2, 45);
+   ctx.font = "bold 17px Arial";
+   const title = (p.name || "").toString();
+   const tw = ctx.measureText(title).width;
+   ctx.fillText(title, (c.width - tw)/2, 45);
 
-    const items = [
-      ["Kart NumarasÄ±", p.card],
-      ["Ad Soyad", p.name],
-      ["TC NumarasÄ±", p.tc],
-      ["Cep Telefonu NumarasÄ±", p.phone],
-      ["Ä°Åe BaÅlama Tarihi", p.startDate],
-      ["Durum", p.status],
-      ["Adres", p.address],
-      ["Kan Grubu", p.blood],
-      ["Acil Durum KiÅi AdÄ±", p.emergencyName],
-      ["Acil Durum NumarasÄ±", p.emergencyPhone],
-      ["GÃ¶rev / Pozisyon", p.role],
-      ["Notlar", p.notes || "-"],
-      ["KayÄ±t Tarihi", p.recordDate],
-    ];
+   const items = [
+     ["Kart Numarası", p.card],
+     ["Ad Soyad", p.name],
+     ["TC Numarası", p.tc],
+     ["Cep Telefonu Numarası", p.phone],
+     ["İşe Başlama Tarihi", p.startDate],
+     ["Durum", p.status],
+     ["Adres", p.address],
+     ["Kan Grubu", p.blood],
+     ["Acil Durum Kişi Adı", p.emergencyName],
+     ["Acil Durum Numarası", p.emergencyPhone],
+     ["Görev / Pozisyon", p.role],
+     ["Notlar", p.notes || "-"],
+     ["Kayıt Tarihi", p.recordDate],
+   ];
 
-    const tableTop = 80;
-    const labelW = 210;
-    const valueW = 595 - margin*2 - labelW;
+   const tableTop = 80;
+   const labelW = 210;
+   const valueW = 595 - margin*2 - labelW;
 
-    let fz = 13;
-    let rowH = fz + 10;
+   let fz = 13;
+   let rowH = fz + 10;
 
-    // If overflow, shrink a bit
-    const maxH = 842 - tableTop - 40 - 30;
-    if(items.length * rowH > maxH){
-      rowH = Math.floor(maxH / items.length);
-      fz = Math.max(10, rowH - 10);
-      rowH = fz + 10;
-    }
-    let y = tableTop;
-    items.forEach(([k,v])=>{
-      const vv = (v==null || v==="") ? "-" : String(v);
+   // If overflow, shrink a bit
+   const maxH = 842 - tableTop - 40 - 30;
+   if(items.length * rowH > maxH){
+     rowH = Math.floor(maxH / items.length);
+     fz = Math.max(10, rowH - 10);
+     rowH = fz + 10;
+   }
+   let y = tableTop;
+   items.forEach(([k,v])=>{
+     const vv = (v==null || v==="") ? "-" : String(v);
 
-      ctx.font = `bold ${fz}px Arial`;
-      ctx.fillText(fitText(ctx, k, labelW - 8), margin, y);
+     ctx.font = `bold ${fz}px Arial`;
+     ctx.fillText(fitText(ctx, k, labelW - 8), margin, y);
 
-      ctx.font = `${fz}px Arial`;
-      ctx.fillText(fitText(ctx, vv, valueW - 8), margin + labelW, y);
+     ctx.font = `${fz}px Arial`;
+     ctx.fillText(fitText(ctx, vv, valueW - 8), margin + labelW, y);
 
-      // row line
-      ctx.beginPath();
-      ctx.moveTo(margin, y + 6);
-      ctx.lineTo(c.width - margin, y + 6);
-      ctx.strokeStyle = "#000000";
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
+     // row line
+     ctx.beginPath();
+     ctx.moveTo(margin, y + 6);
+     ctx.lineTo(c.width - margin, y + 6);
+     ctx.strokeStyle = "#000000";
+     ctx.lineWidth = 0.5;
+     ctx.stroke();
 
-      y += rowH;
-    });
+     y += rowH;
+   });
 
-    drawFooter(ctx, c.width, c.height);
-    personPages.push(pg);
-  });
+   drawFooter(ctx, c.width, c.height);
+   personPages.push(pg);
+ });
 
-  const jpegPages = [canvasToJpegBytes(sumPage.c)].concat(personPages.map(p=>canvasToJpegBytes(p.c)));
-  const pdfBlob = buildPdfFromJpegs(jpegPages);
+ const jpegPages = [canvasToJpegBytes(sumPage.c)].concat(personPages.map(p=>canvasToJpegBytes(p.c)));
+ const pdfBlob = buildPdfFromJpegs(jpegPages);
 
-  triggerDownload(pdfBlob, `${reportTitle}.pdf`);
+ triggerDownload(pdfBlob, `${reportTitle}.pdf`);
 }
 
 async function loadPeople(){
-  const url = BASE_URL + "Kisiler.csv";
-  const txt = await fetchText(url);
-  const { headers, rows } = parseCsv(txt);
-  const IDX = CSV_INDEX.PEOPLE;
-  warnHeaderMismatch(headers, IDX.HEADERS, "Kisiler.csv");
+ const url = BASE_URL + "Kisiler.csv";
+ const txt = await fetchText(url);
+ const { headers, rows } = parseCsv(txt);
+ const IDX = CSV_INDEX.PEOPLE;
+ warnHeaderMismatch(headers, IDX.HEADERS, "Kisiler.csv");
 
-  DATA.people = rows.map(cols=>{
-    const c = (i)=> colAt(cols, i);
-    return ({
-      card: c(IDX.CARD),
-      name: c(IDX.NAME),
-      tc: c(IDX.TC),
-      phone: c(IDX.PHONE),
+ DATA.people = rows.map(cols=>{
+   const c = (i)=> colAt(cols, i);
+   return ({
+     card: c(IDX.CARD),
+     name: c(IDX.NAME),
+     tc: c(IDX.TC),
+     phone: c(IDX.PHONE),
 
-      startDate: c(IDX.START_DATE),
-      status: c(IDX.STATUS),
-      address: c(IDX.ADDRESS),
-      blood: c(IDX.BLOOD),
-      emergencyName: c(IDX.EMERGENCY_NAME),
-      emergencyPhone: c(IDX.EMERGENCY_PHONE),
+     startDate: c(IDX.START_DATE),
+     status: c(IDX.STATUS),
+     address: c(IDX.ADDRESS),
+     blood: c(IDX.BLOOD),
+     emergencyName: c(IDX.EMERGENCY_NAME),
+     emergencyPhone: c(IDX.EMERGENCY_PHONE),
 
-      role: c(IDX.ROLE),
-      notes: c(IDX.NOTES),
-      created: c(IDX.RECORD_DATE),
-      recordDate: c(IDX.RECORD_DATE),
-      sync: syncNorm(c(IDX.SYNC)),
+     role: c(IDX.ROLE),
+     notes: c(IDX.NOTES),
+     created: c(IDX.RECORD_DATE),
+     recordDate: c(IDX.RECORD_DATE),
+     sync: syncNorm(c(IDX.SYNC)),
 
-      // People file does not have "Kaynak"; keep UI column meaningful
-      source: "Kisiler.csv"
-    });
-  }).filter(p => p.name || p.card || p.phone || p.tc);
+     // People file does not have "Kaynak"; keep UI column meaningful
+     source: "Kisiler.csv"
+   });
+ }).filter(p => p.name || p.card || p.phone || p.tc);
 }
 
 function diffHours(t1, t2){
-  // "HH:MM" -> hours (float)
-  const a = timeToMin(t1);
-  const b = timeToMin(t2);
-  if(a===null || b===null) return 0;
-  const d = Math.max(0, b-a);
-  return Math.round((d/60)*100)/100;
+ // "HH:MM" -> hours (float)
+ const a = timeToMin(t1);
+ const b = timeToMin(t2);
+ if(a===null || b===null) return 0;
+ const d = Math.max(0, b-a);
+ return Math.round((d/60)*100)/100;
 }
 
 async function loadMonth(ymKey){
-  if(DATA._cache[ymKey]) return DATA._cache[ymKey];
+ if(DATA._cache[ymKey]) return DATA._cache[ymKey];
 
-  const candidates = ymFilenameCandidates(ymKey).map(fn => BASE_URL + fn);
-  let txt = null;
-  for(const u of candidates){
-    if(await objectExists(u)){
-      txt = await fetchText(u);
-      break;
-    }
-  }
-  if(txt === null) throw new Error(`Month file not found for ${ymKey}`);
+ const candidates = ymFilenameCandidates(ymKey).map(fn => BASE_URL + fn);
+ let txt = null;
+ for(const u of candidates){
+   if(await objectExists(u)){
+     txt = await fetchText(u);
+     break;
+   }
+ }
+ if(txt === null) throw new Error(`Month file not found for ${ymKey}`);
 
-  const { headers, rows } = parseCsv(txt);
-  const IDX = CSV_INDEX.MONTH;
-  warnHeaderMismatch(headers, IDX.HEADERS, `${ymKey}.csv`);
+ const { headers, rows } = parseCsv(txt);
+ const IDX = CSV_INDEX.MONTH;
+ warnHeaderMismatch(headers, IDX.HEADERS, `${ymKey}.csv`);
 
-  const out = rows.map(cols=>{
-    const c = (i)=> colAt(cols, i);
-    return ({
-      date: isoToTR(c(IDX.DATE)),
-      time: c(IDX.TIME),
-      card: c(IDX.CARD),
-      name: c(IDX.NAME),
-      source: c(IDX.SOURCE),
-      sync: syncNorm(c(IDX.SYNC))
-    });
-  }).filter(x=>x.date && x.time);
+ const out = rows.map(cols=>{
+   const c = (i)=> colAt(cols, i);
+   return ({
+     date: isoToTR(c(IDX.DATE)),
+     time: c(IDX.TIME),
+     card: c(IDX.CARD),
+     name: c(IDX.NAME),
+     source: c(IDX.SOURCE),
+     sync: syncNorm(c(IDX.SYNC))
+   });
+ }).filter(x=>x.date && x.time);
 
-  DATA.monthly[ymKey] = out;
+ DATA.monthly[ymKey] = out;
 
-  // Summary: total span per person per day (simple)
-  const byPD = new Map(); // key: name|date -> {min,max}
-  out.forEach(r=>{
-    const key = r.name + "|" + r.date;
-    const cur = byPD.get(key) || { min: r.time, max: r.time };
-    if(timeToMin(r.time) < timeToMin(cur.min)) cur.min = r.time;
-    if(timeToMin(r.time) > timeToMin(cur.max)) cur.max = r.time;
-    byPD.set(key, cur);
-  });
+ // Summary: total span per person per day (simple)
+ const byPD = new Map(); // key: name|date -> {min,max}
+ out.forEach(r=>{
+   const key = r.name + "|" + r.date;
+   const cur = byPD.get(key) || { min: r.time, max: r.time };
+   if(timeToMin(r.time) < timeToMin(cur.min)) cur.min = r.time;
+   if(timeToMin(r.time) > timeToMin(cur.max)) cur.max = r.time;
+   byPD.set(key, cur);
+ });
 
-  const byPerson = new Map();
-  byPD.forEach((v,k)=>{
-    const name = k.split("|")[0];
-    const h = diffHours(v.min, v.max);
-    byPerson.set(name, (byPerson.get(name)||0) + h);
-  });
+ const byPerson = new Map();
+ byPD.forEach((v,k)=>{
+   const name = k.split("|")[0];
+   const h = diffHours(v.min, v.max);
+   byPerson.set(name, (byPerson.get(name)||0) + h);
+ });
 
-  DATA.monthlySummary[ymKey] = Array.from(byPerson.entries()).map(([name, hours])=>({ name, hours }));
+ DATA.monthlySummary[ymKey] = Array.from(byPerson.entries()).map(([name, hours])=>({ name, hours }));
 
-  DATA._cache[ymKey] = out;
-  return out;
+ DATA._cache[ymKey] = out;
+ return out;
 }
 
 function buildMonthCandidates(){
-  const now = new Date();
-  // Candidate months: current month back to Jan of current year, then all months of previous year
-  const curYear = now.getFullYear();
-  const curMonth = now.getMonth()+1;
+ const now = new Date();
+ // Candidate months: current month back to Jan of current year, then all months of previous year
+ const curYear = now.getFullYear();
+ const curMonth = now.getMonth()+1;
 
-  const arr = [];
-  // current year: curMonth .. 1
-  for(let m=curMonth; m>=1; m--){
-    arr.push(`${curYear}-${pad2(m)}`);
-  }
-  // previous year: 12 .. 1
-  const prevYear = curYear-1;
-  for(let m=12; m>=1; m--){
-    arr.push(`${prevYear}-${pad2(m)}`);
-  }
-  return arr;
+ const arr = [];
+ // current year: curMonth .. 1
+ for(let m=curMonth; m>=1; m--){
+   arr.push(`${curYear}-${pad2(m)}`);
+ }
+ // previous year: 12 .. 1
+ const prevYear = curYear-1;
+ for(let m=12; m>=1; m--){
+   arr.push(`${prevYear}-${pad2(m)}`);
+ }
+ return arr;
 }
 
-/* V38.1: Tab bazlÄ± lazy yÃ¼kleme (BugÃ¼n / AylÄ±k / Personel) */
+/* V38.1: Tab bazlı lazy yükleme (Bugün / Aylık / Personel) */
 let _todayPromise = null;
 async function ensureTodayReady(){
-  if(LOAD.today) return;
-  if(_todayPromise) return _todayPromise;
-  setTabInlineLoading("today", true, "Veriler yÃ¼kleniyor...");
+ if(LOAD.today) return;
+ if(_todayPromise) return _todayPromise;
+ setTabInlineLoading("today", true, "Veriler yükleniyor...");
 
-  _todayPromise = (async ()=>{
-    const curKey = ymKeyFromDate(new Date());
-    try{ await loadMonth(curKey); }catch(e){ console.warn("Current month load failed:", e); }
+ _todayPromise = (async ()=>{
+   const curKey = ymKeyFromDate(new Date());
+   try{ await loadMonth(curKey); }catch(e){ console.warn("Current month load failed:", e); }
 
-    const todayIso = isoToTR(new Date().toISOString().slice(0,10));
-    const allToday = (DATA.monthly && DATA.monthly[curKey]) ? DATA.monthly[curKey] : [];
-    DATA.today = allToday.filter(r => r.date === todayIso);
+   const todayIso = isoToTR(new Date().toISOString().slice(0,10));
+   const allToday = (DATA.monthly && DATA.monthly[curKey]) ? DATA.monthly[curKey] : [];
+   DATA.today = allToday.filter(r => r.date === todayIso);
 
-    LOAD.today = true;
-  })().finally(()=>{
-    setTabInlineLoading("today", false);
-    if(routeFromHash()==="today") renderToday();
-    updateFooterStamp();
-    _todayPromise = null;
-  });
+   LOAD.today = true;
+ })().finally(()=>{
+   setTabInlineLoading("today", false);
+   if(routeFromHash()==="today") renderToday();
+   updateFooterStamp();
+   _todayPromise = null;
+ });
 
-  return _todayPromise;
+ return _todayPromise;
 }
 
 let _monthlyPromise = null;
 async function ensureMonthlyReady(){
-  if(LOAD.monthly && LOAD.months) return;
-  if(_monthlyPromise) return _monthlyPromise;
-  _monthlyPromise = (async ()=>{    // Build month dropdown options (only existing files)
-    if(!LOAD.months){
-      const candidates = buildMonthCandidates();
-      const existing = [];
-      for(const ym of candidates){
-        const urls = ymFilenameCandidates(ym).map(fn => BASE_URL + fn);
-        let ok = false;
-        for(const u of urls){
-          if(await objectExists(u)){ ok = true; break; }
-        }
-        if(ok) existing.push(ym);
-      }
+ if(LOAD.monthly && LOAD.months) return;
+ if(_monthlyPromise) return _monthlyPromise;
+ _monthlyPromise = (async ()=>{
+   if(!LOAD.months){
+   // Build month dropdown options from Storage (only existing files)
+   try{
+     const FB = window.__FB;
+     const folderPath = (BASE_URL || "logs/").replace(/\/+$/,""); // "logs"
+     const res = await FB.listAll(FB.ref(FB.storage, folderPath));
+     const set = new Set();
+     (res.items || []).forEach(it=>{
+       const name = it && it.name ? it.name : "";
+       const mm = /^(\d{4})-(\d{1,2})\.csv$/i.exec(name);
+       if(mm){
+         const y = mm[1];
+         const mo = String(parseInt(mm[2],10)).padStart(2,"0");
+         set.add(`${y}-${mo}`);
+       }
+     });
 
-      DATA.months = existing;
+     const candidates = buildMonthCandidates();
+     const existing = candidates.filter(k => set.has(k));
+     DATA.months = existing;
 
-      const curKey = ymKeyFromDate(new Date());
-      if(!state.month){
-        state.month = existing.includes(curKey) ? curKey : (existing[0] || curKey);
-      }else{
-        // If previously selected month no longer exists, fall back
-        if(existing.length && !existing.includes(state.month)) state.month = existing[0];
-      }
+     const curKey = ymKeyFromDate(new Date());
+     if(!state.month){
+       state.month = existing.includes(curKey) ? curKey : (existing[0] || "");
+     }else{
+       if(existing.length && !existing.includes(state.month)) state.month = existing[0];
+     }
 
-      const sel = document.getElementById("monthSelect");
-      const btnR = document.getElementById("monthlyReportBtn");
-      if(sel){
-        sel.innerHTML = "";
-        DATA.months.forEach(m=>{
-          const opt = document.createElement("option");
-          opt.value = m;
-          opt.textContent = m;
-          sel.appendChild(opt);
-        });
-        sel.value = state.month;
-        // enable dropdown only if we have at least one existing file
-        sel.disabled = (DATA.months.length === 0);
-      }
-      if(btnR) btnR.disabled = (DATA.months.length === 0);
-      LOAD.months = true;
-    }
+     const sel = document.getElementById("monthSelect");
+     if(sel){
+       sel.innerHTML = "";
+       existing.forEach(m=>{
+         const opt=document.createElement("option");
+         opt.value=m; opt.textContent=m;
+         sel.appendChild(opt);
+       });
+       if(state.month) sel.value = state.month;
+     }
+   }catch(e){
+     console.warn("Month list load failed:", e);
+     // fallback to deterministic list (old behavior)
+     DATA.months = buildMonthCandidates();
+     const sel = document.getElementById("monthSelect");
+     if(sel){
+       sel.innerHTML="";
+       DATA.months.forEach(m=>{
+         const opt=document.createElement("option");
+         opt.value=m; opt.textContent=m;
+         sel.appendChild(opt);
+       });
+       if(state.month) sel.value = state.month;
+     }
+   }
+   LOAD.months = true;
+ }
+   if(!LOAD.monthly){
+     setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
+     try{
+       await loadMonth(state.month || ymKeyFromDate(new Date()));
+     }catch(e){
+       console.warn(e);
+     }
+     LOAD.monthly = true;
+     setTabInlineLoading("monthly", false);
+   }
 
-    if(!LOAD.monthly){
-      setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
-      try{
-        await loadMonth(state.month || ymKeyFromDate(new Date()));
-      }catch(e){
-        console.warn(e);
-      }
-      LOAD.monthly = true;
-      setTabInlineLoading("monthly", false);
-    }
+   if(routeFromHash()==="monthly") renderMonthly();
+ })().finally(()=>{ _monthlyPromise=null; });
 
-    if(routeFromHash()==="monthly") renderMonthly();
-  })().finally(()=>{ _monthlyPromise=null; });
-
-  return _monthlyPromise;
+ return _monthlyPromise;
 }
 
 
 let _peoplePromise = null;
 async function ensurePeopleReady(){
-  if(LOAD.people) return;
-  if(_peoplePromise) return _peoplePromise;
+ if(LOAD.people) return;
+ if(_peoplePromise) return _peoplePromise;
 
-  setTabInlineLoading("people", true, "Veriler yÃ¼kleniyor...");
-  const search = document.getElementById("peopleSearch");
-  const btnA = document.getElementById("btnActive");
-  const btnP = document.getElementById("btnPassive");
-  const btnR = document.getElementById("peopleReportBtn");
-  if(search) search.disabled = true;
-  if(btnA) btnA.disabled = true;
-  if(btnP) btnP.disabled = true;
-  if(btnR) btnR.disabled = true;
+ setTabInlineLoading("people", true, "Veriler yükleniyor...");
+ const search = document.getElementById("peopleSearch");
+ const btnA = document.getElementById("btnActive");
+ const btnP = document.getElementById("btnPassive");
+ const btnR = document.getElementById("peopleReportBtn");
+ if(search) search.disabled = true;
+ if(btnA) btnA.disabled = true;
+ if(btnP) btnP.disabled = true;
+ if(btnR) btnR.disabled = true;
 
-  _peoplePromise = (async ()=>{
-    try{ await loadPeople(); }catch(e){ console.warn("People load failed:", e); DATA.people=[]; }
-    LOAD.people = true;
-  })().finally(()=>{
-    setTabInlineLoading("people", false);
-    if(search) search.disabled = false;
-    if(btnA) btnA.disabled = false;
-    if(btnP) btnP.disabled = false;
-    if(btnR) btnR.disabled = false;
+ _peoplePromise = (async ()=>{
+   try{ await loadPeople(); }catch(e){ console.warn("People load failed:", e); DATA.people=[]; }
+   LOAD.people = true;
+ })().finally(()=>{
+   setTabInlineLoading("people", false);
+   if(search) search.disabled = false;
+   if(btnA) btnA.disabled = false;
+   if(btnP) btnP.disabled = false;
+   if(btnR) btnR.disabled = false;
 
-    if(routeFromHash()==="people") renderPeople();
-    updateFooterStamp();
-    _peoplePromise = null;
-  });
+   if(routeFromHash()==="people") renderPeople();
+   updateFooterStamp();
+   _peoplePromise = null;
+ });
 
-  return _peoplePromise;
+ return _peoplePromise;
 }
 
 const state = {
-  route: "today",
-  filter: { today: "", monthly: "", people: "" },
-  peopleView: "active",
-  month: (DATA.months && DATA.months[0]) ? DATA.months[0] : "",
-  sort: {
-    today: { col: "time", dir: "desc" },
-    monthly: { col: "date", dir: "asc" },
-    summary: { col: "hours", dir: "desc" },
-    people: { col: "name", dir: "asc" }
-  },
-  userEmail: ""
+ route: "today",
+ filter: { today: "", monthly: "", people: "" },
+ peopleView: "active",
+ month: (DATA.months && DATA.months[0]) ? DATA.months[0] : "",
+ sort: {
+   today: { col: "time", dir: "desc" },
+   monthly: { col: "date", dir: "asc" },
+   summary: { col: "hours", dir: "desc" },
+   people: { col: "name", dir: "asc" }
+ },
+ userEmail: ""
 };
 
 function timeToMin(s){
-  if(!s) return 0;
-  const parts = String(s).split(":");
-  const h = parseInt(parts[0]||"0",10);
-  const m = parseInt(parts[1]||"0",10);
-  return (isFinite(h)?h:0)*60 + (isFinite(m)?m:0);
+ if(!s) return 0;
+ const parts = String(s).split(":");
+ const h = parseInt(parts[0]||"0",10);
+ const m = parseInt(parts[1]||"0",10);
+ return (isFinite(h)?h:0)*60 + (isFinite(m)?m:0);
 }
 function getPersonByName(name){
-  const arr = (DATA.people || []);
-  for(let i=0;i<arr.length;i++){ if(arr[i].name === name) return arr[i]; }
-  return null;
+ const arr = (DATA.people || []);
+ for(let i=0;i<arr.length;i++){ if(arr[i].name === name) return arr[i]; }
+ return null;
 }
 function textNorm(s){ return (s||"").toString().toLocaleLowerCase("tr"); }
 
 function scrollToEl(id){
-  const el = document.getElementById(id);
-  if(el){
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+ const el = document.getElementById(id);
+ if(el){
+   el.scrollIntoView({ behavior: "smooth", block: "start" });
+ }
 }
 
 function cleanDigits(s){
-  return (s||"").toString().replace(/\D/g, "");
+ return (s||"").toString().replace(/\D/g, "");
 }
 function dialTR(phone){
-  const digits = cleanDigits(phone);
-  if(!digits) return;
-  // phone expected like 5xxxxxxxxx ; ensure +90 prefix
-  const normalized = (digits.startsWith("90") ? "+"+digits : "+90"+digits);
-  window.location.href = "tel:" + normalized;
+ const digits = cleanDigits(phone);
+ if(!digits) return;
+ // phone expected like 5xxxxxxxxx ; ensure +90 prefix
+ const normalized = (digits.startsWith("90") ? "+"+digits : "+90"+digits);
+ window.location.href = "tel:" + normalized;
 }
 
 function formatTurkishDateHeader(ddmmyyyy){
-  // expects "dd.mm.yyyy"
-  const months = ["Ocak","Åubat","Mart","Nisan","MayÄ±s","Haziran","Temmuz","AÄustos","EylÃ¼l","Ekim","KasÄ±m","AralÄ±k"];
-  const days = ["Pazar","Pazartesi","SalÄ±","ÃarÅamba","PerÅembe","Cuma","Cumartesi"];
-  if(!ddmmyyyy) return "";
-  const parts = ddmmyyyy.split(".");
-  if(parts.length !== 3) return "";
-  const d = parseInt(parts[0],10);
-  const m = parseInt(parts[1],10);
-  const y = parseInt(parts[2],10);
-  if(!d || !m || !y) return "";
-  const dt = new Date(y, m-1, d);
-  return `${d} ${months[m-1]} ${days[dt.getDay()]}`;
+ // expects "dd.mm.yyyy"
+ const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+ const days = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+ if(!ddmmyyyy) return "";
+ const parts = ddmmyyyy.split(".");
+ if(parts.length !== 3) return "";
+ const d = parseInt(parts[0],10);
+ const m = parseInt(parts[1],10);
+ const y = parseInt(parts[2],10);
+ if(!d || !m || !y) return "";
+ const dt = new Date(y, m-1, d);
+ return `${d} ${months[m-1]} ${days[dt.getDay()]}`;
 }
 
 function mountApp(){
-  document.getElementById("landing").classList.add("hidden");
-  document.getElementById("app").classList.remove("hidden");
-  updateFooterStamp();
+ document.getElementById("landing").classList.add("hidden");
+ document.getElementById("app").classList.remove("hidden");
+ updateFooterStamp();
 }
 function setActiveTab(route){
-  document.querySelectorAll('nav.tabs a').forEach(a=>a.classList.toggle('active', a.dataset.route===route));
+ document.querySelectorAll('nav.tabs a').forEach(a=>a.classList.toggle('active', a.dataset.route===route));
 }
 function showOnly(route){
-  document.getElementById("page-today").classList.toggle("hidden", route!=="today");
-  document.getElementById("page-monthly").classList.toggle("hidden", route!=="monthly");
-  document.getElementById("page-people").classList.toggle("hidden", route!=="people");
+ document.getElementById("page-today").classList.toggle("hidden", route!=="today");
+ document.getElementById("page-monthly").classList.toggle("hidden", route!=="monthly");
+ document.getElementById("page-people").classList.toggle("hidden", route!=="people");
 
-  updateFooterStamp();
-  setActiveTab(route);
+ updateFooterStamp();
+ setActiveTab(route);
 }
 function routeFromHash(){
-  const h=(location.hash||"#today").replace("#","");
-  return (h==="today"||h==="monthly"||h==="people") ? h : "today";
+ const h=(location.hash||"#today").replace("#","");
+ return (h==="today"||h==="monthly"||h==="people") ? h : "today";
 }
 
-/* V38.1: iOS zoom reset (login sonrasÄ±) */
+/* V38.1: iOS zoom reset (login sonrası) */
 function forceViewportReset(){
-  const vp = document.querySelector('meta[name="viewport"]');
-  if(!vp) return;
-  const content = "width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no";
-  vp.setAttribute("content", content);
-  setTimeout(()=>vp.setAttribute("content", content), 60);
-  setTimeout(()=>{ try{ window.dispatchEvent(new Event("resize")); }catch(e){} }, 90);
+ const vp = document.querySelector('meta[name="viewport"]');
+ if(!vp) return;
+ const content = "width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no";
+ vp.setAttribute("content", content);
+ setTimeout(()=>vp.setAttribute("content", content), 60);
+ setTimeout(()=>{ try{ window.dispatchEvent(new Event("resize")); }catch(e){} }, 90);
 }
 function resetViewportAfterLogin(){
-  try{
-    if(document.activeElement && typeof document.activeElement.blur === "function"){
-      document.activeElement.blur();
-    }
-  }catch(e){}
-  try{ window.scrollTo(0,0); }catch(e){}
-  forceViewportReset();
-  setTimeout(()=>{ try{ window.scrollTo(0,0); }catch(e){} }, 80);
+ try{
+   if(document.activeElement && typeof document.activeElement.blur === "function"){
+     document.activeElement.blur();
+   }
+ }catch(e){}
+ try{ window.scrollTo(0,0); }catch(e){}
+ forceViewportReset();
+ setTimeout(()=>{ try{ window.scrollTo(0,0); }catch(e){} }, 80);
 }
 
 function isAuthed(){
-  try{ return !!(window.__FB && window.__FB.auth && window.__FB.auth.currentUser); }
-  catch(e){ return false; }
+ try{ return !!(window.__FB && window.__FB.auth && window.__FB.auth.currentUser); }
+ catch(e){ return false; }
 }
 
 function renderRoute(){
-  // V40.2 BUGFIX: GiriÅ yapÄ±lmadan veri Ã§ekmeye Ã§alÄ±Åma (403 -> LOAD bayraklarÄ±nÄ± yanlÄ±Å set ediyordu)
-  if(!isAuthed()) return;
-  state.route = routeFromHash();
-  showOnly(state.route);
+ // V40.2 BUGFIX: Giriş yapılmadan veri çekmeye çalışma (403 -> LOAD bayraklarını yanlış set ediyordu)
+ if(!isAuthed()) return;
+ state.route = routeFromHash();
+ showOnly(state.route);
 
-  // On tab change: scroll to top and collapse detail panels
-  try{ window.scrollTo(0,0); }catch(e){}
-  state.selectedPerson = "";
-  const pp = document.getElementById("personPanel");
-  if(pp) pp.classList.add("hidden");
-  state.selectedPersonPeople = "";
-  const pd = document.getElementById("peopleDetailPanel");
-  if(pd) pd.classList.add("hidden");
+ // On tab change: scroll to top and collapse detail panels
+ try{ window.scrollTo(0,0); }catch(e){}
+ state.selectedPerson = "";
+ const pp = document.getElementById("personPanel");
+ if(pp) pp.classList.add("hidden");
+ state.selectedPersonPeople = "";
+ const pd = document.getElementById("peopleDetailPanel");
+ if(pd) pd.classList.add("hidden");
 
-  if(state.route==="today"){
-    if(!LOAD.today){
-      setTabInlineLoading("today", true, "Veriler yÃ¼kleniyor...");
-      ensureTodayReady();
-      return;
-    }
-    setTabInlineLoading("today", false);
-    renderToday();
-  }
-  if(state.route==="monthly"){
-    if(!(LOAD.months && LOAD.monthly)){
-      setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
-      ensureMonthlyReady();
-      return;
-    }
-    setTabInlineLoading("monthly", false);
-    renderMonthly();
-  }
-  if(state.route==="people"){
-    if(!LOAD.people){
-      setTabInlineLoading("people", true, "Veriler yÃ¼kleniyor...");
-      ensurePeopleReady();
-      return;
-    }
-    setTabInlineLoading("people", false);
-    renderPeople();
-  }
+ if(state.route==="today"){
+   if(!LOAD.today){
+     setTabInlineLoading("today", true, "Veriler yükleniyor...");
+     ensureTodayReady();
+     return;
+   }
+   setTabInlineLoading("today", false);
+   renderToday();
+ }
+ if(state.route==="monthly"){
+   if(!(LOAD.months && LOAD.monthly)){
+     setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
+     ensureMonthlyReady();
+     return;
+   }
+   setTabInlineLoading("monthly", false);
+   renderMonthly();
+ }
+ if(state.route==="people"){
+   if(!LOAD.people){
+     setTabInlineLoading("people", true, "Veriler yükleniyor...");
+     ensurePeopleReady();
+     return;
+   }
+   setTabInlineLoading("people", false);
+   renderPeople();
+ }
 }
 window.addEventListener("hashchange", renderRoute);
 
-/* BUGÃN */
+/* BUGÜN */
 function renderToday(){
-  const q=textNorm(state.filter.today);
-  let rows = (DATA.today || []);
+ const q=textNorm(state.filter.today);
+ let rows = (DATA.today || []);
 
-  // V14: set Today heading (dynamic)
-  const h = document.getElementById("todayHeading");
-  if(h){
-    const dateStr = (rows && rows.length) ? rows[0].date : (()=>{
-      const now = new Date();
-      const dd = String(now.getDate()).padStart(2,"0");
-      const mm = String(now.getMonth()+1).padStart(2,"0");
-      const yy = String(now.getFullYear());
-      return `${dd}.${mm}.${yy}`;
-    })();
-    h.textContent = formatTurkishDateHeader(dateStr);
-  }
+ // V14: set Today heading (dynamic)
+ const h = document.getElementById("todayHeading");
+ if(h){
+   const dateStr = (rows && rows.length) ? rows[0].date : (()=>{
+     const now = new Date();
+     const dd = String(now.getDate()).padStart(2,"0");
+     const mm = String(now.getMonth()+1).padStart(2,"0");
+     const yy = String(now.getFullYear());
+     return `${dd}.${mm}.${yy}`;
+   })();
+   h.textContent = formatTurkishDateHeader(dateStr);
+ }
 
-  // keep existing filter behavior (works on raw rows)
-  if(q) rows = rows.filter(r => textNorm(r.time+" "+r.name+" "+r.action).includes(q));
+ // keep existing filter behavior (works on raw rows)
+ if(q) rows = rows.filter(r => textNorm(r.time+" "+r.name+" "+r.action).includes(q));
 
-  // same person multiple records -> show first and last time; place such rows at bottom
-  const byName = new Map();
-  rows.forEach(r=>{
-    const name = (r.name||"").toString().trim();
-    if(!name) return;
-    const cur = byName.get(name) || { name, times: [], source: r.source, sync: r.sync };
-    if(r.time) cur.times.push(r.time);
-    if(cur.source == null) cur.source = r.source;
-    if(cur.sync == null) cur.sync = r.sync;
-    byName.set(name, cur);
-  });
+ // same person multiple records -> show first and last time; place such rows at bottom
+ const byName = new Map();
+ rows.forEach(r=>{
+   const name = (r.name||"").toString().trim();
+   if(!name) return;
+   const cur = byName.get(name) || { name, times: [], source: r.source, sync: r.sync };
+   if(r.time) cur.times.push(r.time);
+   if(cur.source == null) cur.source = r.source;
+   if(cur.sync == null) cur.sync = r.sync;
+   byName.set(name, cur);
+ });
 
-  let out = Array.from(byName.values()).map(g=>{
-    const times = (g.times||[]).slice().filter(Boolean).sort((a,b)=> timeToMin(a)-timeToMin(b));
-    const first = times[0] || "";
-    const last = times[times.length-1] || first;
-    const multi = (times.length >= 2 && last !== first);
-    return {
-      time: first,
-      timeDisplay: multi ? `${first} - ${last}` : first,
-      timeDisplayHtml: multi ? `<span class="time-green">${first}</span> - <span class="time-red">${last}</span>` : `<span class="time-green">${first}</span>`,
-      name: g.name,
-      source: g.source || "-",
-      sync: g.sync || "-",
-      _multi: multi
-    };
-  });
+ let out = Array.from(byName.values()).map(g=>{
+   const times = (g.times||[]).slice().filter(Boolean).sort((a,b)=> timeToMin(a)-timeToMin(b));
+   const first = times[0] || "";
+   const last = times[times.length-1] || first;
+   const multi = (times.length >= 2 && last !== first);
+   return {
+     time: first,
+     timeDisplay: multi ? `${first} - ${last}` : first,
+     timeDisplayHtml: multi ? `<span class="time-green">${first}</span> - <span class="time-red">${last}</span>` : `<span class="time-green">${first}</span>`,
+     name: g.name,
+     source: g.source || "-",
+     sync: g.sync || "-",
+     _multi: multi
+   };
+ });
 
-  const {col,dir} = state.sort.today;
-  const mult = dir==="asc" ? 1 : -1;
+ const {col,dir} = state.sort.today;
+ const mult = dir==="asc" ? 1 : -1;
 
-  const sorter = (a,b)=>{
-    if(col==="time") return mult*(timeToMin(a.time)-timeToMin(b.time));
-    return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
-  };
+ const sorter = (a,b)=>{
+   if(col==="time") return mult*(timeToMin(a.time)-timeToMin(b.time));
+   return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
+ };
 
-  const singles = out.filter(x=>!x._multi).sort(sorter);
-  const multis  = out.filter(x=> x._multi).sort(sorter);
-  out = singles.concat(multis);
+ const singles = out.filter(x=>!x._multi).sort(sorter);
+ const multis  = out.filter(x=> x._multi).sort(sorter);
+ out = singles.concat(multis);
 
-  const tbody=document.getElementById("todayBody");
-  const frag=document.createDocumentFragment();
-  out.forEach(r=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML = `
-      <td>${r.timeDisplayHtml}</td>
-      <td>${r.name}</td>
-      <td>${r.source || "-"}</td>
-      <td>${r.sync || "-"}</td>
-    `;
-    frag.appendChild(tr);
-  });
-  tbody.replaceChildren(frag);
+ const tbody=document.getElementById("todayBody");
+ const frag=document.createDocumentFragment();
+ out.forEach(r=>{
+   const tr=document.createElement("tr");
+   tr.innerHTML = `
+     <td>${r.timeDisplayHtml}</td>
+     <td>${r.name}</td>
+     <td>${r.source || "-"}</td>
+     <td>${r.sync || "-"}</td>
+   `;
+   frag.appendChild(tr);
+ });
+ tbody.replaceChildren(frag);
 
-  const list=document.getElementById("todayCardList");
-  const cfrag=document.createDocumentFragment();
-  out.forEach(r=>{
-    const div=document.createElement("div");
-    div.className="itemcard";
-    div.innerHTML = `
-      <div class="top">
-        <div>
-          <div class="title">${r.name}</div>
-        </div>
-        <div style="text-align:right;font-weight:900">${r.timeDisplayHtml}</div>
-      </div>
-    `;
-    cfrag.appendChild(div);
-  });
-  list.replaceChildren(cfrag);
+ const list=document.getElementById("todayCardList");
+ const cfrag=document.createDocumentFragment();
+ out.forEach(r=>{
+   const div=document.createElement("div");
+   div.className="itemcard";
+   div.innerHTML = `
+     <div class="top">
+       <div>
+         <div class="title">${r.name}</div>
+       </div>
+       <div style="text-align:right;font-weight:900">${r.timeDisplayHtml}</div>
+     </div>
+   `;
+   cfrag.appendChild(div);
+ });
+ list.replaceChildren(cfrag);
 }
 
 /* AYLIK */
 function renderMonthly(){
-  const m = state.month;
+ const m = state.month;
 
-  let srows = (DATA.monthlySummary && DATA.monthlySummary[m]) ? DATA.monthlySummary[m] : [];
-  const smult = state.sort.summary.dir==="asc" ? 1 : -1;
-  const scol = state.sort.summary.col;
+ let srows = (DATA.monthlySummary && DATA.monthlySummary[m]) ? DATA.monthlySummary[m] : [];
+ const smult = state.sort.summary.dir==="asc" ? 1 : -1;
+ const scol = state.sort.summary.col;
 
-  srows = srows.slice().sort((a,b)=>{
-    if(scol==="hours") return smult*((a.hours||0)-(b.hours||0));
-    return smult*(a[scol]||"").localeCompare((b[scol]||""), "tr", {sensitivity:"base"});
-  });
+ srows = srows.slice().sort((a,b)=>{
+   if(scol==="hours") return smult*((a.hours||0)-(b.hours||0));
+   return smult*(a[scol]||"").localeCompare((b[scol]||""), "tr", {sensitivity:"base"});
+ });
 
-  if(state.selectedPerson){
-    const exists = srows.some(x => x.name === state.selectedPerson);
-    if(!exists) state.selectedPerson = "";
-  }
+ if(state.selectedPerson){
+   const exists = srows.some(x => x.name === state.selectedPerson);
+   if(!exists) state.selectedPerson = "";
+ }
 
-  const sbody=document.getElementById("sumBody");
-  const sfrag=document.createDocumentFragment();
-  srows.forEach(r=>{
-    const tr=document.createElement("tr");
-    tr.className = "clickable-row" + (state.selectedPerson===r.name ? " selected-person" : "");
-    tr.innerHTML = `<td class="sum-name">${r.name}</td><td>${formatHours(r.hours)} saat</td>`;
-    tr.addEventListener("click", ()=>{
-      // tekrar aynÄ± kiÅiye basÄ±nca kapansÄ±n
-      state.selectedPerson = (state.selectedPerson===r.name) ? "" : r.name;
-      renderMonthly();
-    });
-    sfrag.appendChild(tr);
-  });
-  sbody.replaceChildren(sfrag);
+ const sbody=document.getElementById("sumBody");
+ const sfrag=document.createDocumentFragment();
+ srows.forEach(r=>{
+   const tr=document.createElement("tr");
+   tr.className = "clickable-row" + (state.selectedPerson===r.name ? " selected-person" : "");
+   tr.innerHTML = `<td class="sum-name">${r.name}</td><td>${formatHours(r.hours)} saat</td>`;
+   tr.addEventListener("click", ()=>{
+     // tekrar aynı kişiye basınca kapansın
+     state.selectedPerson = (state.selectedPerson===r.name) ? "" : r.name;
+     renderMonthly();
+   });
+   sfrag.appendChild(tr);
+ });
+ sbody.replaceChildren(sfrag);
 
-  const scards=document.getElementById("sumCardList");
-  const scfrag=document.createDocumentFragment();
-  srows.forEach(r=>{
-    const div=document.createElement("div");
-    div.className="itemcard" + (state.selectedPerson===r.name ? " selected-person" : "");
-    div.innerHTML = `
-      <div class="top">
-        <div>
-          <div class="title center-title">${r.name}</div>
-        </div>
-        <div style="text-align:right;font-weight:900">
-          ${formatHours(r.hours)} saat
-        </div>
-      </div>
-    `;
-    div.addEventListener("click", ()=>{
-      state.selectedPerson = (state.selectedPerson===r.name) ? "" : r.name;
-      renderMonthly();
-    });
-    scfrag.appendChild(div);
-  });
-  scards.replaceChildren(scfrag);
+ const scards=document.getElementById("sumCardList");
+ const scfrag=document.createDocumentFragment();
+ srows.forEach(r=>{
+   const div=document.createElement("div");
+   div.className="itemcard" + (state.selectedPerson===r.name ? " selected-person" : "");
+   div.innerHTML = `
+     <div class="top">
+       <div>
+         <div class="title center-title">${r.name}</div>
+       </div>
+       <div style="text-align:right;font-weight:900">
+         ${formatHours(r.hours)} saat
+       </div>
+     </div>
+   `;
+   div.addEventListener("click", ()=>{
+     state.selectedPerson = (state.selectedPerson===r.name) ? "" : r.name;
+     renderMonthly();
+   });
+   scfrag.appendChild(div);
+ });
+ scards.replaceChildren(scfrag);
 
-  const pp = document.getElementById("personPanel");
-  if(state.selectedPerson){
-    pp.classList.remove("hidden");
-    renderPersonCalendar();
-    setTimeout(()=>scrollToEl("personPanel"), 50);
-  } else {
-    pp.classList.add("hidden");
-  }
+ const pp = document.getElementById("personPanel");
+ if(state.selectedPerson){
+   pp.classList.remove("hidden");
+   renderPersonCalendar();
+   setTimeout(()=>scrollToEl("personPanel"), 50);
+ } else {
+   pp.classList.add("hidden");
+ }
 }
 
 function renderPersonCalendar(){
-  const m = state.month;
-  const person = state.selectedPerson;
+ const m = state.month;
+ const person = state.selectedPerson;
 
-  const title = document.getElementById("personTitle");
-  const sub = document.getElementById("personSub");
-  const list = document.getElementById("calendarList");
+ const title = document.getElementById("personTitle");
+ const sub = document.getElementById("personSub");
+ const list = document.getElementById("calendarList");
 
-  if(!person){
-    title.textContent = "KiÅi SeÃ§";
-    sub.textContent = "Ãzet listesinden bir kiÅiye tÄ±kla";
-    list.replaceChildren();
-    return;
-  }
+ if(!person){
+   title.textContent = "Kişi Seç";
+   sub.textContent = "Özet listesinden bir kişiye tıkla";
+   list.replaceChildren();
+   return;
+ }
 
-  title.textContent = person;
-  sub.textContent = "";
+ title.textContent = person;
+ sub.textContent = "";
 
-  const raw = (DATA.monthly && DATA.monthly[m]) ? DATA.monthly[m] : [];
-  const personRows = raw.filter(r => r.name === person);
+ const raw = (DATA.monthly && DATA.monthly[m]) ? DATA.monthly[m] : [];
+ const personRows = raw.filter(r => r.name === person);
 
-  const map = new Map();
-  personRows.forEach(r=>{
-    const t = r.time;
-    const d = r.date;
-    if(!map.has(d)) map.set(d, []);
-    map.get(d).push(t);
-  });
+ const map = new Map();
+ personRows.forEach(r=>{
+   const t = r.time;
+   const d = r.date;
+   if(!map.has(d)) map.set(d, []);
+   map.get(d).push(t);
+ });
 
-  (function(){
-    const now = new Date();
-    const ty = now.getFullYear();
-    const tm = now.getMonth()+1;
-    const td = now.getDate();
-    const parts = (m||"-").split("-");
-    const my = parseInt(parts[0],10);
-    const mm = parseInt(parts[1],10);
-    if(!my || !mm) return;
+ (function(){
+   const now = new Date();
+   const ty = now.getFullYear();
+   const tm = now.getMonth()+1;
+   const td = now.getDate();
+   const parts = (m||"-").split("-");
+   const my = parseInt(parts[0],10);
+   const mm = parseInt(parts[1],10);
+   if(!my || !mm) return;
 
-    let maxDay = 0;
-    if(my < ty || (my === ty && mm < tm)){
-      maxDay = new Date(my, mm, 0).getDate();
-    } else if(my === ty && mm === tm){
-      maxDay = Math.max(0, td-1);
-    } else {
-      maxDay = 0;
-    }
+   let maxDay = 0;
+   if(my < ty || (my === ty && mm < tm)){
+     maxDay = new Date(my, mm, 0).getDate();
+   } else if(my === ty && mm === tm){
+     maxDay = Math.max(0, td-1);
+   } else {
+     maxDay = 0;
+   }
 
-    const mmStr = String(mm).padStart(2,"0");
-    const yyyyStr = String(my);
-    for(let day=1; day<=maxDay; day++){
-      const ddStr = String(day).padStart(2,"0");
-      const key = `${ddStr}.${mmStr}.${yyyyStr}`;
-      if(!map.has(key)) map.set(key, []);
-    }
-  })();
+   const mmStr = String(mm).padStart(2,"0");
+   const yyyyStr = String(my);
+   for(let day=1; day<=maxDay; day++){
+     const ddStr = String(day).padStart(2,"0");
+     const key = `${ddStr}.${mmStr}.${yyyyStr}`;
+     if(!map.has(key)) map.set(key, []);
+   }
+ })();
 
-  const dates = Array.from(map.keys()).sort((a,b)=> a.localeCompare(b, "tr"));
-  const frag = document.createDocumentFragment();
+ const dates = Array.from(map.keys()).sort((a,b)=> a.localeCompare(b, "tr"));
+ const frag = document.createDocumentFragment();
 
-  dates.forEach(d=>{
-    const times = map.get(d).slice().sort((a,b)=> timeToMin(a)-timeToMin(b));
-    const entry = times[0];
-    const exit = times[times.length-1];
-    const hasExit = times.length >= 2 && exit !== entry;
-    const workMin = hasExit ? Math.max(0, timeToMin(exit) - timeToMin(entry)) : 0;
-    const workText = hasExit ? String((workMin/60).toFixed(2)).replace(".", ",") + " saat" : "-";
+ dates.forEach(d=>{
+   const times = map.get(d).slice().sort((a,b)=> timeToMin(a)-timeToMin(b));
+   const entry = times[0];
+   const exit = times[times.length-1];
+   const hasExit = times.length >= 2 && exit !== entry;
+   const workMin = hasExit ? Math.max(0, timeToMin(exit) - timeToMin(entry)) : 0;
+   const workText = hasExit ? String((workMin/60).toFixed(2)).replace(".", ",") + " saat" : "-";
 
-    const box = document.createElement("div");
-    box.className = "daybox";
+   const box = document.createElement("div");
+   box.className = "daybox";
 
-    const timesHtml = times.map((t, idx)=>{
-      if(idx === 0) return `<span class="pill time-green">${t}</span>`;
-      if(idx === times.length-1) return `<span class="pill time-red">${t}</span>`;
-      return `<span class="pill">${t}</span>`;
-    }).join("");
+   const timesHtml = times.map((t, idx)=>{
+     if(idx === 0) return `<span class="pill time-green">${t}</span>`;
+     if(idx === times.length-1) return `<span class="pill time-red">${t}</span>`;
+     return `<span class="pill">${t}</span>`;
+   }).join("");
 
-    box.innerHTML = `
-      <div class="hdr">
-        <div>
-          <div class="d">${d}</div>
-          <div class="m mesai-line">Mesai: <b>${workText}</b></div>
-        </div>
-      </div>
-      <div class="times">${timesHtml}</div>
-    `;
-    frag.appendChild(box);
-  });
+   box.innerHTML = `
+     <div class="hdr">
+       <div>
+         <div class="d">${d}</div>
+         <div class="m mesai-line">Mesai: <b>${workText}</b></div>
+       </div>
+     </div>
+     <div class="times">${timesHtml}</div>
+   `;
+   frag.appendChild(box);
+ });
 
-  list.replaceChildren(frag);
+ list.replaceChildren(frag);
 }
 
 /* PERSONEL */
 function isPassive(p){
-  const s = textNorm(p.status);
-  return (s==="pasif" || s==="devredildi" || s==="cikti" || s==="cik" || s==="ayrildi" || s==="isten ayrildi");
+ const s = textNorm(p.status);
+ return (s==="pasif" || s==="devredildi" || s==="cikti" || s==="cik" || s==="ayrildi" || s==="isten ayrildi");
 }
 function renderPeople(){
-  const q=textNorm(state.filter.people);
-  let rows = (DATA.people || []);
-  rows = rows.filter(p => state.peopleView==="active" ? !isPassive(p) : isPassive(p));
-  if(q) rows = rows.filter(r => textNorm(r.tc+" "+r.name+" "+r.phone+" "+r.card+" "+r.status).includes(q));
+ const q=textNorm(state.filter.people);
+ let rows = (DATA.people || []);
+ rows = rows.filter(p => state.peopleView==="active" ? !isPassive(p) : isPassive(p));
+ if(q) rows = rows.filter(r => textNorm(r.tc+" "+r.name+" "+r.phone+" "+r.card+" "+r.status).includes(q));
 
-  const {col,dir} = state.sort.people;
-  const mult = dir==="asc" ? 1 : -1;
+ const {col,dir} = state.sort.people;
+ const mult = dir==="asc" ? 1 : -1;
 
-  rows = rows.slice().sort((a,b)=>{
-    if(col==="tc") return mult*(parseInt(a.tc,10)-parseInt(b.tc,10));
-    return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
-  });
+ rows = rows.slice().sort((a,b)=>{
+   if(col==="tc") return mult*(parseInt(a.tc,10)-parseInt(b.tc,10));
+   return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
+ });
 
-  if(state.selectedPersonPeople){
-    const ex = rows.some(x => x.card === state.selectedPersonPeople);
-    if(!ex) state.selectedPersonPeople = "";
-  }
+ if(state.selectedPersonPeople){
+   const ex = rows.some(x => x.card === state.selectedPersonPeople);
+   if(!ex) state.selectedPersonPeople = "";
+ }
 
-  const tbody=document.getElementById("peopleBody");
-  const frag=document.createDocumentFragment();
-  rows.forEach(r=>{
-    const tr=document.createElement("tr");
-    tr.className = (state.selectedPersonPeople===r.card ? "selected-person " : "") + "clickable-row";
-    const statusText = (r.status && String(r.status).trim()) ? String(r.status).trim() : (isPassive(r) ? "Pasif" : "Aktif");
-    tr.innerHTML = `
-      <td>${r.tc}</td>
-      <td style="font-weight:900">${r.name}</td>
-      <td>${r.role||""}</td>
-      <td>${r.phone}</td>
-      <td>${r.card}</td>
-      <td><span class="tag status-${isPassive(r) ? "passive" : "active"}">${statusText}</span></td>
-    `;
-    tr.addEventListener("click", ()=>{
-      // tekrar aynÄ± kiÅiye basÄ±nca kapansÄ±n
-      state.selectedPersonPeople = (state.selectedPersonPeople===r.card) ? "" : r.card;
-      renderPeople();
-    });
-    frag.appendChild(tr);
-  });
-  tbody.replaceChildren(frag);
+ const tbody=document.getElementById("peopleBody");
+ const frag=document.createDocumentFragment();
+ rows.forEach(r=>{
+   const tr=document.createElement("tr");
+   tr.className = (state.selectedPersonPeople===r.card ? "selected-person " : "") + "clickable-row";
+   const statusText = (r.status && String(r.status).trim()) ? String(r.status).trim() : (isPassive(r) ? "Pasif" : "Aktif");
+   tr.innerHTML = `
+     <td>${r.tc}</td>
+     <td style="font-weight:900">${r.name}</td>
+     <td>${r.role||""}</td>
+     <td>${r.phone}</td>
+     <td>${r.card}</td>
+     <td><span class="tag status-${isPassive(r) ? "passive" : "active"}">${statusText}</span></td>
+   `;
+   tr.addEventListener("click", ()=>{
+     // tekrar aynı kişiye basınca kapansın
+     state.selectedPersonPeople = (state.selectedPersonPeople===r.card) ? "" : r.card;
+     renderPeople();
+   });
+   frag.appendChild(tr);
+ });
+ tbody.replaceChildren(frag);
 
-  const list=document.getElementById("peopleCardList");
-  const cfrag=document.createDocumentFragment();
-  rows.forEach(r=>{
-    const div=document.createElement("div");
-    div.className="itemcard clickable-row" + (state.selectedPersonPeople===r.card ? " selected-person" : "");
-    div.innerHTML = `
-      <div class="top">
-        <div>
-          <div class="title center-title">${r.name}</div>
-        </div>
-        <div style="text-align:right">
-          <div style="color:var(--muted);font-size:13px">${r.role||""}</div>
-        </div>
-      </div>
-      <div class="meta">
-        <div><span>Cep Telefonu NumarasÄ±</span><b>${r.phone}</b><button class="phone-btn" type="button" aria-label="Ara" onclick="dialTR('${r.phone}')">ð</button></div>
-      </div>
-    `;
-    div.addEventListener("click", ()=>{
-      state.selectedPersonPeople = (state.selectedPersonPeople===r.card) ? "" : r.card;
-      renderPeople();
-    });
-    cfrag.appendChild(div);
-  });
-  list.replaceChildren(cfrag);
+ const list=document.getElementById("peopleCardList");
+ const cfrag=document.createDocumentFragment();
+ rows.forEach(r=>{
+   const div=document.createElement("div");
+   div.className="itemcard clickable-row" + (state.selectedPersonPeople===r.card ? " selected-person" : "");
+   div.innerHTML = `
+     <div class="top">
+       <div>
+         <div class="title center-title">${r.name}</div>
+       </div>
+       <div style="text-align:right">
+         <div style="color:var(--muted);font-size:13px">${r.role||""}</div>
+       </div>
+     </div>
+     <div class="meta">
+       <div><span>Cep Telefonu Numarası</span><b>${r.phone}</b><button class="phone-btn" type="button" aria-label="Ara" onclick="dialTR('${r.phone}')">📞</button></div>
+     </div>
+   `;
+   div.addEventListener("click", ()=>{
+     state.selectedPersonPeople = (state.selectedPersonPeople===r.card) ? "" : r.card;
+     renderPeople();
+   });
+   cfrag.appendChild(div);
+ });
+ list.replaceChildren(cfrag);
 
-  document.getElementById("btnActive").classList.toggle("toggle-active", state.peopleView==="active");
-  document.getElementById("btnPassive").classList.toggle("toggle-active", state.peopleView==="passive");
+ document.getElementById("btnActive").classList.toggle("toggle-active", state.peopleView==="active");
+ document.getElementById("btnPassive").classList.toggle("toggle-active", state.peopleView==="passive");
 
-  const panel = document.getElementById("peopleDetailPanel");
-  const title = document.getElementById("peopleDetailTitle");
-  const sub = document.getElementById("peopleDetailSub");
-  const out = document.getElementById("peopleDetailList");
+ const panel = document.getElementById("peopleDetailPanel");
+ const title = document.getElementById("peopleDetailTitle");
+ const sub = document.getElementById("peopleDetailSub");
+ const out = document.getElementById("peopleDetailList");
 
-  if(!state.selectedPersonPeople){
-    panel.classList.add("hidden");
-    return;
-  }
+ if(!state.selectedPersonPeople){
+   panel.classList.add("hidden");
+   return;
+ }
 
-  const p = (DATA.people || []).find(x => x.card === state.selectedPersonPeople);
-  if(!p){
-    panel.classList.add("hidden");
-    return;
-  }
+ const p = (DATA.people || []).find(x => x.card === state.selectedPersonPeople);
+ if(!p){
+   panel.classList.add("hidden");
+   return;
+ }
 
-  panel.classList.remove("hidden");
-  title.textContent = p.name;
-  setTimeout(()=>scrollToEl("peopleDetailPanel"), 50);
-  sub.textContent = "";
+ panel.classList.remove("hidden");
+ title.textContent = p.name;
+ setTimeout(()=>scrollToEl("peopleDetailPanel"), 50);
+ sub.textContent = "";
 
-  const items = [
-    ["Cep Telefonu NumarasÄ±", p.phone],
-    ["TC NumarasÄ±", p.tc],
-    ["GÃ¶rev / Pozisyon", p.role],
-    ["Kan Grubu", p.blood],
-    ["Acil Durum KiÅi AdÄ±", p.emergencyName],
-    ["Acil Durum NumarasÄ±", p.emergencyPhone],
-    ["Adres", p.address],
-    ["Kart NumarasÄ±", p.card],
-    ["Ä°Åe BaÅlama Tarihi", p.startDate],
-    ["Notlar", p.notes || "-"],
-    ["KayÄ±t Tarihi", p.recordDate],
-  ];
+ const items = [
+   ["Cep Telefonu Numarası", p.phone],
+   ["TC Numarası", p.tc],
+   ["Görev / Pozisyon", p.role],
+   ["Kan Grubu", p.blood],
+   ["Acil Durum Kişi Adı", p.emergencyName],
+   ["Acil Durum Numarası", p.emergencyPhone],
+   ["Adres", p.address],
+   ["Kart Numarası", p.card],
+   ["İşe Başlama Tarihi", p.startDate],
+   ["Notlar", p.notes || "-"],
+   ["Kayıt Tarihi", p.recordDate],
+ ];
 
-  const frag2 = document.createDocumentFragment();
-  items.forEach(([k,v])=>{
-    const box = document.createElement("div");
-    box.className = "daybox";
-    const val = (v || "-");
-    let extra = "";
-    if((k === "Cep Telefonu NumarasÄ±" || k === "Acil Durum NumarasÄ±") && v && v !== "-"){
-      const cls = (k === "Acil Durum NumarasÄ±") ? "phone-btn red" : "phone-btn";
-      extra = ` <button class="${cls}" type="button" aria-label="Ara" onclick="dialTR('${v}')">ð</button>`;
-    }
-    box.innerHTML = `<div class="hdr"><div style="width:100%"><div class="d">${k}</div><div class="m">${val}${extra}</div></div></div>`;
-    frag2.appendChild(box);
-  });
-  out.replaceChildren(frag2);
+ const frag2 = document.createDocumentFragment();
+ items.forEach(([k,v])=>{
+   const box = document.createElement("div");
+   box.className = "daybox";
+   const val = (v || "-");
+   let extra = "";
+   if((k === "Cep Telefonu Numarası" || k === "Acil Durum Numarası") && v && v !== "-"){
+     const cls = (k === "Acil Durum Numarası") ? "phone-btn red" : "phone-btn";
+     extra = ` <button class="${cls}" type="button" aria-label="Ara" onclick="dialTR('${v}')">📞</button>`;
+   }
+   box.innerHTML = `<div class="hdr"><div style="width:100%"><div class="d">${k}</div><div class="m">${val}${extra}</div></div></div>`;
+   frag2.appendChild(box);
+ });
+ out.replaceChildren(frag2);
 }
 
 /* INSTALL */
 async function install(){
-  const landingEl = document.getElementById("landing");
-  const appEl = document.getElementById("app");
+ const landingEl = document.getElementById("landing");
+ const appEl = document.getElementById("app");
 
-  const emailEl = document.getElementById("email");
-  const passEl  = document.getElementById("password");
-  const loginBtn = document.getElementById("loginBtn");
-  const errEl = document.getElementById("loginError");
+ const emailEl = document.getElementById("email");
+ const passEl  = document.getElementById("password");
+ const loginBtn = document.getElementById("loginBtn");
+ const errEl = document.getElementById("loginError");
 
-  showLogin("YÃ¼kleniyor...");
+ showLogin("Yükleniyor...");
 
-  function showLogin(msg){
-    if(landingEl) landingEl.classList.remove("hidden");
-    if(appEl) appEl.classList.add("hidden");
-    setLoading(false);
-    if(errEl) errEl.textContent = msg || "";
-  }
+ function showLogin(msg){
+   if(landingEl) landingEl.classList.remove("hidden");
+   if(appEl) appEl.classList.add("hidden");
+   setLoading(false);
+   if(errEl) errEl.textContent = msg || "";
+ }
 
-  function normalizeLoginEmail(raw){
-    const v = (raw || "").trim().toLowerCase();
-    if(!v) return "";
-    if(v.includes("@")) return v;
-    return v + "@eposta.com";
-  }
+ function normalizeLoginEmail(raw){
+   const v = (raw || "").trim().toLowerCase();
+   if(!v) return "";
+   if(v.includes("@")) return v;
+   return v + "@eposta.com";
+ }
 
-  async function doLogin(){
-    if(errEl) errEl.textContent = "";
-    try{
-      const FB = window.__FB;
-      if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
+ async function doLogin(){
+   if(errEl) errEl.textContent = "";
+   try{
+     const FB = window.__FB;
+     if(!FB) throw new Error("Firebase hazır değil.");
 
-      if(loginBtn) loginBtn.disabled = true;
-      if(errEl) errEl.textContent = "GiriÅ yapÄ±lÄ±yor...";
+     if(loginBtn) loginBtn.disabled = true;
+     if(errEl) errEl.textContent = "Giriş yapılıyor...";
 
-      const emailNorm = normalizeLoginEmail(emailEl?.value || "");
-      // footerâda kullanÄ±cÄ± adÄ±: login inputâu
-      state.userEmail = emailNorm;
+     const emailNorm = normalizeLoginEmail(emailEl?.value || "");
+     // footer’da kullanıcı adı: login input’u
+     state.userEmail = emailNorm;
 
-      await FB.signInWithEmailAndPassword(
-        FB.auth,
-        emailNorm,
-        passEl?.value || ""
-      );
-    }catch(e){
-      console.error(e);
-      const msg = (e && (e.code || e.message)) ? (e.code || e.message) : "GiriÅ baÅarÄ±sÄ±z";
-      if(errEl) errEl.textContent = msg;
-    }finally{
-      if(loginBtn) loginBtn.disabled = false;
-    }
-  }
+     await FB.signInWithEmailAndPassword(
+       FB.auth,
+       emailNorm,
+       passEl?.value || ""
+     );
+   }catch(e){
+     console.error(e);
+     const msg = (e && (e.code || e.message)) ? (e.code || e.message) : "Giriş başarısız";
+     if(errEl) errEl.textContent = msg;
+   }finally{
+     if(loginBtn) loginBtn.disabled = false;
+   }
+ }
 
-  if(loginBtn){
-    loginBtn.addEventListener("click", doLogin);
-    loginBtn.disabled = true;
-  }
-  [emailEl, passEl].forEach(el=>{
-    if(!el) return;
-    el.addEventListener("keydown", (ev)=>{
-      if(ev.key === "Enter") doLogin();
-    });
-  });
+ if(loginBtn){
+   loginBtn.addEventListener("click", doLogin);
+   loginBtn.disabled = true;
+ }
+ [emailEl, passEl].forEach(el=>{
+   if(!el) return;
+   el.addEventListener("keydown", (ev)=>{
+     if(ev.key === "Enter") doLogin();
+   });
+ });
 
-  let _inited = false;
+ let _inited = false;
 
-  const FB = await waitForFB();
-  if(loginBtn) loginBtn.disabled = false;
-  if(errEl) errEl.textContent = "";
+ const FB = await waitForFB();
+ if(loginBtn) loginBtn.disabled = false;
+ if(errEl) errEl.textContent = "";
 
-  FB.onAuthStateChanged(FB.auth, async (user)=>{
-    if(!user){
-      _inited = false;
-      // V40.2: oturum yokken yÃ¼klenmiÅ gibi iÅaretlenmesin
-      try{ LOAD.today=false; LOAD.monthly=false; LOAD.people=false; LOAD.months=false; }catch(e){}
-      state.userEmail = "";
-      showLogin("");
-      return;
-    }
+ FB.onAuthStateChanged(FB.auth, async (user)=>{
+   if(!user){
+     _inited = false;
+     // V40.2: oturum yokken yüklenmiş gibi işaretlenmesin
+     try{ LOAD.today=false; LOAD.monthly=false; LOAD.people=false; LOAD.months=false; }catch(e){}
+     state.userEmail = "";
+     showLogin("");
+     return;
+   }
 
-    // user.email yerine, login inputâundan state.userEmail zaten dolu (boÅsa fallback)
-    if(!state.userEmail) state.userEmail = user.email || "";
+   // user.email yerine, login input’undan state.userEmail zaten dolu (boşsa fallback)
+   if(!state.userEmail) state.userEmail = user.email || "";
 
-    mountApp();
+   mountApp();
 
-    tryUpdatePwaIconWithAuth();
+   tryUpdatePwaIconWithAuth();
 
-    if(!location.hash) location.hash="#today";
+   if(!location.hash) location.hash="#today";
 
-    // Login sonrasÄ± zoom reset
-    resetViewportAfterLogin();
+   // Login sonrası zoom reset
+   resetViewportAfterLogin();
 
-    // Ä°lk aÃ§Ä±lÄ±Åta V40 sÄ±ralÄ± Ã¶nyÃ¼kleme:
-    // 1) GÃ¼ncel YYYY-MM.csv Ã§ekilir
-    // 2) Ãnce BugÃ¼n doldurulur
-    // 3) AynÄ± indirilen dosya ile AylÄ±k KayÄ±tlar doldurulur
-    // 4) Kisiler.csv Ã§ekilir ve Personel doldurulur
-    // 5) AylÄ±k KayÄ±tlar dropdown'Ä±na (bu yÄ±l bugÃ¼ne kadar) + (geÃ§en yÄ±lÄ±n tÃ¼m aylarÄ±) eklenir
-    if(!_inited){
-      (async ()=>{
-        if(!location.hash) location.hash = "#today";
+   // İlk açılışta V40 sıralı önyükleme:
+   // 1) Güncel YYYY-MM.csv çekilir
+   // 2) Önce Bugün doldurulur
+   // 3) Aynı indirilen dosya ile Aylık Kayıtlar doldurulur
+   // 4) Kisiler.csv çekilir ve Personel doldurulur
+   // 5) Aylık Kayıtlar dropdown'ına (bu yıl bugüne kadar) + (geçen yılın tüm ayları) eklenir
+   if(!_inited){
+     (async ()=>{
+       if(!location.hash) location.hash = "#today";
 
-        // Ä°lk etapta ekranÄ± BugÃ¼n'e sabitle
-        renderRoute();
+       // İlk etapta ekranı Bugün'e sabitle
+       renderRoute();
 
-        // 1-2) Ãnce gÃ¼ncel ay + BugÃ¼n
-        await ensureTodayReady();
+       // 1-2) Önce güncel ay + Bugün
+       await ensureTodayReady();
 
-        // 3) AynÄ± ay verisi ile AylÄ±k KayÄ±tlar hazÄ±r (yeniden indirme yok)
-        const curKey = ymKeyFromDate(new Date());
-        state.month = curKey;
+       // 3) Aynı ay verisi ile Aylık Kayıtlar hazır (yeniden indirme yok)
+       const curKey = ymKeyFromDate(new Date());
+       state.month = curKey;
 
-        // Dropdown ilk aÅamada sadece gÃ¼ncel ayÄ± gÃ¶stersin
-        DATA.months = [curKey];
-        const monthSel = document.getElementById("monthSelect");
-        if(monthSel){
-          monthSel.innerHTML = "";
-          const opt = document.createElement("option");
-          opt.value = curKey;
-          opt.textContent = curKey;
-          monthSel.appendChild(opt);
-          monthSel.value = curKey;
-        }
-        LOAD.monthly = true;
+       // Dropdown ilk aşamada sadece güncel ayı göstersin
+       DATA.months = [curKey];
+       const monthSel = document.getElementById("monthSelect");
+       if(monthSel){
+         monthSel.innerHTML = "";
+         const opt = document.createElement("option");
+         opt.value = curKey;
+         opt.textContent = curKey;
+         monthSel.appendChild(opt);
+         monthSel.value = curKey;
+       }
+       LOAD.monthly = true;
 
-        // 4) Personel
-        await ensurePeopleReady();
+       // 4) Personel
+       await ensurePeopleReady();
 
-        // 5) Dropdown'a bu yÄ±l bugÃ¼ne kadar + geÃ§en yÄ±lÄ±n tamamÄ±
-        DATA.months = buildMonthCandidates();
-        if(monthSel){
-          const selected = state.month || curKey;
-          monthSel.innerHTML = "";
-          DATA.months.forEach(m=>{
-            const o = document.createElement("option");
-            o.value = m;
-            o.textContent = m;
-            monthSel.appendChild(o);
-          });
-          monthSel.value = selected;
-        }
-        LOAD.months = true;
+       // 5) Dropdown'a bu yıl bugüne kadar + geçen yılın tamamı
+       DATA.months = buildMonthCandidates();
+       if(monthSel){
+         const selected = state.month || curKey;
+         monthSel.innerHTML = "";
+         DATA.months.forEach(m=>{
+           const o = document.createElement("option");
+           o.value = m;
+           o.textContent = m;
+           monthSel.appendChild(o);
+         });
+         monthSel.value = selected;
+       }
+       LOAD.months = true;
 
-        // Zoom dÃ¼zelt
-        setTimeout(resetViewportAfterLogin, 120);
+       // Zoom düzelt
+       setTimeout(resetViewportAfterLogin, 120);
 
-        // Route tekrar Ã§iz (mevcut sekme neyse)
-        renderRoute();
-        _inited = true;
-      })().catch((e)=>{
-        console.warn(e);
-        setTimeout(resetViewportAfterLogin, 120);
-        renderRoute();
-        _inited = true;
-      });
+       // Route tekrar çiz (mevcut sekme neyse)
+       renderRoute();
+       _inited = true;
+     })().catch((e)=>{
+       console.warn(e);
+       setTimeout(resetViewportAfterLogin, 120);
+       renderRoute();
+       _inited = true;
+     });
 
-      return;
-    }
+     return;
+   }
 
-    renderRoute();
-  });
+   renderRoute();
+ });
 
-  // month select
-  const sel = document.getElementById("monthSelect");
-  sel.addEventListener("change", async ()=>{
-    state.month = sel.value;
-    state.filter.monthly = "";
-    state.selectedPerson = "";
+ // month select
+ const sel = document.getElementById("monthSelect");
+ sel.addEventListener("change", async ()=>{
+   state.month = sel.value;
+   state.filter.monthly = "";
+   state.selectedPerson = "";
 
-    setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
-    try{ await loadMonth(state.month); }catch(e){ console.warn(e); }
-    setTabInlineLoading("monthly", false);
+   setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
+   try{ await loadMonth(state.month); }catch(e){ console.warn(e); }
+   setTabInlineLoading("monthly", false);
 
-    if(state.route==="monthly") renderMonthly();
-  });
+   if(state.route==="monthly") renderMonthly();
+ });
 
-  const monthlyBtn = document.getElementById("monthlyReportBtn");
-  if(monthlyBtn){
-    monthlyBtn.addEventListener("click", async ()=>{
-      try{
-        await ensureMonthlyReady();
-        await downloadMonthlyReport();
-      }catch(e){
-        console.warn(e);
-        alert("Rapor oluÅturulamadÄ±.");
-      }
-    });
-  }
+ const monthlyBtn = document.getElementById("monthlyReportBtn");
+ if(monthlyBtn){
+   monthlyBtn.addEventListener("click", async ()=>{
+     try{
+       await ensureMonthlyReady();
+       await downloadMonthlyReport();
+     }catch(e){
+       console.warn(e);
+       alert("Rapor oluşturulamadı.");
+     }
+   });
+ }
 
-  const peopleBtn = document.getElementById("peopleReportBtn");
-  if(peopleBtn){
-    peopleBtn.addEventListener("click", async ()=>{
-      try{
-        await ensurePeopleReady();
-        await downloadPeopleReport();
-      }catch(e){
-        console.warn(e);
-        alert("Rapor oluÅturulamadÄ±.");
-      }
-    });
-  }
+ const peopleBtn = document.getElementById("peopleReportBtn");
+ if(peopleBtn){
+   peopleBtn.addEventListener("click", async ()=>{
+     try{
+       await ensurePeopleReady();
+       await downloadPeopleReport();
+     }catch(e){
+       console.warn(e);
+       alert("Rapor oluşturulamadı.");
+     }
+   });
+ }
 
-  const debounce=(fn,ms=120)=>{ let t=null; return (...args)=>{ if(t) clearTimeout(t); t=setTimeout(()=>fn(...args),ms); }; };
-  document.getElementById("peopleSearch").addEventListener("input", debounce(e=>{
-    if(!LOAD.people) return;
-    state.filter.people = e.target.value;
-    if(state.route==="people") renderPeople();
-  }));
+ const debounce=(fn,ms=120)=>{ let t=null; return (...args)=>{ if(t) clearTimeout(t); t=setTimeout(()=>fn(...args),ms); }; };
+ document.getElementById("peopleSearch").addEventListener("input", debounce(e=>{
+   if(!LOAD.people) return;
+   state.filter.people = e.target.value;
+   if(state.route==="people") renderPeople();
+ }));
 
-  // sorting
-  document.querySelectorAll("#todayTable thead th").forEach(th=>th.addEventListener("click", ()=>{
-    const col=th.dataset.col; if(!col) return;
-    const cur=state.sort.today; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
-    state.sort.today={col,dir:nextDir};
-    if(state.route==="today" && LOAD.today) renderToday();
-  }));
+ // sorting
+ document.querySelectorAll("#todayTable thead th").forEach(th=>th.addEventListener("click", ()=>{
+   const col=th.dataset.col; if(!col) return;
+   const cur=state.sort.today; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
+   state.sort.today={col,dir:nextDir};
+   if(state.route==="today" && LOAD.today) renderToday();
+ }));
 
-  document.querySelectorAll("#monthTable thead th").forEach(th=>th.addEventListener("click", ()=>{
-    const col=th.dataset.col; if(!col) return;
-    const cur=state.sort.monthly; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
-    state.sort.monthly={col,dir:nextDir};
-    if(state.route==="monthly" && LOAD.monthly) renderMonthly();
-  }));
+ document.querySelectorAll("#monthTable thead th").forEach(th=>th.addEventListener("click", ()=>{
+   const col=th.dataset.col; if(!col) return;
+   const cur=state.sort.monthly; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
+   state.sort.monthly={col,dir:nextDir};
+   if(state.route==="monthly" && LOAD.monthly) renderMonthly();
+ }));
 
-  document.querySelectorAll("#sumTable thead th").forEach(th=>th.addEventListener("click", ()=>{
-    const col=th.dataset.col; if(!col) return;
-    const cur=state.sort.summary; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
-    state.sort.summary={col,dir:nextDir};
-    if(state.route==="monthly" && LOAD.monthly) renderMonthly();
-  }));
+ document.querySelectorAll("#sumTable thead th").forEach(th=>th.addEventListener("click", ()=>{
+   const col=th.dataset.col; if(!col) return;
+   const cur=state.sort.summary; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
+   state.sort.summary={col,dir:nextDir};
+   if(state.route==="monthly" && LOAD.monthly) renderMonthly();
+ }));
 
-  document.querySelectorAll("#peopleTable thead th").forEach(th=>th.addEventListener("click", ()=>{
-    const col=th.dataset.col; if(!col) return;
-    const cur=state.sort.people; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
-    state.sort.people={col,dir:nextDir};
-    if(state.route==="people" && LOAD.people) renderPeople();
-  }));
+ document.querySelectorAll("#peopleTable thead th").forEach(th=>th.addEventListener("click", ()=>{
+   const col=th.dataset.col; if(!col) return;
+   const cur=state.sort.people; const nextDir=(cur.col===col && cur.dir==="asc")?"desc":"asc";
+   state.sort.people={col,dir:nextDir};
+   if(state.route==="people" && LOAD.people) renderPeople();
+ }));
 
-  // people view toggles
-  document.getElementById("btnActive").addEventListener("click", ()=>{ state.peopleView="active"; if(state.route==="people" && LOAD.people) renderPeople(); });
-  document.getElementById("btnPassive").addEventListener("click", ()=>{ state.peopleView="passive"; if(state.route==="people" && LOAD.people) renderPeople(); });
+ // people view toggles
+ document.getElementById("btnActive").addEventListener("click", ()=>{ state.peopleView="active"; if(state.route==="people" && LOAD.people) renderPeople(); });
+ document.getElementById("btnPassive").addEventListener("click", ()=>{ state.peopleView="passive"; if(state.route==="people" && LOAD.people) renderPeople(); });
 
-  // Tab aÃ§Ä±lÄ±nca ilgili tabÄ± yÃ¼kle
-  window.addEventListener("hashchange", ()=>{
-    const r = routeFromHash();
-    if(r==="today") ensureTodayReady();
-    if(r==="monthly") ensureMonthlyReady();
-    if(r==="people") ensurePeopleReady();
-    // Tab geÃ§iÅinde de zoom reset (mobil)
-    setTimeout(resetViewportAfterLogin, 80);
-  });
+ // Tab açılınca ilgili tabı yükle
+ window.addEventListener("hashchange", ()=>{
+   const r = routeFromHash();
+   if(r==="today") ensureTodayReady();
+   if(r==="monthly") ensureMonthlyReady();
+   if(r==="people") ensurePeopleReady();
+   // Tab geçişinde de zoom reset (mobil)
+   setTimeout(resetViewportAfterLogin, 80);
+ });
 
-  renderRoute();
+ renderRoute();
 }
 
 (async ()=>{
-  try{
-    await waitForFB();
-    await install();
-  }catch(e){
-    console.error(e);
-    const errEl = document.getElementById("loginError");
-    const btn = document.getElementById("loginBtn");
-    if(btn) btn.disabled = true;
-    if(errEl) errEl.textContent = "Firebase yÃ¼klenemedi.";
-  }
+ try{
+   await waitForFB();
+   await install();
+ }catch(e){
+   console.error(e);
+   const errEl = document.getElementById("loginError");
+   const btn = document.getElementById("loginBtn");
+   if(btn) btn.disabled = true;
+   if(errEl) errEl.textContent = "Firebase yüklenemedi.";
+ }
 })();
 </script>
 
