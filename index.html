@@ -290,7 +290,7 @@ a[x-apple-data-detectors-type]{
         <div class="card pad">
           <div class="rowtools">
             <div class="lefttools">
-              <select id="monthSelect" class="select"></select>
+              <select id="monthSelect" class="select" disabled></select>
             </div>
             <div class="righttools">
               <button id="monthlyReportBtn" class="btn" type="button" disabled>Rapor Ä°ndir</button>
@@ -1440,16 +1440,31 @@ let _monthlyPromise = null;
 async function ensureMonthlyReady(){
   if(LOAD.monthly && LOAD.months) return;
   if(_monthlyPromise) return _monthlyPromise;
-  _monthlyPromise = (async ()=>{
-    // Build month dropdown options deterministically (no existence scan)
+  _monthlyPromise = (async ()=>{    // Build month dropdown options (only existing files)
     if(!LOAD.months){
       const candidates = buildMonthCandidates();
-      DATA.months = candidates;
+      const existing = [];
+      for(const ym of candidates){
+        const urls = ymFilenameCandidates(ym).map(fn => BASE_URL + fn);
+        let ok = false;
+        for(const u of urls){
+          if(await objectExists(u)){ ok = true; break; }
+        }
+        if(ok) existing.push(ym);
+      }
+
+      DATA.months = existing;
 
       const curKey = ymKeyFromDate(new Date());
-      if(!state.month) state.month = candidates.includes(curKey) ? curKey : (candidates[0] || curKey);
+      if(!state.month){
+        state.month = existing.includes(curKey) ? curKey : (existing[0] || curKey);
+      }else{
+        // If previously selected month no longer exists, fall back
+        if(existing.length && !existing.includes(state.month)) state.month = existing[0];
+      }
 
       const sel = document.getElementById("monthSelect");
+      const btnR = document.getElementById("monthlyReportBtn");
       if(sel){
         sel.innerHTML = "";
         DATA.months.forEach(m=>{
@@ -1459,7 +1474,10 @@ async function ensureMonthlyReady(){
           sel.appendChild(opt);
         });
         sel.value = state.month;
+        // enable dropdown only if we have at least one existing file
+        sel.disabled = (DATA.months.length === 0);
       }
+      if(btnR) btnR.disabled = (DATA.months.length === 0);
       LOAD.months = true;
     }
 
