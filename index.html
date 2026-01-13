@@ -668,41 +668,14 @@ function setTabInlineLoading(route, on, text){
   if(ct) ct.classList.toggle("hidden", on);
 }
 
-async function _refreshIdTokenOnce(){
-  try{
-    const FB = window.__FB;
-    const u = FB && FB.auth && FB.auth.currentUser;
-    if(u && typeof u.getIdToken === "function"){
-      await u.getIdToken(true);
-    }
-  }catch(e){
-    // ignore
-  }
-}
-
 async function fetchText(path){
   // Firebase Storage Ã¼zerinden dosyayÄ± oku (path: "logs/....csv")
   const FB = window.__FB;
   if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
-
-  try{
-    const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-    UPDATED_AT = nowTR();
-    updateFooterStamp();
-    return new TextDecoder("utf-8").decode(bytes);
-  }catch(e){
-    // V40 fix: ilk giriÅte token henÃ¼z Storage isteklerine eklenmeden 403 dÃ¶nebiliyor.
-    // 1 kere token refresh + retry yap.
-    const msg = String((e && (e.code || e.message)) || "");
-    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
-      await _refreshIdTokenOnce();
-      const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-      UPDATED_AT = nowTR();
-      updateFooterStamp();
-      return new TextDecoder("utf-8").decode(bytes);
-    }
-    throw e;
-  }
+  const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+  UPDATED_AT = nowTR();
+  updateFooterStamp();
+  return new TextDecoder("utf-8").decode(bytes);
 }
 
 async function objectExists(path){
@@ -713,16 +686,6 @@ async function objectExists(path){
     await FB.getMetadata(FB.ref(FB.storage, path));
     return true;
   }catch(e){
-    const msg = String((e && (e.code || e.message)) || "");
-    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
-      await _refreshIdTokenOnce();
-      try{
-        await FB.getMetadata(FB.ref(FB.storage, path));
-        return true;
-      }catch(_e2){
-        return false;
-      }
-    }
     return false;
   }
 }
@@ -1440,46 +1403,64 @@ let _monthlyPromise = null;
 async function ensureMonthlyReady(){
   if(LOAD.monthly && LOAD.months) return;
   if(_monthlyPromise) return _monthlyPromise;
+
+  setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
+  const sel = document.getElementById("monthSelect");
+  const btn = document.getElementById("monthlyReportBtn");
+  if(sel) sel.disabled = true;
+  if(btn) btn.disabled = true;
+
   _monthlyPromise = (async ()=>{
-    // Build month dropdown options deterministically (no existence scan)
+    // 1) Build month list (only once)
     if(!LOAD.months){
       const candidates = buildMonthCandidates();
-      DATA.months = candidates;
+      const existing = [];
+      for(const ym of candidates){
+        const urls = ymFilenameCandidates(ym).map(fn => BASE_URL + fn);
+        let ok = false;
+        for(const u of urls){
+          if(await objectExists(u)){ ok = true; break; }
+        }
+        if(ok) existing.push(ym);
+      }
+      DATA.months = existing;
 
+      // pick default month
       const curKey = ymKeyFromDate(new Date());
-      if(!state.month) state.month = candidates.includes(curKey) ? curKey : (candidates[0] || curKey);
+      if(!state.month){
+        state.month = existing.includes(curKey) ? curKey : (existing[0] || curKey);
+      }
 
-      const sel = document.getElementById("monthSelect");
+      // fill select
       if(sel){
         sel.innerHTML = "";
         DATA.months.forEach(m=>{
-          const opt = document.createElement("option");
-          opt.value = m;
-          opt.textContent = m;
+          const opt=document.createElement("option");
+          opt.value=m; opt.textContent=m;
           sel.appendChild(opt);
         });
-        sel.value = state.month;
+        if(state.month) sel.value = state.month;
       }
+
       LOAD.months = true;
     }
 
-    if(!LOAD.monthly){
-      setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
-      try{
-        await loadMonth(state.month || ymKeyFromDate(new Date()));
-      }catch(e){
-        console.warn(e);
-      }
-      LOAD.monthly = true;
-      setTabInlineLoading("monthly", false);
+    // 2) Load selected month data
+    if(state.month){
+      try{ await loadMonth(state.month); }catch(e){ console.warn("Month load failed:", e); }
     }
-
+    LOAD.monthly = true;
+  })().finally(()=>{
+    setTabInlineLoading("monthly", false);
+    if(sel) sel.disabled = false;
+    if(btn) btn.disabled = false;
     if(routeFromHash()==="monthly") renderMonthly();
-  })().finally(()=>{ _monthlyPromise=null; });
+    updateFooterStamp();
+    _monthlyPromise = null;
+  });
 
   return _monthlyPromise;
 }
-
 
 let _peoplePromise = null;
 async function ensurePeopleReady(){
@@ -1616,14 +1597,7 @@ function resetViewportAfterLogin(){
   setTimeout(()=>{ try{ window.scrollTo(0,0); }catch(e){} }, 80);
 }
 
-function isAuthed(){
-  try{ return !!(window.__FB && window.__FB.auth && window.__FB.auth.currentUser); }
-  catch(e){ return false; }
-}
-
 function renderRoute(){
-  // V40.2 BUGFIX: GiriÅ yapÄ±lmadan veri Ã§ekmeye Ã§alÄ±Åma (403 -> LOAD bayraklarÄ±nÄ± yanlÄ±Å set ediyordu)
-  if(!isAuthed()) return;
   state.route = routeFromHash();
   showOnly(state.route);
 
@@ -2117,8 +2091,6 @@ async function install(){
   FB.onAuthStateChanged(FB.auth, async (user)=>{
     if(!user){
       _inited = false;
-      // V40.2: oturum yokken yÃ¼klenmiÅ gibi iÅaretlenmesin
-      try{ LOAD.today=false; LOAD.monthly=false; LOAD.people=false; LOAD.months=false; }catch(e){}
       state.userEmail = "";
       showLogin("");
       return;
@@ -2136,70 +2108,14 @@ async function install(){
     // Login sonrasÄ± zoom reset
     resetViewportAfterLogin();
 
-    // Ä°lk aÃ§Ä±lÄ±Åta V40 sÄ±ralÄ± Ã¶nyÃ¼kleme:
-    // 1) GÃ¼ncel YYYY-MM.csv Ã§ekilir
-    // 2) Ãnce BugÃ¼n doldurulur
-    // 3) AynÄ± indirilen dosya ile AylÄ±k KayÄ±tlar doldurulur
-    // 4) Kisiler.csv Ã§ekilir ve Personel doldurulur
-    // 5) AylÄ±k KayÄ±tlar dropdown'Ä±na (bu yÄ±l bugÃ¼ne kadar) + (geÃ§en yÄ±lÄ±n tÃ¼m aylarÄ±) eklenir
+    // Ä°lk aÃ§Ä±lÄ±Åta sadece BugÃ¼nâÃ¼ yÃ¼kle (tab bazlÄ±)
     if(!_inited){
-      (async ()=>{
-        if(!location.hash) location.hash = "#today";
-
-        // Ä°lk etapta ekranÄ± BugÃ¼n'e sabitle
-        renderRoute();
-
-        // 1-2) Ãnce gÃ¼ncel ay + BugÃ¼n
-        await ensureTodayReady();
-
-        // 3) AynÄ± ay verisi ile AylÄ±k KayÄ±tlar hazÄ±r (yeniden indirme yok)
-        const curKey = ymKeyFromDate(new Date());
-        state.month = curKey;
-
-        // Dropdown ilk aÅamada sadece gÃ¼ncel ayÄ± gÃ¶stersin
-        DATA.months = [curKey];
-        const monthSel = document.getElementById("monthSelect");
-        if(monthSel){
-          monthSel.innerHTML = "";
-          const opt = document.createElement("option");
-          opt.value = curKey;
-          opt.textContent = curKey;
-          monthSel.appendChild(opt);
-          monthSel.value = curKey;
-        }
-        LOAD.monthly = true;
-
-        // 4) Personel
-        await ensurePeopleReady();
-
-        // 5) Dropdown'a bu yÄ±l bugÃ¼ne kadar + geÃ§en yÄ±lÄ±n tamamÄ±
-        DATA.months = buildMonthCandidates();
-        if(monthSel){
-          const selected = state.month || curKey;
-          monthSel.innerHTML = "";
-          DATA.months.forEach(m=>{
-            const o = document.createElement("option");
-            o.value = m;
-            o.textContent = m;
-            monthSel.appendChild(o);
-          });
-          monthSel.value = selected;
-        }
-        LOAD.months = true;
-
-        // Zoom dÃ¼zelt
+      renderRoute();
+      ensureTodayReady().finally(()=>{
+        // BugÃ¼n geldiÄinde tekrar viewport dÃ¼zelt
         setTimeout(resetViewportAfterLogin, 120);
-
-        // Route tekrar Ã§iz (mevcut sekme neyse)
-        renderRoute();
-        _inited = true;
-      })().catch((e)=>{
-        console.warn(e);
-        setTimeout(resetViewportAfterLogin, 120);
-        renderRoute();
-        _inited = true;
       });
-
+      _inited = true;
       return;
     }
 
