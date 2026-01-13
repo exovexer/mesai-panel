@@ -335,6 +335,29 @@ a[x-apple-data-detectors-type]{
                <tbody id="sumBody"></tbody>
              </table>
            </div>
+
+           <div id="errorSection" class="hidden">
+             <h3 style="margin:14px 0 10px;font-size:15px;text-align:center;font-weight:900">Hatalı Kayıtlar</h3>
+
+             <div class="mobile-cards">
+               <div id="errorCardList" class="cardlist"></div>
+             </div>
+
+             <div class="table-wrap">
+               <table id="errorTable">
+                 <thead>
+                   <tr>
+                     <th>Ad Soyad</th>
+                     <th>Gün</th>
+                     <th>Giriş</th>
+                     <th>Çıkış</th>
+                     <th>Mesai</th>
+                   </tr>
+                 </thead>
+                 <tbody id="errorBody"></tbody>
+               </table>
+             </div>
+           </div>
          </div>
        </div>
 
@@ -1711,6 +1734,24 @@ function formatTurkishDateHeader(ddmmyyyy){
  const dt = new Date(y, m-1, d);
  return `${d} ${months[m-1]} ${days[dt.getDay()]}`;
 }
+function parseTRDate(ddmmyyyy){
+ if(!ddmmyyyy) return null;
+ const parts = ddmmyyyy.split(".");
+ if(parts.length !== 3) return null;
+ const d = parseInt(parts[0],10);
+ const m = parseInt(parts[1],10);
+ const y = parseInt(parts[2],10);
+ if(!d || !m || !y) return null;
+ const dt = new Date(y, m-1, d);
+ return isNaN(dt.getTime()) ? null : dt;
+}
+function isPastDate(ddmmyyyy){
+ const dt = parseTRDate(ddmmyyyy);
+ if(!dt) return false;
+ const today = new Date();
+ today.setHours(0,0,0,0);
+ return dt < today;
+}
 
 function mountApp(){
  document.getElementById("landing").classList.add("hidden");
@@ -1906,6 +1947,7 @@ function renderMonthly(){
  if(monthlyBtn) monthlyBtn.disabled = !m;
 
  let srows = (DATA.monthlySummary && DATA.monthlySummary[m]) ? DATA.monthlySummary[m] : [];
+ const raw = (DATA.monthly && DATA.monthly[m]) ? DATA.monthly[m] : [];
  const smult = state.sort.summary.dir==="asc" ? 1 : -1;
  const scol = state.sort.summary.col;
 
@@ -1956,6 +1998,79 @@ function renderMonthly(){
    scfrag.appendChild(div);
  });
  scards.replaceChildren(scfrag);
+
+ const errorMap = new Map();
+ raw.forEach(r=>{
+   const name = r.name || "";
+   const date = r.date || "";
+   const key = `${name}__${date}`;
+   if(!errorMap.has(key)) errorMap.set(key, { name, date, times: [] });
+   errorMap.get(key).times.push(r.time);
+ });
+
+ const errorRows = [];
+ errorMap.forEach(entry=>{
+   if(entry.times.length === 1 && isPastDate(entry.date)){
+     const entryTime = entry.times[0] || "-";
+     errorRows.push({
+       name: entry.name,
+       date: entry.date,
+       entry: entryTime,
+       exit: "-",
+       work: "-"
+     });
+   }
+ });
+
+ errorRows.sort((a,b)=>{
+   const dc = (a.date || "").localeCompare((b.date || ""), "tr");
+   if(dc !== 0) return dc;
+   return (a.name || "").localeCompare((b.name || ""), "tr", {sensitivity:"base"});
+ });
+
+ const errorSection = document.getElementById("errorSection");
+ if(errorSection) errorSection.classList.toggle("hidden", errorRows.length === 0);
+
+ const errorBody = document.getElementById("errorBody");
+ if(errorBody){
+   const efrag = document.createDocumentFragment();
+   errorRows.forEach(r=>{
+     const tr = document.createElement("tr");
+     tr.innerHTML = `
+       <td>${r.name}</td>
+       <td>${r.date}</td>
+       <td>${r.entry}</td>
+       <td>${r.exit}</td>
+       <td>${r.work}</td>
+     `;
+     efrag.appendChild(tr);
+   });
+   errorBody.replaceChildren(efrag);
+ }
+
+ const errorCardList = document.getElementById("errorCardList");
+ if(errorCardList){
+   const cfrag = document.createDocumentFragment();
+   errorRows.forEach(r=>{
+     const div = document.createElement("div");
+     div.className = "itemcard";
+     div.innerHTML = `
+       <div class="top">
+         <div>
+           <div class="title">${r.name}</div>
+           <div class="sub">${r.date}</div>
+         </div>
+       </div>
+       <div class="meta">
+         <div><span>Giriş</span><b>${r.entry}</b></div>
+         <div><span>Çıkış</span><b>${r.exit}</b></div>
+         <div><span>Mesai</span><b>${r.work}</b></div>
+       </div>
+     `;
+     cfrag.appendChild(div);
+   });
+   errorCardList.replaceChildren(cfrag);
+ }
 
  const pp = document.getElementById("personPanel");
  if(state.selectedPerson){
