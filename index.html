@@ -184,7 +184,7 @@ a[x-apple-data-detectors-type]{
 }
 @keyframes spin{ to{ transform:rotate(360deg);} }
 
-/* V38.1: tab içi loader */
+/* V38.1: tab iÃ§i loader */
 .tab-inline-loader{
   margin-top:10px;
   border:1px solid var(--line);
@@ -199,7 +199,7 @@ a[x-apple-data-detectors-type]{
   line-height:1.45;
 }
 
-/* V38.1: Bugün desktop = mobil (kolonlar/tablo yok) */
+/* V38.1: BugÃ¼n desktop = mobil (kolonlar/tablo yok) */
 #page-today .table-wrap{ display:none !important; }
 #page-today .mobile-cards{ display:block !important; }
 
@@ -211,34 +211,34 @@ a[x-apple-data-detectors-type]{
 <section id="landing" class="landing">
   <div class="box card">
     <h1>Panel</h1>
-    <p>Lütfen e-posta ve şifrenizle giriş yapın.</p>
+    <p>LÃ¼tfen e-posta ve Åifrenizle giriÅ yapÄ±n.</p>
 
     <input id="email" type="email" placeholder="E-posta"
            autocomplete="username"
            style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
 
-    <input id="password" type="password" placeholder="Şifre"
+    <input id="password" type="password" placeholder="Åifre"
            autocomplete="current-password"
            style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);outline:none;background:#fff;margin-top:10px;font-size:16px"/>
 
-    <button id="loginBtn" class="btn primary" type="button" style="width:100%;margin-top:10px">Giriş Yap</button>
+    <button id="loginBtn" class="btn primary" type="button" style="width:100%;margin-top:10px">GiriÅ Yap</button>
     <div id="loginError" style="color:#b91c1c;font-size:13px;margin-top:8px"></div>
 </div>
 </section>
 
 <section id="app" class="app hidden">
-  <!-- (Eski) global overlay: artık CSV beklemesi için kullanılmıyor, sadece yerinde duruyor -->
+  <!-- (Eski) global overlay: artÄ±k CSV beklemesi iÃ§in kullanÄ±lmÄ±yor, sadece yerinde duruyor -->
   <div id="loadingOverlay" class="loading-overlay hidden" aria-live="polite" aria-busy="true">
     <div class="box card">
       <div class="spinner" aria-hidden="true"></div>
-      <div id="loadingText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
-      <div style="color:var(--muted);font-size:13px;line-height:1.45">Lütfen bekleyin.</div>
+      <div id="loadingText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
+      <div style="color:var(--muted);font-size:13px;line-height:1.45">LÃ¼tfen bekleyin.</div>
     </div>
   </div>
 
-  <nav class="tabs" aria-label="Menü">
-    <a href="#today" data-route="today" class="active">Bugün</a>
-    <a href="#monthly" data-route="monthly">Aylık Kayıtlar</a>
+  <nav class="tabs" aria-label="MenÃ¼">
+    <a href="#today" data-route="today" class="active">BugÃ¼n</a>
+    <a href="#monthly" data-route="monthly">AylÄ±k KayÄ±tlar</a>
     <a href="#people" data-route="people">Personel</a>
   </nav>
 
@@ -251,16 +251,16 @@ a[x-apple-data-detectors-type]{
     </header>
 
     <main>
-      <!-- BUGÜN -->
+      <!-- BUGÃN -->
       <section id="page-today" class="section">
         <div class="card pad">
           <h3 id="todayHeading" style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900"></h3>
 
-          <!-- V38.1: Bugün tab içi loader -->
+          <!-- V38.1: BugÃ¼n tab iÃ§i loader -->
           <div id="todayInlineLoader" class="tab-inline-loader hidden">
             <div class="spinner" aria-hidden="true"></div>
-            <div id="todayInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
-            <div class="muted">Lütfen bekleyin.</div>
+            <div id="todayInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
+            <div class="muted">LÃ¼tfen bekleyin.</div>
           </div>
 
           <div id="todayContent">
@@ -272,10 +272,10 @@ a[x-apple-data-detectors-type]{
               <table id="todayTable">
                 <thead>
                   <tr>
-                    <th data-col="time">Saat<span class="hint">↕</span></th>
-                    <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
-                    <th data-col="source">Kaynak<span class="hint">↕</span></th>
-                    <th data-col="sync">Senkron<span class="hint">↕</span></th>
+                    <th data-col="time">Saat<span class="hint">â</span></th>
+                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
+                    <th data-col="source">Kaynak<span class="hint">â</span></th>
+                    <th data-col="sync">Senkron<span class="hint">â</span></th>
                   </tr>
                 </thead>
                 <tbody id="todayBody"></tbody>
@@ -293,17 +293,17 @@ a[x-apple-data-detectors-type]{
               <select id="monthSelect" class="select" disabled></select>
             </div>
             <div class="righttools">
-              <button id="monthlyReportBtn" class="btn" type="button" disabled>Rapor İndir</button>
+              <button id="monthlyReportBtn" class="btn" type="button" disabled>Rapor Ä°ndir</button>
             </div>
           </div>
 
-          <h3 style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900">Toplam Mesai Özeti</h3>
+          <h3 style="margin:8px 0 10px;font-size:15px;text-align:center;font-weight:900">Toplam Mesai Ãzeti</h3>
 
-          <!-- V38.1: Aylık tab içi loader -->
+          <!-- V38.1: AylÄ±k tab iÃ§i loader -->
           <div id="monthlyInlineLoader" class="tab-inline-loader hidden">
             <div class="spinner" aria-hidden="true"></div>
-            <div id="monthlyInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
-            <div class="muted">Lütfen bekleyin.</div>
+            <div id="monthlyInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
+            <div class="muted">LÃ¼tfen bekleyin.</div>
           </div>
 
           <div id="monthlyContent">
@@ -315,8 +315,8 @@ a[x-apple-data-detectors-type]{
               <table id="sumTable">
                 <thead>
                   <tr>
-                    <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
-                    <th data-col="hours">Toplam Saat<span class="hint">↕</span></th>
+                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
+                    <th data-col="hours">Toplam Saat<span class="hint">â</span></th>
                   </tr>
                 </thead>
                 <tbody id="sumBody"></tbody>
@@ -328,8 +328,8 @@ a[x-apple-data-detectors-type]{
         <div class="card pad" style="margin-top:14px" id="personPanel" style="margin-top:14px" class="card pad hidden">
           <div class="rowtools" style="margin-bottom:6px">
             <div class="lefttools" style="flex:1">
-              <div id="personTitle" class="detail-title">Kişi Seç</div>
-              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="personSub">Özet listesinden bir kişiye tıkla</div>
+              <div id="personTitle" class="detail-title">KiÅi SeÃ§</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="personSub">Ãzet listesinden bir kiÅiye tÄ±kla</div>
             </div>
           </div>
 
@@ -342,20 +342,20 @@ a[x-apple-data-detectors-type]{
         <div class="card pad">
           <div class="rowtools">
             <div class="lefttools" style="flex:1">
-              <input id="peopleSearch" class="search" placeholder="Ara: ad, telefon, kart…" disabled/>
+              <input id="peopleSearch" class="search" placeholder="Ara: ad, telefon, kartâ¦" disabled/>
             </div>
             <div class="righttools">
               <button id="btnActive" class="btn toggle-active" type="button" disabled>Aktif Personel</button>
               <button id="btnPassive" class="btn" type="button" disabled>Pasif Personel</button>
-              <button id="peopleReportBtn" class="btn" type="button" disabled>Rapor İndir</button>
+              <button id="peopleReportBtn" class="btn" type="button" disabled>Rapor Ä°ndir</button>
             </div>
           </div>
 
-          <!-- V38.1: Personel tab içi loader -->
+          <!-- V38.1: Personel tab iÃ§i loader -->
           <div id="peopleInlineLoader" class="tab-inline-loader hidden">
             <div class="spinner" aria-hidden="true"></div>
-            <div id="peopleInlineText" style="font-weight:900;margin-bottom:6px">Yükleniyor...</div>
-            <div class="muted">Lütfen bekleyin.</div>
+            <div id="peopleInlineText" style="font-weight:900;margin-bottom:6px">YÃ¼kleniyor...</div>
+            <div class="muted">LÃ¼tfen bekleyin.</div>
           </div>
 
           <div id="peopleContent">
@@ -367,12 +367,12 @@ a[x-apple-data-detectors-type]{
               <table id="peopleTable">
                 <thead>
                   <tr>
-                    <th data-col="tc">TC<span class="hint">↕</span></th>
-                    <th data-col="name">Ad Soyad<span class="hint">↕</span></th>
-                  <th data-col="role">Görev / Pozisyon<span class="hint">↕</span></th>
-                    <th data-col="phone">Cep Telefonu<span class="hint">↕</span></th>
-                    <th data-col="card">Kart Numarası<span class="hint">↕</span></th>
-                    <th data-col="status">Durum<span class="hint">↕</span></th>
+                    <th data-col="tc">TC<span class="hint">â</span></th>
+                    <th data-col="name">Ad Soyad<span class="hint">â</span></th>
+                  <th data-col="role">GÃ¶rev / Pozisyon<span class="hint">â</span></th>
+                    <th data-col="phone">Cep Telefonu<span class="hint">â</span></th>
+                    <th data-col="card">Kart NumarasÄ±<span class="hint">â</span></th>
+                    <th data-col="status">Durum<span class="hint">â</span></th>
                   </tr>
                 </thead>
                 <tbody id="peopleBody"></tbody>
@@ -385,7 +385,7 @@ a[x-apple-data-detectors-type]{
           <div class="rowtools" style="margin-bottom:6px">
             <div class="lefttools" style="flex:1">
               <div id="peopleDetailTitle" class="detail-title">Personel</div>
-              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="peopleDetailSub">Bir personel seç</div>
+              <div style="color:var(--muted);font-size:12px;margin-top:2px" id="peopleDetailSub">Bir personel seÃ§</div>
             </div>
           </div>
 
@@ -397,7 +397,7 @@ a[x-apple-data-detectors-type]{
     </main>
 
     <footer style="padding:14px 16px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line);background:var(--card)">
-      <span id="updatedAt">Veri güncelleme: </span>
+      <span id="updatedAt">Veri gÃ¼ncelleme: </span>
     </footer>
   </div>
 </section>
@@ -422,10 +422,10 @@ a[x-apple-data-detectors-type]{
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  // KRİTİK: doğru bucket'ı açıkça seçiyoruz
+  // KRÄ°TÄ°K: doÄru bucket'Ä± aÃ§Ä±kÃ§a seÃ§iyoruz
   const storage = getStorage(app, "gs://mesaitakip-4d2d8.firebasestorage.app");
 
-  // Classic script'in kullanabilmesi için global köprü
+  // Classic script'in kullanabilmesi iÃ§in global kÃ¶prÃ¼
   window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, ref, listAll, getBytes, getMetadata };
 </script>
 
@@ -433,14 +433,14 @@ a[x-apple-data-detectors-type]{
 /* V18 - LIVE CSV (NO DUMMY) */
 const BASE_URL = "logs/";
 
-// Firebase modül script'i (type="module") classic script'ten sonra çalışabilir.
-// Bu yüzden __FB hazır olana kadar bekleyip devam ediyoruz (race condition çözümü).
+// Firebase modÃ¼l script'i (type="module") classic script'ten sonra Ã§alÄ±Åabilir.
+// Bu yÃ¼zden __FB hazÄ±r olana kadar bekleyip devam ediyoruz (race condition Ã§Ã¶zÃ¼mÃ¼).
 function waitForFB(timeoutMs = 8000){
   return new Promise((resolve, reject)=>{
     const t0 = Date.now();
     (function check(){
       if(window.__FB) return resolve(window.__FB);
-      if(Date.now() - t0 > timeoutMs) return reject(new Error("Firebase hazır değil."));
+      if(Date.now() - t0 > timeoutMs) return reject(new Error("Firebase hazÄ±r deÄil."));
       setTimeout(check, 50);
     })();
   });
@@ -481,7 +481,7 @@ function ensurePwa(iconOverride){
     document.head.appendChild(apple);
   }
   apple.href = ICON_URL;
-  // Theme color (arka plan mavi olmasın)
+  // Theme color (arka plan mavi olmasÄ±n)
   let metaTheme = document.querySelector('meta[name="theme-color"]');
   if(!metaTheme){
     metaTheme = document.createElement("meta");
@@ -505,7 +505,7 @@ try{
 }catch(e){}
 window.addEventListener("visibilitychange", updatePwaModeClass);
 
-// PWA logo: giriş sonrası yetkili erişimle LOGO.jpeg'i manifest icon olarak bas
+// PWA logo: giriÅ sonrasÄ± yetkili eriÅimle LOGO.jpeg'i manifest icon olarak bas
 let __pwaIconUpdated = false;
 async function tryUpdatePwaIconWithAuth(){
   if(__pwaIconUpdated) return;
@@ -529,7 +529,7 @@ async function tryUpdatePwaIconWithAuth(){
 
 /**
  * Internal data model expected by existing render functions:
- * DATA.today: [{date:"dd.mm.yyyy", time:"HH:MM", card:"", name:"", source:"", sync:"Evet/Hayır"}]
+ * DATA.today: [{date:"dd.mm.yyyy", time:"HH:MM", card:"", name:"", source:"", sync:"Evet/HayÄ±r"}]
  * DATA.people: [{card,name,tc,phone,workno,role,notes,created,sync,status}]
  * DATA.months: ["YYYY-MM", ...]  // options shown in dropdown
  * DATA.monthly[monthKey]: raw rows like today (date,time,card,name,source,sync)
@@ -538,7 +538,7 @@ async function tryUpdatePwaIconWithAuth(){
 let UPDATED_AT = "";
 const DATA = { today: [], people: [], months: [], monthly: {}, monthlySummary: {}, _cache: {} };
 
-// V38.1: tab bazlı yükleme bayrakları
+// V38.1: tab bazlÄ± yÃ¼kleme bayraklarÄ±
 const LOAD = {
   today: false,
   months: false,
@@ -550,7 +550,7 @@ const LOAD = {
 const CSV_INDEX = Object.freeze({
   MONTH: Object.freeze({
     // yyyy-mm.csv headers
-    HEADERS: ["Tarih","Saat","Kart Numarası","Ad Soyad","Kaynak","Senkron"],
+    HEADERS: ["Tarih","Saat","Kart NumarasÄ±","Ad Soyad","Kaynak","Senkron"],
     DATE: 0,
     TIME: 1,
     CARD: 2,
@@ -561,19 +561,19 @@ const CSV_INDEX = Object.freeze({
   PEOPLE: Object.freeze({
     // Kisiler.csv headers
     HEADERS: [
-      "Kart Numarası",
+      "Kart NumarasÄ±",
       "Ad Soyad",
-      "TC Numarası",
-      "Cep Telefonu Numarası",
-      "İşe Başlama Tarihi",
+      "TC NumarasÄ±",
+      "Cep Telefonu NumarasÄ±",
+      "Ä°Åe BaÅlama Tarihi",
       "Durum",
       "Adres",
       "Kan Grubu",
-      "Acil Durum Kişi Adı",
-      "Acil Durum Numarası",
-      "Görev / Pozisyon",
+      "Acil Durum KiÅi AdÄ±",
+      "Acil Durum NumarasÄ±",
+      "GÃ¶rev / Pozisyon",
       "Notlar",
-      "Kayıt Tarihi",
+      "KayÄ±t Tarihi",
       "Senkronize"
     ],
     CARD: 0,
@@ -601,12 +601,12 @@ function warnHeaderMismatch(actualHeaders, expectedHeaders, fileName){
   const e = (expectedHeaders||[]).map(_hNorm);
   if(!a.length || !e.length) return;
   if(a.length !== e.length) {
-    console.warn(`[CSV HEADER] ${fileName}: Başlık sayısı farklı. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
+    console.warn(`[CSV HEADER] ${fileName}: BaÅlÄ±k sayÄ±sÄ± farklÄ±. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
     return;
   }
   for(let i=0;i<e.length;i++){
     if(a[i] !== e[i]){
-      console.warn(`[CSV HEADER] ${fileName}: Başlıklar beklenen sırada değil. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
+      console.warn(`[CSV HEADER] ${fileName}: BaÅlÄ±klar beklenen sÄ±rada deÄil. Index map ile okumaya devam ediyorum.`, { expected: expectedHeaders, actual: actualHeaders });
       return;
     }
   }
@@ -640,18 +640,18 @@ function updateFooterStamp(){
   const stamp = document.getElementById("updatedAt");
   if(!stamp) return;
   const u = state.userEmail ? ` (${state.userEmail})` : "";
-  stamp.textContent = "Veri güncelleme: " + (UPDATED_AT || "") + u;
+  stamp.textContent = "Veri gÃ¼ncelleme: " + (UPDATED_AT || "") + u;
 }
 
-// (Eski) global overlay fonksiyonu yerinde duruyor; artık tab bazlı loader kullanıyoruz.
+// (Eski) global overlay fonksiyonu yerinde duruyor; artÄ±k tab bazlÄ± loader kullanÄ±yoruz.
 function setLoading(on, text){
   const ov = document.getElementById("loadingOverlay");
   const tx = document.getElementById("loadingText");
-  if(tx) tx.textContent = text || "Yükleniyor...";
+  if(tx) tx.textContent = text || "YÃ¼kleniyor...";
   if(ov) ov.classList.toggle("hidden", !on);
 }
 
-// V38.1: tab içi loader toggle
+// V38.1: tab iÃ§i loader toggle
 function setTabInlineLoading(route, on, text){
   const map = {
     today:  { loader:"todayInlineLoader",  text:"todayInlineText",  content:"todayContent" },
@@ -668,24 +668,61 @@ function setTabInlineLoading(route, on, text){
   if(ct) ct.classList.toggle("hidden", on);
 }
 
+async function _refreshIdTokenOnce(){
+  try{
+    const FB = window.__FB;
+    const u = FB && FB.auth && FB.auth.currentUser;
+    if(u && typeof u.getIdToken === "function"){
+      await u.getIdToken(true);
+    }
+  }catch(e){
+    // ignore
+  }
+}
+
 async function fetchText(path){
-  // Firebase Storage üzerinden dosyayı oku (path: "logs/....csv")
+  // Firebase Storage Ã¼zerinden dosyayÄ± oku (path: "logs/....csv")
   const FB = window.__FB;
-  if(!FB) throw new Error("Firebase hazır değil.");
-  const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-  UPDATED_AT = nowTR();
-  updateFooterStamp();
-  return new TextDecoder("utf-8").decode(bytes);
+  if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
+
+  try{
+    const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+    UPDATED_AT = nowTR();
+    updateFooterStamp();
+    return new TextDecoder("utf-8").decode(bytes);
+  }catch(e){
+    // V40 fix: ilk giriÅte token henÃ¼z Storage isteklerine eklenmeden 403 dÃ¶nebiliyor.
+    // 1 kere token refresh + retry yap.
+    const msg = String((e && (e.code || e.message)) || "");
+    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+      await _refreshIdTokenOnce();
+      const bytes = await FB.getBytes(FB.ref(FB.storage, path));
+      UPDATED_AT = nowTR();
+      updateFooterStamp();
+      return new TextDecoder("utf-8").decode(bytes);
+    }
+    throw e;
+  }
 }
 
 async function objectExists(path){
-  // Firebase Storage üzerinde dosya var mı? (path: "logs/....csv")
+  // Firebase Storage Ã¼zerinde dosya var mÄ±? (path: "logs/....csv")
   const FB = window.__FB;
-  if(!FB) throw new Error("Firebase hazır değil.");
+  if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
   try{
     await FB.getMetadata(FB.ref(FB.storage, path));
     return true;
   }catch(e){
+    const msg = String((e && (e.code || e.message)) || "");
+    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
+      await _refreshIdTokenOnce();
+      try{
+        await FB.getMetadata(FB.ref(FB.storage, path));
+        return true;
+      }catch(_e2){
+        return false;
+      }
+    }
     return false;
   }
 }
@@ -739,7 +776,7 @@ function isoToTR(iso){
 function syncNorm(v){
   const s = (v||"").toString().trim().toLowerCase();
   if(s==="1" || s==="true" || s==="evet") return "Evet";
-  if(s==="0" || s==="false" || s==="hayir" || s==="hayır") return "Hayır";
+  if(s==="0" || s==="false" || s==="hayir" || s==="hayÄ±r") return "HayÄ±r";
   return (v||"").toString().trim();
 }
 
@@ -749,7 +786,7 @@ function formatHours(v){
   return n.toFixed(2).replace(".", ",");
 }
 
-/* V23 - AYLIK RAPOR İNDİR (EXCEL) */
+/* V23 - AYLIK RAPOR Ä°NDÄ°R (EXCEL) */
 function _two(n){ return String(n).padStart(2,"0"); }
 function _nowTR(){
   const d = new Date();
@@ -778,10 +815,10 @@ function fitText(ctx, text, maxW){
   const s = String(text ?? "");
   if(ctx.measureText(s).width <= maxW) return s;
   let t = s;
-  while(t.length > 0 && ctx.measureText(t + "…").width > maxW){
+  while(t.length > 0 && ctx.measureText(t + "â¦").width > maxW){
     t = t.slice(0, -1);
   }
-  return (t ? (t + "…") : "…");
+  return (t ? (t + "â¦") : "â¦");
 }
 
 function drawFooter(ctx, w, h){
@@ -901,7 +938,7 @@ function triggerDownload(blob, filename){
     return;
   }
 
-  // download’u zorlamak için octet-stream wrapper
+  // downloadâu zorlamak iÃ§in octet-stream wrapper
   const dlBlob = new Blob([blob], { type: "application/octet-stream" });
 
   const a = document.createElement("a");
@@ -918,7 +955,7 @@ async function downloadMonthlyReport(){
   if(!ymKey) return;
   await loadMonth(ymKey);
 
-  const footer = `Rapor alınma tarihi: ${_nowTR()}`;
+  const footer = `Rapor alÄ±nma tarihi: ${_nowTR()}`;
   PDF_FOOTER_TEXT = footer;
 
   // Summary rows as currently displayed (same sorting)
@@ -941,7 +978,7 @@ async function downloadMonthlyReport(){
     const margin = 30;
 
     ctx.font = "bold 17px Arial";
-    const title = "Toplam Mesai Özeti (" + ymKey + ")";
+    const title = "Toplam Mesai Ãzeti (" + ymKey + ")";
     const tw = ctx.measureText(title).width;
     ctx.fillText(title, (c.width - tw)/2, 45);
 
@@ -1032,9 +1069,9 @@ async function downloadMonthlyReport(){
 
     // header
     ctx.font = "bold 11px Arial";
-    ctx.fillText("Gün", margin, tableTop);
-    ctx.fillText("Giriş", margin + colDayW, tableTop);
-    ctx.fillText("Çıkış", margin + colDayW + colInW, tableTop);
+    ctx.fillText("GÃ¼n", margin, tableTop);
+    ctx.fillText("GiriÅ", margin + colDayW, tableTop);
+    ctx.fillText("ÃÄ±kÄ±Å", margin + colDayW + colInW, tableTop);
     ctx.fillText("Mesai", margin + colDayW + colInW + colOutW, tableTop);
 
     ctx.beginPath();
@@ -1075,7 +1112,7 @@ async function downloadMonthlyReport(){
     });
 
     // Total monthly hours (from summary)
-    const totalText = `Toplam Aylık Mesai: ${formatHours(sr.hours)} Saat`;
+    const totalText = `Toplam AylÄ±k Mesai: ${formatHours(sr.hours)} Saat`;
     ctx.save();
     ctx.font = "bold 13px Arial";
     const ttw2 = ctx.measureText(totalText).width;
@@ -1097,7 +1134,7 @@ async function downloadPeopleReport(){
   // Ensure latest people data
   await loadPeople();
 
-  const footer = `Rapor alınma tarihi: ${_nowTR()}`;
+  const footer = `Rapor alÄ±nma tarihi: ${_nowTR()}`;
   PDF_FOOTER_TEXT = footer;
 
   const reportTitle = (state.peopleView==="active") ? "Aktif Personel Listesi" : "Pasif Personel Listesi";
@@ -1147,7 +1184,7 @@ async function downloadPeopleReport(){
     let y = tableTop;
     ctx.fillText("Ad Soyad", margin, y);
     ctx.fillText("Cep Telefonu", margin + colNameW, y);
-    ctx.fillText("Görev / Pozisyon", margin + colNameW + colPhoneW, y);
+    ctx.fillText("GÃ¶rev / Pozisyon", margin + colNameW + colPhoneW, y);
 
     // Line under header
     ctx.beginPath();
@@ -1197,19 +1234,19 @@ async function downloadPeopleReport(){
     ctx.fillText(title, (c.width - tw)/2, 45);
 
     const items = [
-      ["Kart Numarası", p.card],
+      ["Kart NumarasÄ±", p.card],
       ["Ad Soyad", p.name],
-      ["TC Numarası", p.tc],
-      ["Cep Telefonu Numarası", p.phone],
-      ["İşe Başlama Tarihi", p.startDate],
+      ["TC NumarasÄ±", p.tc],
+      ["Cep Telefonu NumarasÄ±", p.phone],
+      ["Ä°Åe BaÅlama Tarihi", p.startDate],
       ["Durum", p.status],
       ["Adres", p.address],
       ["Kan Grubu", p.blood],
-      ["Acil Durum Kişi Adı", p.emergencyName],
-      ["Acil Durum Numarası", p.emergencyPhone],
-      ["Görev / Pozisyon", p.role],
+      ["Acil Durum KiÅi AdÄ±", p.emergencyName],
+      ["Acil Durum NumarasÄ±", p.emergencyPhone],
+      ["GÃ¶rev / Pozisyon", p.role],
       ["Notlar", p.notes || "-"],
-      ["Kayıt Tarihi", p.recordDate],
+      ["KayÄ±t Tarihi", p.recordDate],
     ];
 
     const tableTop = 80;
@@ -1373,12 +1410,12 @@ function buildMonthCandidates(){
   return arr;
 }
 
-/* V38.1: Tab bazlı lazy yükleme (Bugün / Aylık / Personel) */
+/* V38.1: Tab bazlÄ± lazy yÃ¼kleme (BugÃ¼n / AylÄ±k / Personel) */
 let _todayPromise = null;
 async function ensureTodayReady(){
   if(LOAD.today) return;
   if(_todayPromise) return _todayPromise;
-  setTabInlineLoading("today", true, "Veriler yükleniyor...");
+  setTabInlineLoading("today", true, "Veriler yÃ¼kleniyor...");
 
   _todayPromise = (async ()=>{
     const curKey = ymKeyFromDate(new Date());
@@ -1403,71 +1440,53 @@ let _monthlyPromise = null;
 async function ensureMonthlyReady(){
   if(LOAD.monthly && LOAD.months) return;
   if(_monthlyPromise) return _monthlyPromise;
-
-  setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
-  const sel = document.getElementById("monthSelect");
-  const btn = document.getElementById("monthlyReportBtn");
-  if(sel) sel.disabled = true;
-  if(btn) btn.disabled = true;
-
   _monthlyPromise = (async ()=>{
-    // 1) Build month list (only once)
+    // Build month dropdown options deterministically (no existence scan)
     if(!LOAD.months){
       const candidates = buildMonthCandidates();
-      const existing = [];
-      for(const ym of candidates){
-        const urls = ymFilenameCandidates(ym).map(fn => BASE_URL + fn);
-        let ok = false;
-        for(const u of urls){
-          if(await objectExists(u)){ ok = true; break; }
-        }
-        if(ok) existing.push(ym);
-      }
-      DATA.months = existing;
+      DATA.months = candidates;
 
-      // pick default month
       const curKey = ymKeyFromDate(new Date());
-      if(!state.month){
-        state.month = existing.includes(curKey) ? curKey : (existing[0] || curKey);
-      }
+      if(!state.month) state.month = candidates.includes(curKey) ? curKey : (candidates[0] || curKey);
 
-      // fill select
+      const sel = document.getElementById("monthSelect");
       if(sel){
         sel.innerHTML = "";
         DATA.months.forEach(m=>{
-          const opt=document.createElement("option");
-          opt.value=m; opt.textContent=m;
+          const opt = document.createElement("option");
+          opt.value = m;
+          opt.textContent = m;
           sel.appendChild(opt);
         });
-        if(state.month) sel.value = state.month;
+        sel.value = state.month;
       }
-
       LOAD.months = true;
     }
 
-    // 2) Load selected month data
-    if(state.month){
-      try{ await loadMonth(state.month); }catch(e){ console.warn("Month load failed:", e); }
+    if(!LOAD.monthly){
+      setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
+      try{
+        await loadMonth(state.month || ymKeyFromDate(new Date()));
+      }catch(e){
+        console.warn(e);
+      }
+      LOAD.monthly = true;
+      setTabInlineLoading("monthly", false);
     }
-    LOAD.monthly = true;
-  })().finally(()=>{
-    setTabInlineLoading("monthly", false);
-    if(sel) sel.disabled = false;
-    if(btn) btn.disabled = false;
+
     if(routeFromHash()==="monthly") renderMonthly();
-    updateFooterStamp();
-    _monthlyPromise = null;
-  });
+  })().finally(()=>{ _monthlyPromise=null; });
 
   return _monthlyPromise;
 }
+
 
 let _peoplePromise = null;
 async function ensurePeopleReady(){
   if(LOAD.people) return;
   if(_peoplePromise) return _peoplePromise;
 
-  setTabInlineLoading("people", true, "Veriler yükleniyor...");
+  setTabInlineLoading("people", true, "Veriler yÃ¼kleniyor...");
   const search = document.getElementById("peopleSearch");
   const btnA = document.getElementById("btnActive");
   const btnP = document.getElementById("btnPassive");
@@ -1543,8 +1562,8 @@ function dialTR(phone){
 
 function formatTurkishDateHeader(ddmmyyyy){
   // expects "dd.mm.yyyy"
-  const months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
-  const days = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+  const months = ["Ocak","Åubat","Mart","Nisan","MayÄ±s","Haziran","Temmuz","AÄustos","EylÃ¼l","Ekim","KasÄ±m","AralÄ±k"];
+  const days = ["Pazar","Pazartesi","SalÄ±","ÃarÅamba","PerÅembe","Cuma","Cumartesi"];
   if(!ddmmyyyy) return "";
   const parts = ddmmyyyy.split(".");
   if(parts.length !== 3) return "";
@@ -1577,7 +1596,7 @@ function routeFromHash(){
   return (h==="today"||h==="monthly"||h==="people") ? h : "today";
 }
 
-/* V38.1: iOS zoom reset (login sonrası) */
+/* V38.1: iOS zoom reset (login sonrasÄ±) */
 function forceViewportReset(){
   const vp = document.querySelector('meta[name="viewport"]');
   if(!vp) return;
@@ -1597,7 +1616,14 @@ function resetViewportAfterLogin(){
   setTimeout(()=>{ try{ window.scrollTo(0,0); }catch(e){} }, 80);
 }
 
+function isAuthed(){
+  try{ return !!(window.__FB && window.__FB.auth && window.__FB.auth.currentUser); }
+  catch(e){ return false; }
+}
+
 function renderRoute(){
+  // V40.2 BUGFIX: GiriÅ yapÄ±lmadan veri Ã§ekmeye Ã§alÄ±Åma (403 -> LOAD bayraklarÄ±nÄ± yanlÄ±Å set ediyordu)
+  if(!isAuthed()) return;
   state.route = routeFromHash();
   showOnly(state.route);
 
@@ -1612,7 +1638,7 @@ function renderRoute(){
 
   if(state.route==="today"){
     if(!LOAD.today){
-      setTabInlineLoading("today", true, "Veriler yükleniyor...");
+      setTabInlineLoading("today", true, "Veriler yÃ¼kleniyor...");
       ensureTodayReady();
       return;
     }
@@ -1621,7 +1647,7 @@ function renderRoute(){
   }
   if(state.route==="monthly"){
     if(!(LOAD.months && LOAD.monthly)){
-      setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
+      setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
       ensureMonthlyReady();
       return;
     }
@@ -1630,7 +1656,7 @@ function renderRoute(){
   }
   if(state.route==="people"){
     if(!LOAD.people){
-      setTabInlineLoading("people", true, "Veriler yükleniyor...");
+      setTabInlineLoading("people", true, "Veriler yÃ¼kleniyor...");
       ensurePeopleReady();
       return;
     }
@@ -1640,7 +1666,7 @@ function renderRoute(){
 }
 window.addEventListener("hashchange", renderRoute);
 
-/* BUGÜN */
+/* BUGÃN */
 function renderToday(){
   const q=textNorm(state.filter.today);
   let rows = (DATA.today || []);
@@ -1758,7 +1784,7 @@ function renderMonthly(){
     tr.className = "clickable-row" + (state.selectedPerson===r.name ? " selected-person" : "");
     tr.innerHTML = `<td class="sum-name">${r.name}</td><td>${formatHours(r.hours)} saat</td>`;
     tr.addEventListener("click", ()=>{
-      // tekrar aynı kişiye basınca kapansın
+      // tekrar aynÄ± kiÅiye basÄ±nca kapansÄ±n
       state.selectedPerson = (state.selectedPerson===r.name) ? "" : r.name;
       renderMonthly();
     });
@@ -1808,8 +1834,8 @@ function renderPersonCalendar(){
   const list = document.getElementById("calendarList");
 
   if(!person){
-    title.textContent = "Kişi Seç";
-    sub.textContent = "Özet listesinden bir kişiye tıkla";
+    title.textContent = "KiÅi SeÃ§";
+    sub.textContent = "Ãzet listesinden bir kiÅiye tÄ±kla";
     list.replaceChildren();
     return;
   }
@@ -1930,7 +1956,7 @@ function renderPeople(){
       <td><span class="tag status-${isPassive(r) ? "passive" : "active"}">${statusText}</span></td>
     `;
     tr.addEventListener("click", ()=>{
-      // tekrar aynı kişiye basınca kapansın
+      // tekrar aynÄ± kiÅiye basÄ±nca kapansÄ±n
       state.selectedPersonPeople = (state.selectedPersonPeople===r.card) ? "" : r.card;
       renderPeople();
     });
@@ -1953,7 +1979,7 @@ function renderPeople(){
         </div>
       </div>
       <div class="meta">
-        <div><span>Cep Telefonu Numarası</span><b>${r.phone}</b><button class="phone-btn" type="button" aria-label="Ara" onclick="dialTR('${r.phone}')">📞</button></div>
+        <div><span>Cep Telefonu NumarasÄ±</span><b>${r.phone}</b><button class="phone-btn" type="button" aria-label="Ara" onclick="dialTR('${r.phone}')">ð</button></div>
       </div>
     `;
     div.addEventListener("click", ()=>{
@@ -1989,17 +2015,17 @@ function renderPeople(){
   sub.textContent = "";
 
   const items = [
-    ["Cep Telefonu Numarası", p.phone],
-    ["TC Numarası", p.tc],
-    ["Görev / Pozisyon", p.role],
+    ["Cep Telefonu NumarasÄ±", p.phone],
+    ["TC NumarasÄ±", p.tc],
+    ["GÃ¶rev / Pozisyon", p.role],
     ["Kan Grubu", p.blood],
-    ["Acil Durum Kişi Adı", p.emergencyName],
-    ["Acil Durum Numarası", p.emergencyPhone],
+    ["Acil Durum KiÅi AdÄ±", p.emergencyName],
+    ["Acil Durum NumarasÄ±", p.emergencyPhone],
     ["Adres", p.address],
-    ["Kart Numarası", p.card],
-    ["İşe Başlama Tarihi", p.startDate],
+    ["Kart NumarasÄ±", p.card],
+    ["Ä°Åe BaÅlama Tarihi", p.startDate],
     ["Notlar", p.notes || "-"],
-    ["Kayıt Tarihi", p.recordDate],
+    ["KayÄ±t Tarihi", p.recordDate],
   ];
 
   const frag2 = document.createDocumentFragment();
@@ -2008,9 +2034,9 @@ function renderPeople(){
     box.className = "daybox";
     const val = (v || "-");
     let extra = "";
-    if((k === "Cep Telefonu Numarası" || k === "Acil Durum Numarası") && v && v !== "-"){
-      const cls = (k === "Acil Durum Numarası") ? "phone-btn red" : "phone-btn";
-      extra = ` <button class="${cls}" type="button" aria-label="Ara" onclick="dialTR('${v}')">📞</button>`;
+    if((k === "Cep Telefonu NumarasÄ±" || k === "Acil Durum NumarasÄ±") && v && v !== "-"){
+      const cls = (k === "Acil Durum NumarasÄ±") ? "phone-btn red" : "phone-btn";
+      extra = ` <button class="${cls}" type="button" aria-label="Ara" onclick="dialTR('${v}')">ð</button>`;
     }
     box.innerHTML = `<div class="hdr"><div style="width:100%"><div class="d">${k}</div><div class="m">${val}${extra}</div></div></div>`;
     frag2.appendChild(box);
@@ -2028,7 +2054,7 @@ async function install(){
   const loginBtn = document.getElementById("loginBtn");
   const errEl = document.getElementById("loginError");
 
-  showLogin("Yükleniyor...");
+  showLogin("YÃ¼kleniyor...");
 
   function showLogin(msg){
     if(landingEl) landingEl.classList.remove("hidden");
@@ -2048,13 +2074,13 @@ async function install(){
     if(errEl) errEl.textContent = "";
     try{
       const FB = window.__FB;
-      if(!FB) throw new Error("Firebase hazır değil.");
+      if(!FB) throw new Error("Firebase hazÄ±r deÄil.");
 
       if(loginBtn) loginBtn.disabled = true;
-      if(errEl) errEl.textContent = "Giriş yapılıyor...";
+      if(errEl) errEl.textContent = "GiriÅ yapÄ±lÄ±yor...";
 
       const emailNorm = normalizeLoginEmail(emailEl?.value || "");
-      // footer’da kullanıcı adı: login input’u
+      // footerâda kullanÄ±cÄ± adÄ±: login inputâu
       state.userEmail = emailNorm;
 
       await FB.signInWithEmailAndPassword(
@@ -2064,7 +2090,7 @@ async function install(){
       );
     }catch(e){
       console.error(e);
-      const msg = (e && (e.code || e.message)) ? (e.code || e.message) : "Giriş başarısız";
+      const msg = (e && (e.code || e.message)) ? (e.code || e.message) : "GiriÅ baÅarÄ±sÄ±z";
       if(errEl) errEl.textContent = msg;
     }finally{
       if(loginBtn) loginBtn.disabled = false;
@@ -2091,12 +2117,14 @@ async function install(){
   FB.onAuthStateChanged(FB.auth, async (user)=>{
     if(!user){
       _inited = false;
+      // V40.2: oturum yokken yÃ¼klenmiÅ gibi iÅaretlenmesin
+      try{ LOAD.today=false; LOAD.monthly=false; LOAD.people=false; LOAD.months=false; }catch(e){}
       state.userEmail = "";
       showLogin("");
       return;
     }
 
-    // user.email yerine, login input’undan state.userEmail zaten dolu (boşsa fallback)
+    // user.email yerine, login inputâundan state.userEmail zaten dolu (boÅsa fallback)
     if(!state.userEmail) state.userEmail = user.email || "";
 
     mountApp();
@@ -2105,17 +2133,73 @@ async function install(){
 
     if(!location.hash) location.hash="#today";
 
-    // Login sonrası zoom reset
+    // Login sonrasÄ± zoom reset
     resetViewportAfterLogin();
 
-    // İlk açılışta sadece Bugün’ü yükle (tab bazlı)
+    // Ä°lk aÃ§Ä±lÄ±Åta V40 sÄ±ralÄ± Ã¶nyÃ¼kleme:
+    // 1) GÃ¼ncel YYYY-MM.csv Ã§ekilir
+    // 2) Ãnce BugÃ¼n doldurulur
+    // 3) AynÄ± indirilen dosya ile AylÄ±k KayÄ±tlar doldurulur
+    // 4) Kisiler.csv Ã§ekilir ve Personel doldurulur
+    // 5) AylÄ±k KayÄ±tlar dropdown'Ä±na (bu yÄ±l bugÃ¼ne kadar) + (geÃ§en yÄ±lÄ±n tÃ¼m aylarÄ±) eklenir
     if(!_inited){
-      renderRoute();
-      ensureTodayReady().finally(()=>{
-        // Bugün geldiğinde tekrar viewport düzelt
+      (async ()=>{
+        if(!location.hash) location.hash = "#today";
+
+        // Ä°lk etapta ekranÄ± BugÃ¼n'e sabitle
+        renderRoute();
+
+        // 1-2) Ãnce gÃ¼ncel ay + BugÃ¼n
+        await ensureTodayReady();
+
+        // 3) AynÄ± ay verisi ile AylÄ±k KayÄ±tlar hazÄ±r (yeniden indirme yok)
+        const curKey = ymKeyFromDate(new Date());
+        state.month = curKey;
+
+        // Dropdown ilk aÅamada sadece gÃ¼ncel ayÄ± gÃ¶stersin
+        DATA.months = [curKey];
+        const monthSel = document.getElementById("monthSelect");
+        if(monthSel){
+          monthSel.innerHTML = "";
+          const opt = document.createElement("option");
+          opt.value = curKey;
+          opt.textContent = curKey;
+          monthSel.appendChild(opt);
+          monthSel.value = curKey;
+        }
+        LOAD.monthly = true;
+
+        // 4) Personel
+        await ensurePeopleReady();
+
+        // 5) Dropdown'a bu yÄ±l bugÃ¼ne kadar + geÃ§en yÄ±lÄ±n tamamÄ±
+        DATA.months = buildMonthCandidates();
+        if(monthSel){
+          const selected = state.month || curKey;
+          monthSel.innerHTML = "";
+          DATA.months.forEach(m=>{
+            const o = document.createElement("option");
+            o.value = m;
+            o.textContent = m;
+            monthSel.appendChild(o);
+          });
+          monthSel.value = selected;
+        }
+        LOAD.months = true;
+
+        // Zoom dÃ¼zelt
         setTimeout(resetViewportAfterLogin, 120);
+
+        // Route tekrar Ã§iz (mevcut sekme neyse)
+        renderRoute();
+        _inited = true;
+      })().catch((e)=>{
+        console.warn(e);
+        setTimeout(resetViewportAfterLogin, 120);
+        renderRoute();
+        _inited = true;
       });
-      _inited = true;
+
       return;
     }
 
@@ -2129,7 +2213,7 @@ async function install(){
     state.filter.monthly = "";
     state.selectedPerson = "";
 
-    setTabInlineLoading("monthly", true, "Veriler yükleniyor...");
+    setTabInlineLoading("monthly", true, "Veriler yÃ¼kleniyor...");
     try{ await loadMonth(state.month); }catch(e){ console.warn(e); }
     setTabInlineLoading("monthly", false);
 
@@ -2144,7 +2228,7 @@ async function install(){
         await downloadMonthlyReport();
       }catch(e){
         console.warn(e);
-        alert("Rapor oluşturulamadı.");
+        alert("Rapor oluÅturulamadÄ±.");
       }
     });
   }
@@ -2157,7 +2241,7 @@ async function install(){
         await downloadPeopleReport();
       }catch(e){
         console.warn(e);
-        alert("Rapor oluşturulamadı.");
+        alert("Rapor oluÅturulamadÄ±.");
       }
     });
   }
@@ -2202,13 +2286,13 @@ async function install(){
   document.getElementById("btnActive").addEventListener("click", ()=>{ state.peopleView="active"; if(state.route==="people" && LOAD.people) renderPeople(); });
   document.getElementById("btnPassive").addEventListener("click", ()=>{ state.peopleView="passive"; if(state.route==="people" && LOAD.people) renderPeople(); });
 
-  // Tab açılınca ilgili tabı yükle
+  // Tab aÃ§Ä±lÄ±nca ilgili tabÄ± yÃ¼kle
   window.addEventListener("hashchange", ()=>{
     const r = routeFromHash();
     if(r==="today") ensureTodayReady();
     if(r==="monthly") ensureMonthlyReady();
     if(r==="people") ensurePeopleReady();
-    // Tab geçişinde de zoom reset (mobil)
+    // Tab geÃ§iÅinde de zoom reset (mobil)
     setTimeout(resetViewportAfterLogin, 80);
   });
 
@@ -2224,11 +2308,10 @@ async function install(){
     const errEl = document.getElementById("loginError");
     const btn = document.getElementById("loginBtn");
     if(btn) btn.disabled = true;
-    if(errEl) errEl.textContent = "Firebase yüklenemedi.";
+    if(errEl) errEl.textContent = "Firebase yÃ¼klenemedi.";
   }
 })();
 </script>
 
 </body>
 </html>
-
