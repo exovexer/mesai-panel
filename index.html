@@ -228,8 +228,8 @@ a[x-apple-data-detectors-type]{
  align-items:center;
  padding:10px 12px;
  border-radius:12px;
- border:1px solid rgba(245,158,11,.35);
- background:#fef3c7;
+ border:1px solid var(--line);
+ background:#fff;
  font-size:13px;
 }
 .error-row .cell{
@@ -237,17 +237,6 @@ a[x-apple-data-detectors-type]{
 }
 .error-row .cell.time{
  text-align:right;
-}
-.error-row.error-head{
- background:#fde68a;
- color:#92400e;
- font-size:11px;
- text-transform:uppercase;
- letter-spacing:.4px;
- font-weight:900;
-}
-.error-row.error-head .cell{
- font-weight:900;
 }
 .error-list{
  display:grid;
@@ -378,11 +367,6 @@ a[x-apple-data-detectors-type]{
              <h3 style="margin:14px 0 10px;font-size:15px;text-align:center;font-weight:900">Hatalı Kayıtlar</h3>
 
              <div class="error-table">
-               <div class="error-row error-head">
-                 <div class="cell">Ad Soyad</div>
-                 <div class="cell">Tarih</div>
-                 <div class="cell time">Saat</div>
-               </div>
                <div id="errorList" class="error-list"></div>
              </div>
            </div>
