@@ -216,6 +216,44 @@ a[x-apple-data-detectors-type]{
  text-align:left;
 }
 
+/* Error table */
+.error-table{
+ display:grid;
+ gap:8px;
+}
+.error-row{
+ display:grid;
+ grid-template-columns: 1.4fr 1fr 0.6fr;
+ gap:10px;
+ align-items:center;
+ padding:10px 12px;
+ border-radius:12px;
+ border:1px solid rgba(245,158,11,.35);
+ background:#fef3c7;
+ font-size:13px;
+}
+.error-row .cell{
+ font-weight:700;
+}
+.error-row .cell.time{
+ text-align:right;
+}
+.error-row.error-head{
+ background:#fde68a;
+ color:#92400e;
+ font-size:11px;
+ text-transform:uppercase;
+ letter-spacing:.4px;
+ font-weight:900;
+}
+.error-row.error-head .cell{
+ font-weight:900;
+}
+.error-list{
+ display:grid;
+ gap:8px;
+}
+
 </style>
 </head>
 
@@ -339,7 +377,14 @@ a[x-apple-data-detectors-type]{
            <div id="errorSection" class="hidden">
              <h3 style="margin:14px 0 10px;font-size:15px;text-align:center;font-weight:900">Hatalı Kayıtlar</h3>
 
-             <div id="errorList" class="cardlist"></div>
+             <div class="error-table">
+               <div class="error-row error-head">
+                 <div class="cell">Ad Soyad</div>
+                 <div class="cell">Tarih</div>
+                 <div class="cell time">Saat</div>
+               </div>
+               <div id="errorList" class="error-list"></div>
+             </div>
            </div>
          </div>
        </div>
@@ -2019,22 +2064,11 @@ function renderMonthly(){
    const cfrag = document.createDocumentFragment();
    errorRows.forEach(r=>{
      const box = document.createElement("div");
-     box.className = "daybox";
-     const times = [r.entry].filter(Boolean);
-     const timesHtml = times.map((t, idx)=>{
-       if(idx === 0) return `<span class="pill time-green">${t}</span>`;
-       if(idx === times.length-1) return `<span class="pill time-red">${t}</span>`;
-       return `<span class="pill">${t}</span>`;
-     }).join("");
+     box.className = "error-row";
      box.innerHTML = `
-       <div class="hdr">
-         <div>
-           <div class="d">${r.date}</div>
-           <div class="m">${r.name}</div>
-           <div class="m mesai-line">Mesai: <b>${r.work}</b></div>
-         </div>
-       </div>
-       <div class="times">${timesHtml}</div>
+       <div class="cell">${r.name || "-"}</div>
+       <div class="cell">${r.date || "-"}</div>
+       <div class="cell time">${r.entry || "-"}</div>
      `;
      cfrag.appendChild(box);
    });
