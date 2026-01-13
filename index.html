@@ -204,6 +204,15 @@ a[x-apple-data-detectors-type]{
 #page-today .table-wrap{ display:none !important; }
 #page-today .mobile-cards{ display:block !important; }
 
+/* V41: Personel kişi sayısı */
+.people-count{
+ margin-top:8px;
+ font-size:12px;
+ color:var(--muted);
+ font-weight:700;
+ text-align:left;
+}
+
 </style>
 </head>
 
@@ -379,6 +388,7 @@ a[x-apple-data-detectors-type]{
                <tbody id="peopleBody"></tbody>
              </table>
            </div>
+           <div id="peopleCount" class="people-count"></div>
          </div>
        </div>
 
@@ -407,7 +417,7 @@ a[x-apple-data-detectors-type]{
 <!-- ================= FIREBASE (AUTH + STORAGE) ================= -->
 <script type="module">
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
- import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
  import { getStorage, ref, listAll, getBytes, getMetadata } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
  // Firebase config (AYNEN)
@@ -427,12 +437,16 @@ a[x-apple-data-detectors-type]{
  const storage = getStorage(app, "gs://mesaitakip-4d2d8.firebasestorage.app");
 
  // Classic script'in kullanabilmesi için global köprü
- window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, ref, listAll, getBytes, getMetadata };
+ window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, signOut, ref, listAll, getBytes, getMetadata };
 </script>
 
 <script>
 /* V18 - LIVE CSV (NO DUMMY) */
 const BASE_URL = "logs/";
+const SESSION_TIMEOUT_MS = 10 * 60 * 1000;
+
+let sessionTimerId = null;
+let sessionLastActivity = 0;
 
 // Firebase modül script'i (type="module") classic script'ten sonra çalışabilir.
 // Bu yüzden __FB hazır olana kadar bekleyip devam ediyoruz (race condition çözümü).
@@ -644,6 +658,27 @@ function updateFooterStamp(){
  stamp.textContent = "Veri güncelleme: " + (UPDATED_AT || "") + u;
 }
 
+function clearHash(){
+ if(location.hash){
+   try{
+     history.replaceState(null, document.title, location.pathname + location.search);
+   }catch(e){
+     location.hash = "";
+   }
+ }
+}
+
+function showLoginView(message){
+ const landingEl = document.getElementById("landing");
+ const appEl = document.getElementById("app");
+ const errEl = document.getElementById("loginError");
+ if(landingEl) landingEl.classList.remove("hidden");
+ if(appEl) appEl.classList.add("hidden");
+ setLoading(false);
+ if(errEl) errEl.textContent = message || "";
+ clearHash();
+}
+
 // (Eski) global overlay fonksiyonu yerinde duruyor; artık tab bazlı loader kullanıyoruz.
 function setLoading(on, text){
  const ov = document.getElementById("loadingOverlay");
@@ -726,6 +761,81 @@ async function objectExists(path){
    }
    return false;
  }
+}
+
+async function fetchExistingMonths(){
+ const candidates = buildMonthCandidates();
+ try{
+   const FB = window.__FB;
+   const folderPath = (BASE_URL || "logs/").replace(/\/+$/,"");
+   const res = await FB.listAll(FB.ref(FB.storage, folderPath));
+   const set = new Set();
+   (res.items || []).forEach(it=>{
+     const name = it && it.name ? it.name : "";
+     const mm = /^(\d{4})-(\d{1,2})\.csv$/i.exec(name);
+     if(mm){
+       const y = mm[1];
+       const mo = String(parseInt(mm[2],10)).padStart(2,"0");
+       set.add(`${y}-${mo}`);
+     }
+   });
+   return candidates.filter(k => set.has(k));
+ }catch(e){
+   console.warn("Month list load failed:", e);
+ }
+
+ const existing = [];
+ for(const k of candidates){
+   const files = ymFilenameCandidates(k).map(fn => BASE_URL + fn);
+   let found = false;
+   for(const file of files){
+     if(await objectExists(file)){
+       found = true;
+       break;
+     }
+   }
+   if(found) existing.push(k);
+ }
+ return existing;
+}
+
+let _sessionListenersBound = false;
+function clearSessionTimer(){
+ if(sessionTimerId){
+   clearTimeout(sessionTimerId);
+   sessionTimerId = null;
+ }
+}
+
+function signOutUser(message){
+ clearSessionTimer();
+ const FB = window.__FB;
+ if(FB && FB.auth && typeof FB.signOut === "function"){
+   FB.signOut(FB.auth).catch(()=>{}).finally(()=>{
+     if(message) showLoginView(message);
+   });
+ }else if(message){
+   showLoginView(message);
+ }
+}
+
+function touchSession(){
+ sessionLastActivity = Date.now();
+ clearSessionTimer();
+ sessionTimerId = setTimeout(()=>{
+   signOutUser("Oturum süresi doldu.");
+ }, SESSION_TIMEOUT_MS);
+}
+
+function startSessionWatch(){
+ if(_sessionListenersBound) return;
+ _sessionListenersBound = true;
+ const handler = ()=>{ if(isAuthed()) touchSession(); };
+ ["click","keydown","touchstart","mousemove","scroll"].forEach(evt=>{
+   window.addEventListener(evt, handler, { passive: true });
+ });
+ window.addEventListener("pagehide", ()=> signOutUser());
+ window.addEventListener("beforeunload", ()=> signOutUser());
 }
 
 function stripBOM(s){
@@ -1442,25 +1552,10 @@ async function ensureMonthlyReady(){
  if(LOAD.monthly && LOAD.months) return;
  if(_monthlyPromise) return _monthlyPromise;
  _monthlyPromise = (async ()=>{
-   if(!LOAD.months){
-   // Build month dropdown options from Storage (only existing files)
-   try{
-     const FB = window.__FB;
-     const folderPath = (BASE_URL || "logs/").replace(/\/+$/,""); // "logs"
-     const res = await FB.listAll(FB.ref(FB.storage, folderPath));
-     const set = new Set();
-     (res.items || []).forEach(it=>{
-       const name = it && it.name ? it.name : "";
-       const mm = /^(\d{4})-(\d{1,2})\.csv$/i.exec(name);
-       if(mm){
-         const y = mm[1];
-         const mo = String(parseInt(mm[2],10)).padStart(2,"0");
-         set.add(`${y}-${mo}`);
-       }
-     });
-
-     const candidates = buildMonthCandidates();
-     const existing = candidates.filter(k => set.has(k));
+ if(!LOAD.months){
+  // Build month dropdown options from Storage (only existing files)
+  try{
+     const existing = await fetchExistingMonths();
      DATA.months = existing;
 
      const curKey = ymKeyFromDate(new Date());
@@ -1482,8 +1577,8 @@ async function ensureMonthlyReady(){
      }
    }catch(e){
      console.warn("Month list load failed:", e);
-     // fallback to deterministic list (old behavior)
-     DATA.months = buildMonthCandidates();
+     // fallback: try deterministic list but validate with objectExists
+     DATA.months = await fetchExistingMonths();
      const sel = document.getElementById("monthSelect");
      if(sel){
        sel.innerHTML="";
@@ -1657,7 +1752,10 @@ function isAuthed(){
 
 function renderRoute(){
  // V40.2 BUGFIX: Giriş yapılmadan veri çekmeye çalışma (403 -> LOAD bayraklarını yanlış set ediyordu)
- if(!isAuthed()) return;
+ if(!isAuthed()){
+   showLoginView("");
+   return;
+ }
  state.route = routeFromHash();
  showOnly(state.route);
 
@@ -1970,6 +2068,9 @@ function renderPeople(){
    return mult*(a[col]||"").localeCompare((b[col]||""), "tr", {sensitivity:"base"});
  });
 
+ const countEl = document.getElementById("peopleCount");
+ if(countEl) countEl.textContent = `Kişi Sayısı: ${rows.length}`;
+
  if(state.selectedPersonPeople){
    const ex = rows.some(x => x.card === state.selectedPersonPeople);
    if(!ex) state.selectedPersonPeople = "";
@@ -2080,22 +2181,12 @@ function renderPeople(){
 
 /* INSTALL */
 async function install(){
- const landingEl = document.getElementById("landing");
- const appEl = document.getElementById("app");
-
  const emailEl = document.getElementById("email");
  const passEl  = document.getElementById("password");
  const loginBtn = document.getElementById("loginBtn");
  const errEl = document.getElementById("loginError");
 
- showLogin("Yükleniyor...");
-
- function showLogin(msg){
-   if(landingEl) landingEl.classList.remove("hidden");
-   if(appEl) appEl.classList.add("hidden");
-   setLoading(false);
-   if(errEl) errEl.textContent = msg || "";
- }
+ showLoginView("Yükleniyor...");
 
  function normalizeLoginEmail(raw){
    const v = (raw || "").trim().toLowerCase();
@@ -2154,7 +2245,8 @@ async function install(){
      // V40.2: oturum yokken yüklenmiş gibi işaretlenmesin
      try{ LOAD.today=false; LOAD.monthly=false; LOAD.people=false; LOAD.months=false; }catch(e){}
      state.userEmail = "";
-     showLogin("");
+     clearSessionTimer();
+     showLoginView("");
      return;
    }
 
@@ -2162,10 +2254,12 @@ async function install(){
    if(!state.userEmail) state.userEmail = user.email || "";
 
    mountApp();
+   startSessionWatch();
+   touchSession();
 
    tryUpdatePwaIconWithAuth();
 
-   if(!location.hash) location.hash="#today";
+   location.hash = "#today";
 
    // Login sonrası zoom reset
    resetViewportAfterLogin();
@@ -2207,7 +2301,7 @@ async function install(){
        await ensurePeopleReady();
 
        // 5) Dropdown'a bu yıl bugüne kadar + geçen yılın tamamı
-       DATA.months = buildMonthCandidates();
+       DATA.months = await fetchExistingMonths();
        if(monthSel){
          const selected = state.month || curKey;
          monthSel.innerHTML = "";
@@ -2322,6 +2416,10 @@ async function install(){
 
  // Tab açılınca ilgili tabı yükle
  window.addEventListener("hashchange", ()=>{
+   if(!isAuthed()){
+     showLoginView("");
+     return;
+   }
    const r = routeFromHash();
    if(r==="today") ensureTodayReady();
    if(r==="monthly") ensureMonthlyReady();
