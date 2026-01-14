@@ -103,7 +103,6 @@ th .hint{margin-left:6px;font-size:10px;color:#9ca3af}
  .pwa main{padding-top:0}
  .pwa nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30}
  .pwa main{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
- .pwa footer{margin-bottom:calc(72px + env(safe-area-inset-bottom))}
 }
  .mobile-cards{display:block}
 }
@@ -425,9 +424,6 @@ a[x-apple-data-detectors-type]{
 
    </main>
 
-   <footer style="padding:14px 16px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line);background:var(--card)">
-     <span id="updatedAt">Veri güncelleme: </span>
-   </footer>
  </div>
 </section>
 
@@ -557,7 +553,6 @@ window.addEventListener("visibilitychange", updatePwaModeClass);
 * DATA.monthly[monthKey]: raw rows like today (date,time,card,name,source,sync)
 * DATA.monthlySummary[monthKey]: [{name,hours}]
 */
-let UPDATED_AT = "";
 const DATA = { today: [], people: [], months: [], monthly: {}, monthlySummary: {}, _cache: {} };
 
 // V38.1: tab bazlı yükleme bayrakları
@@ -637,11 +632,6 @@ function colAt(cols, idx){
  return (cols && cols[idx] != null) ? String(cols[idx]).trim() : "";
 }
 
-function nowTR(){
- try{ return new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }); }
- catch(e){ return new Date().toLocaleString("tr-TR"); }
-}
-
 function pad2(n){ return String(n).padStart(2,"0"); }
 
 function ymKeyFromDate(d){
@@ -656,13 +646,6 @@ function ymFilenameCandidates(ymKey){
  const [y, mm] = ymKey.split("-");
  const mNoPad = String(parseInt(mm,10));
  return [`${y}-${mm}.csv`, `${y}-${mNoPad}.csv`];
-}
-
-function updateFooterStamp(){
- const stamp = document.getElementById("updatedAt");
- if(!stamp) return;
- const u = state.userEmail ? ` (${state.userEmail})` : "";
- stamp.textContent = "Veri güncelleme: " + (UPDATED_AT || "") + u;
 }
 
 function clearHash(){
@@ -721,8 +704,6 @@ async function fetchText(path){
 
  try{
    const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-   UPDATED_AT = nowTR();
-   updateFooterStamp();
    return new TextDecoder("utf-8").decode(bytes);
  }catch(e){
    // V40 fix: ilk girişte token henüz Storage isteklerine eklenmeden 403 dönebiliyor.
@@ -731,8 +712,6 @@ async function fetchText(path){
    if(msg.includes("403") || msg.includes("unauth") || msg.includes("permission") || msg.includes("unauthorized")){
      await _refreshIdTokenOnce();
      const bytes = await FB.getBytes(FB.ref(FB.storage, path));
-     UPDATED_AT = nowTR();
-     updateFooterStamp();
      return new TextDecoder("utf-8").decode(bytes);
    }
    throw e;
@@ -1538,7 +1517,6 @@ async function ensureTodayReady(){
  })().finally(()=>{
    setTabInlineLoading("today", false);
    if(routeFromHash()==="today") renderToday();
-   updateFooterStamp();
    _todayPromise = null;
  });
 
@@ -1639,7 +1617,6 @@ async function ensurePeopleReady(){
    if(btnR) btnR.disabled = false;
 
    if(routeFromHash()==="people") renderPeople();
-   updateFooterStamp();
    _peoplePromise = null;
  });
 
@@ -1676,9 +1653,21 @@ function textNorm(s){ return (s||"").toString().toLocaleLowerCase("tr"); }
 
 function scrollToEl(id){
  const el = document.getElementById(id);
- if(el){
-   el.scrollIntoView({ behavior: "smooth", block: "start" });
+ if(!el) return;
+ const topbar = document.querySelector("header.topbar");
+ const tabs = document.querySelector("nav.tabs");
+ let offset = topbar ? topbar.getBoundingClientRect().height : 0;
+ if(tabs){
+   const style = getComputedStyle(tabs);
+   const isTopSticky = style.position === "sticky" && style.bottom === "auto";
+   const isTopFixed = style.position === "fixed" && style.bottom === "auto";
+   if(isTopSticky || isTopFixed){
+     offset += tabs.getBoundingClientRect().height;
+   }
  }
+ offset += 12;
+ const top = el.getBoundingClientRect().top + window.scrollY - offset;
+ window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
 }
 
 function cleanDigits(s){
@@ -1728,7 +1717,6 @@ function isPastDate(ddmmyyyy){
 function mountApp(){
  document.getElementById("landing").classList.add("hidden");
  document.getElementById("app").classList.remove("hidden");
- updateFooterStamp();
 }
 function setActiveTab(route){
  document.querySelectorAll('nav.tabs a').forEach(a=>a.classList.toggle('active', a.dataset.route===route));
@@ -1737,8 +1725,6 @@ function showOnly(route){
  document.getElementById("page-today").classList.toggle("hidden", route!=="today");
  document.getElementById("page-monthly").classList.toggle("hidden", route!=="monthly");
  document.getElementById("page-people").classList.toggle("hidden", route!=="people");
-
- updateFooterStamp();
  setActiveTab(route);
 }
 function routeFromHash(){
