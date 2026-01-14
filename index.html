@@ -1747,9 +1747,7 @@ function resetViewportAfterLogin(){
      document.activeElement.blur();
    }
  }catch(e){}
- try{ window.scrollTo(0,0); }catch(e){}
  forceViewportReset();
- setTimeout(()=>{ try{ window.scrollTo(0,0); }catch(e){} }, 80);
 }
 
 function isAuthed(){
