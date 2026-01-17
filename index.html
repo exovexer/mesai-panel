@@ -888,8 +888,8 @@ let PDF_FOOTER_TEXT = "";
 
 function makeCanvas(){
  const c = document.createElement("canvas");
- c.width = 595;   // A4 @ 72dpi
- c.height = 842;
+ c.width = 1241;   // A4 @ 150dpi
+ c.height = 1754;
  const ctx = c.getContext("2d");
  ctx.fillStyle = "#ffffff";
  ctx.fillRect(0,0,c.width,c.height);
@@ -980,7 +980,7 @@ function buildPdfFromJpegs(jpegPages){
 
  // 3) Page objects
  for(let i=0;i<n;i++){
-   const pageW = 595, pageH = 842;
+   const pageW = 1241, pageH = 1754;
    const imgName = `/Im${i+1}`;
    const jpg = jpegPages[i];
 
