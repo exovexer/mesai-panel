@@ -2108,7 +2108,7 @@ function renderPersonCalendar(){
 /* PERSONEL */
 function isPassive(p){
  const s = textNorm(p.status);
- return (s==="pasif" || s==="devredildi" || s==="cikti" || s==="cik" || s==="ayrildi" || s==="isten ayrildi");
+ return s === "kart devredildi";
 }
 function renderPeople(){
  const q=textNorm(state.filter.people);
