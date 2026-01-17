@@ -439,7 +439,7 @@ a[x-apple-data-detectors-type]{
    apiKey: "AIzaSyDBxfIpSQbZ93tIvrnf6xB2b4OQMtzrWVI",
    authDomain: "mesaitakip-4d2d8.firebaseapp.com",
    projectId: "mesaitakip-4d2d8",
-   storageBucket: "mesaitakip-4d2d8.firebasestorage.app",
+   storageBucket: "lavonicafe",
    messagingSenderId: "211976278612",
    appId: "1:211976278612:web:6b26fa976c525923d7d3c1"
  };
@@ -448,7 +448,7 @@ a[x-apple-data-detectors-type]{
  const auth = getAuth(app);
 
  // KRİTİK: doğru bucket'ı açıkça seçiyoruz
- const storage = getStorage(app, "gs://mesaitakip-4d2d8.firebasestorage.app");
+ const storage = getStorage(app, "gs://lavonicafe");
 
  // Classic script'in kullanabilmesi için global köprü
  window.__FB = { app, auth, storage, signInWithEmailAndPassword, onAuthStateChanged, signOut, ref, listAll, getBytes, getMetadata };
