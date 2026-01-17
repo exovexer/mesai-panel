@@ -2110,10 +2110,14 @@ function isPassive(p){
  const s = textNorm(p.status);
  return s === "kart devredildi";
 }
+function isActive(p){
+ const s = textNorm(p.status);
+ return s === "kart aktif";
+}
 function renderPeople(){
  const q=textNorm(state.filter.people);
  let rows = (DATA.people || []);
- rows = rows.filter(p => state.peopleView==="active" ? !isPassive(p) : isPassive(p));
+ rows = rows.filter(p => state.peopleView==="active" ? isActive(p) : isPassive(p));
  if(q) rows = rows.filter(r => textNorm(r.tc+" "+r.name+" "+r.phone+" "+r.card+" "+r.status).includes(q));
 
  const {col,dir} = state.sort.people;
@@ -2137,7 +2141,7 @@ function renderPeople(){
  rows.forEach(r=>{
    const tr=document.createElement("tr");
    tr.className = (state.selectedPersonPeople===r.card ? "selected-person " : "") + "clickable-row";
-   const statusText = (r.status && String(r.status).trim()) ? String(r.status).trim() : (isPassive(r) ? "Pasif" : "Aktif");
+   const statusText = (r.status && String(r.status).trim()) ? String(r.status).trim() : (isPassive(r) ? "Kart Devredildi" : "Kart Aktif");
    tr.innerHTML = `
      <td>${r.tc}</td>
      <td style="font-weight:900">${r.name}</td>
